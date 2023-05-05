@@ -1,2 +1,4 @@
-package Modelo;public class BaseDatos {
+package Modelo;
+
+public class BaseDatos {
 }
