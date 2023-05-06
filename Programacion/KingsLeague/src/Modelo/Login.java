@@ -7,8 +7,6 @@ public class Login {
     private String usuario;
     private String contrasenya;
 
-    public Login() {
-    }
 
     public Login(int id, String tipo, String usuario, String contrasenya) {
         this.id = id;
