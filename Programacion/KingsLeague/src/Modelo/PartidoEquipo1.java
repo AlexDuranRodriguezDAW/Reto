@@ -2,16 +2,13 @@ package Modelo;
 
 public class PartidoEquipo1 {
     private int goles;
-    private Equipo equipo;
-    Partido partido;
+    private Equipo equipo1;
+     private Partido partido;
 
-    public PartidoEquipo1(int goles, Equipo equipo, Partido partido) {
+    public PartidoEquipo1(int goles, Equipo equipo1, Partido partido) {
         this.goles = goles;
-        this.equipo = equipo;
+        this.equipo1 = equipo1;
         this.partido = partido;
-    }
-
-    public PartidoEquipo1() {
     }
 
     public int getGoles() {
@@ -22,12 +19,12 @@ public class PartidoEquipo1 {
         this.goles = goles;
     }
 
-    public Equipo getEquipo() {
-        return equipo;
+    public Equipo getEquipo1() {
+        return equipo1;
     }
 
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
+    public void setEquipo1(Equipo equipo1) {
+        this.equipo1 = equipo1;
     }
 
     public Partido getPartido() {
