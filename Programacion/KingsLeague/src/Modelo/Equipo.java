@@ -6,6 +6,9 @@ public class Equipo {
     private String nombreEquipo;
     private Double presupuesto;
 
+    public Equipo() {
+    }
+
     public Equipo(int idEquipo, String nombreEquipo, Double presupuesto) {
         this.idEquipo = idEquipo;
         this.nombreEquipo = nombreEquipo;

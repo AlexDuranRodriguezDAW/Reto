@@ -15,6 +15,9 @@ public class Split {
         abierto,cerrado
     }
 
+    public Split() {
+    }
+
     public Split(String id, LocalDate fechaInicio, LocalDate fechaFin, Split.tipoSplit tipoSplit, ArrayList<Jornada> listaJornada) {
         this.id = id;
         this.fechaInicio = fechaInicio;

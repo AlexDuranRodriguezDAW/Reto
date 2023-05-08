@@ -6,6 +6,9 @@ public class PartidoEquipo2 {
     private Equipo equipo2;
     private Partido partido;
 
+    public PartidoEquipo2() {
+    }
+
     public PartidoEquipo2(int goles, Equipo equipo2, Partido partido) {
         this.goles = goles;
         this.equipo2 = equipo2;
