@@ -1,13 +1,15 @@
 package Modelo;
 
+import java.time.LocalDate;
+
 public class Partido {
     private int id;
-    private String hora;
+    private LocalDate hora;
 
     public Partido() {
     }
 
-    public Partido(int id, String hora) {
+    public Partido(int id, LocalDate hora) {
         this.id = id;
         this.hora = hora;
     }
@@ -20,11 +22,11 @@ public class Partido {
         this.id = id;
     }
 
-    public String getHora() {
+    public LocalDate getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(LocalDate hora) {
         this.hora = hora;
     }
 }
