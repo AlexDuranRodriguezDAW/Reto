@@ -2,15 +2,18 @@ package Modelo;
 
 public class Login {
 
+    public enum tipo{
+        admin ,usuario
+    }
     private int id;
-    private String tipo;
+    private tipo tipo;
     private String usuario;
     private String contrasenya;
 
     public Login() {
     }
 
-    public Login(int id, String tipo, String usuario, String contrasenya) {
+    public Login(int id, Login.tipo tipo, String usuario, String contrasenya) {
         this.id = id;
         this.tipo = tipo;
         this.usuario = usuario;
@@ -25,11 +28,11 @@ public class Login {
         this.id = id;
     }
 
-    public String getTipo() {
+    public Login.tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Login.tipo tipo) {
         this.tipo = tipo;
     }
 
