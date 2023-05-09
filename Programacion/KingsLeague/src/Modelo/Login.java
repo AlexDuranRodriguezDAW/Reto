@@ -2,9 +2,10 @@ package Modelo;
 
 public class Login {
 
-    public enum tipo{
-        admin ,usuario
+    public enum tipo {
+        admin, usuario
     }
+
     private int id;
     private tipo tipo;
     private String usuario;

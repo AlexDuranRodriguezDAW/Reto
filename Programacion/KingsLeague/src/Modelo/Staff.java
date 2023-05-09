@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Staff extends Persona{
+public class Staff extends Persona {
     public Staff() {
     }
 

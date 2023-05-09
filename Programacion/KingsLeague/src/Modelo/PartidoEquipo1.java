@@ -3,7 +3,7 @@ package Modelo;
 public class PartidoEquipo1 {
     private int goles;
     private Equipo equipo1;
-     private Partido partido;
+    private Partido partido;
 
     public PartidoEquipo1() {
     }

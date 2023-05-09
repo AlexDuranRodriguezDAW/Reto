@@ -11,8 +11,8 @@ public class Split {
     private tipoSplit tipoSplit;
     private ArrayList<Jornada> listaJornada;
 
-    public enum tipoSplit{
-        abierto,cerrado
+    public enum tipoSplit {
+        abierto, cerrado
     }
 
     public Split() {

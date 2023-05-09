@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class StaffEquipo {
 
-    private  Equipo equipo;
+    private Equipo equipo;
     private Staff staff;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;

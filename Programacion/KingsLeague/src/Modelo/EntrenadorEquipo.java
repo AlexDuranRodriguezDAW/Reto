@@ -3,7 +3,7 @@ package Modelo;
 import java.time.LocalDate;
 
 public class EntrenadorEquipo {
-    private  Equipo equipo;
+    private Equipo equipo;
     private Entrenador entrenador;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
