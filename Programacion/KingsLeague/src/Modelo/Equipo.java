@@ -6,13 +6,16 @@ public class Equipo {
     private String nombreEquipo;
     private Double presupuesto;
 
+    private Propietario propietario;
+
     public Equipo() {
     }
 
-    public Equipo(int idEquipo, String nombreEquipo, Double presupuesto) {
+    public Equipo(int idEquipo, String nombreEquipo, Double presupuesto, Propietario propietario) {
         this.idEquipo = idEquipo;
         this.nombreEquipo = nombreEquipo;
         this.presupuesto = presupuesto;
+        this.propietario = propietario;
     }
 
     public int getIdEquipo() {
@@ -37,5 +40,13 @@ public class Equipo {
 
     public void setPresupuesto(Double presupuesto) {
         this.presupuesto = presupuesto;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
     }
 }
