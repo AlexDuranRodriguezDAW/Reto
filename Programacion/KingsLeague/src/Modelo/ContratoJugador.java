@@ -18,7 +18,7 @@ public class ContratoJugador {
         this.jugador = jugador;
         this.equipo = equipo;
         //Validar que la clausula sea una de las cantidades obligatorias
-        if (clausula == 10 || clausula == 10.5 || clausula == 15 || clausula == 22.5){
+        if (clausula == 10 || clausula == 10.5 || clausula == 15 || clausula == 22.5) {
             this.clausula = clausula;
         }
         this.sueldo = sueldo;
@@ -48,7 +48,7 @@ public class ContratoJugador {
 
     public void setClausula(double clausula) {
         //Validar que la clausula sea una de las cantidades obligatorias
-        if (clausula == 10 || clausula == 10.5 || clausula == 15 || clausula == 22.5){
+        if (clausula == 10 || clausula == 10.5 || clausula == 15 || clausula == 22.5) {
             this.clausula = clausula;
         }
     }

@@ -6,12 +6,13 @@ import java.util.ArrayList;
 public class Jornada {
 
     public enum tipoJornada {
-        regular,playoff
+        regular, playoff
     }
+
     private String id;
     private LocalDate fecha;
     private tipoJornada tipoJornada;
-    private ArrayList <Partido> partidos;
+    private ArrayList<Partido> partidos;
 
     public Jornada() {
     }

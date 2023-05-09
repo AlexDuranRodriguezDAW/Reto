@@ -1,10 +1,11 @@
 package Modelo;
 
-public class Jugador extends Persona{
+public class Jugador extends Persona {
 
     public enum TipoJugador {
-        draft,wildcard
+        draft, wildcard
     }
+
     private String posicion;
     private TipoJugador tipo;
     private String numDraft;
