@@ -1,9 +1,5 @@
 package Modelo;
 
-import com.mysql.cj.log.Log;
-import oracle.jdbc.proxy.annotation.Pre;
-
-import java.lang.management.LockInfo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
