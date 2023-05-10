@@ -21,7 +21,7 @@ Drop table Personas;
 Create table Personas(
     id number(3) 
     generated always as identity primary key ,
-    dni varchar(9),
+    dni varchar(9) unique not null,
     nombre varchar(20),
     apellido varchar(20)
 );
