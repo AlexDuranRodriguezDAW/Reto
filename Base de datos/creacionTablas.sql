@@ -148,8 +148,8 @@ golesEquipo1 number(2),
 idPartido number(3),
 idEquipo number(2),
 primary key(idPartido,idEquipo),
-constraint parE1_idEq_fk foreign key (idEquipo) references PARTIDOS(id),
-constraint parE1_idPa_fk foreign key (idPartido) references EQUIPOS(id)
+constraint parE1_idEq_fk foreign key (idEquipo) references EQUIPOS(id),
+constraint parE1_idPa_fk foreign key (idPartido) references PARTIDOS(id)
 );
 
 
