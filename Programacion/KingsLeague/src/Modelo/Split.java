@@ -18,6 +18,12 @@ public class Split {
     public Split() {
     }
 
+    public Split(LocalDate fechaInicio, LocalDate fechaFin, Split.tipoSplit tipoSplit) {
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.tipoSplit = tipoSplit;
+    }
+
     public Split(String id, LocalDate fechaInicio, LocalDate fechaFin, Split.tipoSplit tipoSplit, ArrayList<Jornada> listaJornada) {
         this.id = id;
         this.fechaInicio = fechaInicio;
