@@ -34,7 +34,7 @@ Create table Jugadores(
     numDraft varchar2(3) null,
     tipo varchar2(10),
     constraint jug_tip_ck check ( tipo in ('draft' , 'wildcard')),
-	constraint jug_id_fk foreign key (id) references PERSONAS(ID)
+	constraint jug_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
 );
 
 
@@ -42,12 +42,12 @@ Create table Jugadores(
 
 Create table Asistentes(
     id number(3)  primary key,
-	constraint asi_id_fk foreign key (id) references PERSONAS(ID)
+	constraint asi_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
 );
 -- Tabla entrenador
 Create table Entrenadores(
     id number(3) primary key,
-	constraint ent_id_fk foreign key (id) references PERSONAS(ID)
+	constraint ent_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
 );
 
 
@@ -55,7 +55,7 @@ Create table Entrenadores(
 
 Create table Duenyos(
     id number(3) primary key,
-	constraint due_id_fk foreign key (id) references PERSONAs(ID)
+	constraint due_id_fk foreign key (id) references PERSONAs(ID) on delete cascade
 );
 
 
