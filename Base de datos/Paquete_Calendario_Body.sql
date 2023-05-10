@@ -68,13 +68,17 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
                 
                 END LOOP;
                 
+                IF V_IdEquipo1 != V_IdEquipo2 THEN
+                
                 SELECT NVL(COUNT(ID),0) INTO V_PartidoExiste
                 FROM EMPAREJAMIENTOS
                 WHERE ID =
                        (SELECT ID 
                         FROM EMPAREJAMIENTOS
-                        WHERE EQUIPO1 = V_IdEquipo1 and EQUIPO2 = V_IdEquipo2
-                        OR EQUIPO1 = V_IdEquipo2 and EQUIPO2 = V_IdEquipo1);
+                        WHERE EQUIPO1 = V_IdEquipo1 AND EQUIPO2 = V_IdEquipo2
+                        OR EQUIPO1 = V_IdEquipo2 AND EQUIPO2 = V_IdEquipo1
+                        OR EQUIPO1 = V_IdEquipo1 OR EQUIPO2 = V_IdEquipo2
+                        OR EQUIPO1 = v_IdEquipo1 OR EQUIPO2 = V_IdEquipo1);
                 
                 
                 
@@ -84,6 +88,10 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
                 VALUES (V_IdJornada, V_IdEquipo1, V_IdEquipo2);
                 
                 END IF;
+                
+                END IF;
+                
+                
             
             CLOSE V_CursorEquipo1;
             CLOSE V_CursorEquipo2;

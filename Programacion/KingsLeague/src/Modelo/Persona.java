@@ -9,6 +9,10 @@ public abstract class Persona {
     public Persona() {
     }
 
+    public Persona(String id) {
+        this.id = id;
+    }
+
     public Persona(String id, String dni, String apellidos, String nombre) {
         this.id = id;
         this.dni = dni;
