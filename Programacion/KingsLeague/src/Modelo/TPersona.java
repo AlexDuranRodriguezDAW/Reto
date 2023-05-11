@@ -179,5 +179,65 @@ public class TPersona {
 
 
 
+//*********************************************Duenyo***********************************************************************
+
+    public static void insertarPropietario(Propietario propietario) throws Exception {
+
+        BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+        ps.setString(1,propietario.getDni());
+        ps.setString(2,propietario.getNombre());
+        ps.setString(3,propietario.getApellidos());
+        int n = ps.executeUpdate();
+
+        BaseDatos.cerrarConexion();
+
+      /*
+         if (n!=0){
+            buscarId(e)}
+       */
+
+
+
+    }
+
+    public static String buscarIdPropietario(Propietario propietario) throws  Exception {
+
+
+
+        BaseDatos.abrirConexion();
+
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select id from personas where dni = ?");
+
+        preparedStatement.setString(1,propietario.getDni());
+
+        ResultSet rs = preparedStatement.executeQuery();
+
+        Propietario p = new Propietario();
+
+        if (rs.next()){
+            p.setId(rs.getString("id"));
+        }
+
+        BaseDatos.cerrarConexion();
+        return p.getId();
+    }
+
+
+
+    public static void borrarPersonaPropietario(Propietario p) throws  Exception{
+        BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from personas where dni = ?");
+        ps.setString(1,p.getDni());
+
+        ps.executeUpdate();
+
+        BaseDatos.cerrarConexion();
+    }
+
+
+
 
 }

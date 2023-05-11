@@ -1,6 +1,8 @@
 package Modelo;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class TJugador {
 
@@ -16,6 +18,23 @@ public class TJugador {
         }
         BaseDatos.cerrarConexion();
 
+    }
+
+    public static void seleccionarJugadores() throws Exception{
+        BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from jugadores " +
+                "                                                       where id = (Select id " +
+                "                                                                   from personas)");
+
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Jugador> listaJugadores;
+
+        while (rs.next()){
+            listaJugadores = new ArrayList<>();
+        }
+
+        BaseDatos.cerrarConexion();
     }
 
 
