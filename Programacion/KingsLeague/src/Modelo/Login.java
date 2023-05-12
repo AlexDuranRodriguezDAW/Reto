@@ -14,6 +14,11 @@ public class Login {
     public Login() {
     }
 
+    public Login(String usuario, String contrasenya) {
+        this.usuario = usuario;
+        this.contrasenya = contrasenya;
+    }
+
     public Login(Login.tipo tipo, String usuario, String contrasenya) {
         this.tipo = tipo;
         this.usuario = usuario;

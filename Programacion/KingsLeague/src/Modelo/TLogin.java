@@ -45,8 +45,9 @@ public class TLogin {
 
     public static Login consultarUsuario(Login l) throws Exception {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from login where usuario = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from login where usuario = ? and contrasenya = ?");
         ps.setString(1, l.getUsuario());
+        ps.setString(2, l.getContrasenya());
         ResultSet resultado = ps.executeQuery();
         Login usuarioConsultado = null;
         if (resultado.next()) {
