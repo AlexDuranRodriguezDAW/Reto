@@ -1,6 +1,8 @@
 package Modelo;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class TJugador {
 
@@ -16,6 +18,31 @@ public class TJugador {
         }
         BaseDatos.cerrarConexion();
 
+    }
+
+    public static void seleccionarJugadores() throws Exception{
+        BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select j.*,p.* from jugadores j, personas p where j.id = p.id " +
+                                                                        "and id = (Select id from personas)");
+
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Jugador> listaJugadores;
+
+        while (rs.next()){
+            listaJugadores = new ArrayList<>();
+
+            Jugador jugador = new Jugador();
+
+            jugador.setNombre("nombre");
+            jugador.setApellidos("apellido");
+            jugador.setPosicion("podicion");
+            //jugador.setTipo(Jugador.TipoJugador.valueOf("tipo"));
+
+            listaJugadores.add(jugador);
+        }
+
+        BaseDatos.cerrarConexion();
     }
 
 

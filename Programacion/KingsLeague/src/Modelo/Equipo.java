@@ -11,6 +11,7 @@ public class Equipo {
     public Equipo() {
     }
 
+
     public Equipo(String id, String nombreEquipo, Double presupuesto, String sponsor, Propietario propietario) {
         this.id = id;
         this.nombreEquipo = nombreEquipo;
