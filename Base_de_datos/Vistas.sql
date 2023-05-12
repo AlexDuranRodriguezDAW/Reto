@@ -51,7 +51,7 @@ as(
 
 );
 
---Vista para ver los emparejamientos
+--Vista para ver los emparejamientos de los equipos
 
 CREATE OR REPLACE VIEW EMPAREJAMIENTOS AS
 (
