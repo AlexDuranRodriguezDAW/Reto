@@ -65,7 +65,7 @@ public class TPersona {
 
     public static void insertarStaff(Staff s) throws Exception {
 
-        BaseDatos.abrirConexion();
+        //BaseDatos.abrirConexion();
 
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
         ps.setString(1,s.getDni());
@@ -73,7 +73,7 @@ public class TPersona {
         ps.setString(3,s.getApellidos());
         int n = ps.executeUpdate();
 
-        BaseDatos.cerrarConexion();
+        //BaseDatos.cerrarConexion();
 
       /*
          if (n!=0){
