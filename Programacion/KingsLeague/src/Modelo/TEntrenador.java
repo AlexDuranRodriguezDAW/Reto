@@ -20,17 +20,8 @@ public class TEntrenador {
 
     public static void seleccionarEntrenador() throws Exception{
         BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select e.*,p.*" +
-                "from entrenador e , persona p where e.id = p.id and e.id = (Select id" +
-                "from persona) ");
-
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select e.*,p.* from entrenador e , persona p where e.id = p.id and e.id = (Select id from persona) ");
         BaseDatos.cerrarConexion();
 
     }
-
-
-
-
 }

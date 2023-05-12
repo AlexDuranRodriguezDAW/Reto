@@ -52,9 +52,9 @@ public class TLogin {
         if (resultado.next()) {
             //Comprobar si el usuario es administrador o no para usar el enum list de la clase
             if (resultado.getString(2).equalsIgnoreCase("admin")) {
-                usuarioConsultado = new Login(resultado.getInt(1), Login.tipo.admin, resultado.getString(3), resultado.getString(4));
+                usuarioConsultado = new Login(resultado.getString(1), Login.tipo.admin, resultado.getString(3), resultado.getString(4));
             } else {
-                usuarioConsultado = new Login(resultado.getInt(1), Login.tipo.usuario, resultado.getString(3), resultado.getString(4));
+                usuarioConsultado = new Login(resultado.getString(1), Login.tipo.usuario, resultado.getString(3), resultado.getString(4));
             }
         }
         return usuarioConsultado;
@@ -68,9 +68,9 @@ public class TLogin {
         while (resultado.next()) {
             //Comprobar si el usuario es administrador o no para usar el enum list de la clase
             if (resultado.getString(2).equalsIgnoreCase("admin")) {
-                usuarios.add(new Login(resultado.getInt(1), Login.tipo.admin, resultado.getString(3), resultado.getString(4)));
+                usuarios.add(new Login(resultado.getString(1), Login.tipo.admin, resultado.getString(3), resultado.getString(4)));
             } else {
-                usuarios.add(new Login(resultado.getInt(1), Login.tipo.usuario, resultado.getString(3), resultado.getString(4)));
+                usuarios.add(new Login(resultado.getString(1), Login.tipo.usuario, resultado.getString(3), resultado.getString(4)));
             }
         }
         return usuarios;

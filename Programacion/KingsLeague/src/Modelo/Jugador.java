@@ -17,6 +17,13 @@ public class Jugador extends Persona {
         this.numDraft = numDraft;
     }
 
+    public Jugador(String dni, String apellidos, String nombre, String posicion, TipoJugador tipo, String numDraft) {
+        super(dni, apellidos, nombre);
+        this.posicion = posicion;
+        this.tipo = tipo;
+        this.numDraft = numDraft;
+    }
+
     public Jugador() {
     }
 
