@@ -20,6 +20,7 @@ public class TSplit {
     }
 
     public static ArrayList<Split> consultarTodos() throws Exception {
+        //Esta funcion consulta todos los splits pero sin añadir las jornadas al array
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from split ");
         ResultSet resultado = ps.executeQuery();

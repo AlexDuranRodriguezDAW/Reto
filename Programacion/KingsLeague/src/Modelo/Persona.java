@@ -9,8 +9,10 @@ public abstract class Persona {
     public Persona() {
     }
 
-    public Persona(String id) {
-        this.id = id;
+    public Persona(String dni, String apellidos, String nombre) {
+        this.dni = dni;
+        this.apellidos = apellidos;
+        this.nombre = nombre;
     }
 
     public Persona(String id, String dni, String apellidos, String nombre) {
@@ -18,6 +20,10 @@ public abstract class Persona {
         this.dni = dni;
         this.apellidos = apellidos;
         this.nombre = nombre;
+    }
+
+    public Persona(String id) {
+        this.id = id;
     }
 
     public String getId() {
