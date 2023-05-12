@@ -54,6 +54,19 @@ public class TPersona {
 
 
     public static void insertarStaff(Staff s) throws Exception {
+<<<<<<< HEAD
+
+        //BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+        ps.setString(1,s.getDni());
+        ps.setString(2,s.getNombre());
+        ps.setString(3,s.getApellidos());
+        int n = ps.executeUpdate();
+
+        //BaseDatos.cerrarConexion();
+
+=======
         if (existePersona(s.getDni())) {
             throw new Exception("No se pueden crear dos personas con el mismo dni");
         } else {
@@ -63,6 +76,7 @@ public class TPersona {
             ps.setString(3, s.getApellidos());
             int n = ps.executeUpdate();
         }
+>>>>>>> main
       /*
          if (n!=0){
             buscarId(e)}
