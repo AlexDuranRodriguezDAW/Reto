@@ -6,7 +6,7 @@ public class Login {
         admin, usuario
     }
 
-    private int id;
+    private String id;
     private tipo tipo;
     private String usuario;
     private String contrasenya;
@@ -14,18 +14,24 @@ public class Login {
     public Login() {
     }
 
-    public Login(int id, Login.tipo tipo, String usuario, String contrasenya) {
+    public Login(Login.tipo tipo, String usuario, String contrasenya) {
+        this.tipo = tipo;
+        this.usuario = usuario;
+        this.contrasenya = contrasenya;
+    }
+
+    public Login(String id, Login.tipo tipo, String usuario, String contrasenya) {
         this.id = id;
         this.tipo = tipo;
         this.usuario = usuario;
         this.contrasenya = contrasenya;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

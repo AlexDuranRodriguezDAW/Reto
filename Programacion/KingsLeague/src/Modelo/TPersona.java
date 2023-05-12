@@ -5,65 +5,56 @@ import java.sql.ResultSet;
 
 public class TPersona {
 
-//*********************************************ENTRENADOR***********************************************************************
+    public static boolean existePersona(String dni) throws Exception {
+        boolean existe = false;
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Personas where dni = ?");
+        ps.setString(1, dni);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            existe = true;
+        }
+        return existe;
+    }
+
+    //*********************************************ENTRENADOR***********************************************************************
     public static void insertarEntrenador(Entrenador e) throws Exception {
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
-        ps.setString(1,e.getDni());
-        ps.setString(2, e.getNombre());
-        ps.setString(3, e.getApellidos());
-        int n = ps.executeUpdate();
-
-        BaseDatos.cerrarConexion();
-
+        if (existePersona(e.getDni())) {
+            throw new Exception("No se pueden crear dos personas con el mismo dni");
+        } else {
+            PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+            ps.setString(1, e.getDni());
+            ps.setString(2, e.getNombre());
+            ps.setString(3, e.getApellidos());
+            int n = ps.executeUpdate();
+        }
       /*
          if (n!=0){
             buscarId(e)}
        */
-
-
-
     }
 
-    public static String buscarIdEntrenador(Entrenador e) throws  Exception {
-
-
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select id from personas where dni = ?");
-
-        preparedStatement.setString(1,e.getDni());
-
+    public static String buscarIdEntrenador(Entrenador e) throws Exception {
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
+        preparedStatement.setString(1, e.getDni());
         ResultSet rs = preparedStatement.executeQuery();
-
         Entrenador entrenador = new Entrenador();
-
-        if (rs.next()){
+        if (rs.next()) {
             entrenador.setId(rs.getString("id"));
         }
-
-        BaseDatos.cerrarConexion();
         return entrenador.getId();
     }
 
-    public static void borrarPersonaEntrenador(Entrenador e) throws  Exception{
-        BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from personas where dni = ?");
-        ps.setString(1,e.getDni());
-
+    public static void borrarPersonaEntrenador(Entrenador e) throws Exception {
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
+        ps.setString(1, e.getDni());
         ps.executeUpdate();
-
-        BaseDatos.cerrarConexion();
     }
 
 //*****************************************STAFF************************************************************************
 
 
     public static void insertarStaff(Staff s) throws Exception {
+<<<<<<< HEAD
 
         //BaseDatos.abrirConexion();
 
@@ -75,169 +66,121 @@ public class TPersona {
 
         //BaseDatos.cerrarConexion();
 
+=======
+        if (existePersona(s.getDni())) {
+            throw new Exception("No se pueden crear dos personas con el mismo dni");
+        } else {
+            PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+            ps.setString(1, s.getDni());
+            ps.setString(2, s.getNombre());
+            ps.setString(3, s.getApellidos());
+            int n = ps.executeUpdate();
+        }
+>>>>>>> main
       /*
          if (n!=0){
             buscarId(e)}
        */
-
-
-
     }
 
-    public static String buscarIdStaff(Staff s) throws  Exception {
-
-
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select id from personas where dni = ?");
-
-        preparedStatement.setString(1,s.getDni());
-
+    public static String buscarIdStaff(Staff s) throws Exception {
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
+        preparedStatement.setString(1, s.getDni());
         ResultSet rs = preparedStatement.executeQuery();
-
         Staff staff = new Staff();
-
-        if (rs.next()){
+        if (rs.next()) {
             staff.setId(rs.getString("id"));
         }
-
-        BaseDatos.cerrarConexion();
         return staff.getId();
     }
 
-    public static void borrarPersonaStaff(Staff s) throws  Exception{
+    public static void borrarPersonaStaff(Staff s) throws Exception {
         BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from personas where dni = ?");
-        ps.setString(1,s.getDni());
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
+        ps.setString(1, s.getDni());
         ps.executeUpdate();
-
         BaseDatos.cerrarConexion();
     }
-
 
 
 //******************************************JUGADOR****************************************************************************
 
     public static void insertarJugador(Jugador j) throws Exception {
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
-        ps.setString(1,j.getDni());
-        ps.setString(2,j.getNombre());
-        ps.setString(3,j.getApellidos());
-        int n = ps.executeUpdate();
-
-        BaseDatos.cerrarConexion();
-
+        if (!existePersona(j.getDni())){
+            PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+            ps.setString(1, j.getDni());
+            ps.setString(2, j.getNombre());
+            ps.setString(3, j.getApellidos());
+            int n = ps.executeUpdate();
+        }else {
+            throw new Exception("No se pueden crear dos personas con el mismo dni");
+        }
       /*
          if (n!=0){
             buscarId(e)}
        */
 
 
-
     }
 
-    public static String buscarIdJugador(Jugador j) throws  Exception {
-
-
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select id from personas where dni = ?");
-
-        preparedStatement.setString(1,j.getDni());
-
+    public static String buscarIdJugador(Jugador j) throws Exception {
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
+        preparedStatement.setString(1, j.getDni());
         ResultSet rs = preparedStatement.executeQuery();
-
         Jugador jugador = new Jugador();
-
-        if (rs.next()){
+        if (rs.next()) {
             jugador.setId(rs.getString("id"));
         }
-
-        BaseDatos.cerrarConexion();
         return jugador.getId();
     }
 
 
-
-    public static void borrarPersonaJugadorf(Jugador j) throws  Exception{
+    public static void borrarPersonaJugadorf(Jugador j) throws Exception {
         BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from personas where dni = ?");
-        ps.setString(1,j.getDni());
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
+        ps.setString(1, j.getDni());
         ps.executeUpdate();
-
         BaseDatos.cerrarConexion();
     }
 
 
-
-//*********************************************Duenyo***********************************************************************
+//*********************************************Dueño***********************************************************************
 
     public static void insertarPropietario(Propietario propietario) throws Exception {
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
-        ps.setString(1,propietario.getDni());
-        ps.setString(2,propietario.getNombre());
-        ps.setString(3,propietario.getApellidos());
-        int n = ps.executeUpdate();
-
-        BaseDatos.cerrarConexion();
-
+        if (!existePersona(propietario.getDni())){
+            PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
+            ps.setString(1, propietario.getDni());
+            ps.setString(2, propietario.getNombre());
+            ps.setString(3, propietario.getApellidos());
+            int n = ps.executeUpdate();
+        }else {
+            throw new Exception("No se pueden crear dos personas con el mismo dni");
+        }
       /*
          if (n!=0){
             buscarId(e)}
        */
-
-
-
     }
 
-    public static String buscarIdPropietario(Propietario propietario) throws  Exception {
-
-
-
-        BaseDatos.abrirConexion();
-
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select id from personas where dni = ?");
-
-        preparedStatement.setString(1,propietario.getDni());
-
+    public static String buscarIdPropietario(Propietario propietario) throws Exception {
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
+        preparedStatement.setString(1, propietario.getDni());
         ResultSet rs = preparedStatement.executeQuery();
-
         Propietario p = new Propietario();
-
-        if (rs.next()){
+        if (rs.next()) {
             p.setId(rs.getString("id"));
         }
-
-        BaseDatos.cerrarConexion();
         return p.getId();
     }
 
 
-
-    public static void borrarPersonaPropietario(Propietario p) throws  Exception{
+    public static void borrarPersonaPropietario(Propietario p) throws Exception {
         BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from personas where dni = ?");
-        ps.setString(1,p.getDni());
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
+        ps.setString(1, p.getDni());
         ps.executeUpdate();
-
         BaseDatos.cerrarConexion();
     }
-
-
 
 
 }
