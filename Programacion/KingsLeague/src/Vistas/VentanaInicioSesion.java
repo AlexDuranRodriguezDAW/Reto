@@ -1,6 +1,7 @@
 package Vistas;
 
 import Controlador.Main;
+import Modelo.Login;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,6 +42,7 @@ public class VentanaInicioSesion {
                 bIniciarSesion.doClick();
             }
         });
+
     }
 
     public JPanel getVentanaInicioSesion() {
