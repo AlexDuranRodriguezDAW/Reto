@@ -33,6 +33,7 @@ public class Main {
     }
 
     public static void validarPassword(String usuario,String pass) throws Exception {
+
         Login lConsulta = new Login(usuario,pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
         System.out.println("El usuario es " + usuarioActual.getUsuario() + " con pass " + usuarioActual.getContrasenya() + " y es tipo " + usuarioActual.getTipo());
