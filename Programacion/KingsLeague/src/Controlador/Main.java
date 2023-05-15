@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vistas.VentanaInicioSesion;
+import Vistas.VentanaPrincipal;
 
 import javax.swing.*;
 
@@ -10,10 +11,10 @@ public class Main {
     private static Login usuarioActual;
 
     public static void main(String[] args) throws Exception {
-        crearVentanaPrincipal();
+        crearVentanaInicioSesion();
     }
 
-    public static void crearVentanaPrincipal() {
+    public static void crearVentanaInicioSesion() {
         ventanaInicioSesion = new JFrame("VentanaInicioSesion");
         ventanaInicioSesion.setContentPane(new VentanaInicioSesion().getVentanaInicioSesion());
         ventanaInicioSesion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,10 +23,20 @@ public class Main {
         ventanaInicioSesion.setVisible(true);
     }
 
+    public static void crearVentanaPrincipal(){
+        JFrame frame = new JFrame("VentanaPrincipal");
+        frame.setContentPane(new VentanaPrincipal().getVentanaPrincipal());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaInicioSesion);
+        frame.setVisible(true);
+    }
+
     public static void validarPassword(String usuario,String pass) throws Exception {
         Login lConsulta = new Login(usuario,pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
         System.out.println("El usuario es " + usuarioActual.getUsuario() + " con pass " + usuarioActual.getContrasenya() + " y es tipo " + usuarioActual.getTipo());
-        JOptionPane.showMessageDialog(null,"Esta seria la siguiente ventana");
+        ventanaInicioSesion.dispose();
+        crearVentanaPrincipal();
     }
 }
