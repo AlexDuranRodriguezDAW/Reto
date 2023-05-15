@@ -11,9 +11,13 @@ public class Main {
     private static Login usuarioActual;
 
     public static void main(String[] args) throws Exception {
-        crearVentanaInicioSesion();
+        try{
+            crearVentanaInicioSesion();
+        }catch (Exception e){
+            throw new Exception("Error al crear ventana inicio de sesion");
+        }
     }
-
+    //Metodos relacionados con las ventanas
     public static void crearVentanaInicioSesion() {
         ventanaInicioSesion = new JFrame("VentanaInicioSesion");
         ventanaInicioSesion.setContentPane(new VentanaInicioSesion().getVentanaInicioSesion());
@@ -33,7 +37,6 @@ public class Main {
     }
 
     public static void validarPassword(String usuario,String pass) throws Exception {
-
         Login lConsulta = new Login(usuario,pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
         System.out.println("El usuario es " + usuarioActual.getUsuario() + " con pass " + usuarioActual.getContrasenya() + " y es tipo " + usuarioActual.getTipo());
