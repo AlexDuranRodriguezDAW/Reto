@@ -32,17 +32,17 @@ public class TEquipo {
         BaseDatos.cerrarConexion();
     }
 
-    public static void seleccionarEquipo() throws  Exception{
+    public static ArrayList<Equipo> seleccionarEquipo() throws  Exception{
 
         BaseDatos.abrirConexion();
 
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from equipos");
         ResultSet rs = ps.executeQuery();
 
-        ArrayList<Equipo> listaEquipos;
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
 
         while (rs.next()){
-            listaEquipos = new ArrayList<>();
+
             Equipo e = new Equipo();
             e.setNombreEquipo("nombre");
             e.setPresupuesto(Double.valueOf("presupuesto"));
@@ -56,7 +56,7 @@ public class TEquipo {
 
 
         BaseDatos.cerrarConexion();
-
+        return listaEquipos;
     }
 
     public static void modificarEquipo(String sponsor, String nombre) throws Exception{
