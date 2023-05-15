@@ -11,7 +11,7 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
     AS
     
     V_FechaJornada      DATE := SYSDATE;
-    V_HoraPartido       VARCHAR(5) := '1600';
+    V_HoraPartido       VARCHAR(5) := '16:00';
     V_IdSplit           SPLIT.ID%TYPE;
     V_IdJornada         JORNADAS.ID%TYPE;
     V_IdJornadaMinima   JORNADAS.ID%TYPE;
@@ -158,12 +158,8 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
     AS
     BEGIN
         OPEN C_CURSOR FOR
-                SELECT P.ID, EL.NOMBRE AS LOCAL, EV.NOMBRE AS VISITANTE, P.ID, P.HORA
-                FROM PARTIDOS P, PARTIDOEQUIPO1 PL, PARTIDOEQUIPO2 PV, EQUIPOS EL, EQUIPOS EV
-                WHERE P.ID = PL.IDPARTIDO AND P.ID = PV.IDPARTIDO
-                AND PL.IDEQUIPO = EL.ID AND PV.IDEQUIPO = EV.ID
-                AND P.ID IN (SELECT ID FROM JORNADAS WHERE IDSPLIT = (SELECT max(ID) from SPLIT))
-                GROUP BY P.ID, EL.NOMBRE, EV.NOMBRE, P.IDJORNADA, P.HORA;
+                SELECT * FROM EMPAREJAMIENTOS
+                ORDER BY IDJORNADA, EQUIPO1;
     END ListaEmparejamientos;
 
 --------------------------------------------------------------------------------

@@ -1,3 +1,4 @@
+
 --Vista para sacar todos los jugadores de draft
 CREATE OR REPLACE VIEW JUGADORES_DRAFT AS
 (
@@ -38,20 +39,19 @@ GROUP BY E.NOMBRE
 );
 
 
-
 -- Vista para ver los resultados de cada partido
 
-Create or replace view resultadoPartido
+CREATE OR REPLACE VIEW RESULTADOPARTIDO
 as(
 
-    Select e.nombre as nombreLocal,a.nombre  as nombreVisitante,p1.golesEquipo1 
-    golesLocal,p2.golesEquipo2 golesVisitante
-    from equipos e, equipos a, partidoEquipo1 p1 ,partidoEquipo2 p2
-    where e.id = a.id and e.id = p1.idEquipo and p1.idPartido = p2.idPartido
+    SELECT E.NOMBRE AS NOMBRELOCAL , A.NOMBRE AS NOMBREVISITANTE, P1.GOLESEQUIPO1 
+    GOLESLOCAL, P2.GOLESEQUIPO2 AS GOLESVISITANTE
+    FROM EQUIPOS E, EQUIPOS A, PARTIDOEQUIPO1 P1, PARTIDOEQUIPO2 P2
+    WHERE E.ID = A.ID AND E.ID = P1.IDEQUIPO AND P1.IDPARTIDO = P2.IDPARTIDO
 
 );
 
---Vista para ver los emparejamientos de los equipos
+
 
 CREATE OR REPLACE VIEW EMPAREJAMIENTOS AS
 (
@@ -62,5 +62,8 @@ CREATE OR REPLACE VIEW EMPAREJAMIENTOS AS
     WHERE J.ID = P.IDJORNADA AND P.ID = P1.IDPARTIDO AND P.ID = P2.IDPARTIDO
 
 );
+
+
+
 
 

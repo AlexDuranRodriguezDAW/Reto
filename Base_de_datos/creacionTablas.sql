@@ -21,7 +21,7 @@ Drop table Personas;
 Create table Personas(
     id number(3) 
     generated always as identity primary key ,
-    dni varchar(9) unique not null,
+    dni varchar(9),
     nombre varchar(20),
     apellido varchar(20)
 );
@@ -34,7 +34,7 @@ Create table Jugadores(
     numDraft varchar2(3) null,
     tipo varchar2(10),
     constraint jug_tip_ck check ( tipo in ('draft' , 'wildcard')),
-	constraint jug_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
+	constraint jug_id_fk foreign key (id) references PERSONAS(ID)
 );
 
 
@@ -42,12 +42,12 @@ Create table Jugadores(
 
 Create table Asistentes(
     id number(3)  primary key,
-	constraint asi_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
+	constraint asi_id_fk foreign key (id) references PERSONAS(ID)
 );
 -- Tabla entrenador
 Create table Entrenadores(
     id number(3) primary key,
-	constraint ent_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
+	constraint ent_id_fk foreign key (id) references PERSONAS(ID)
 );
 
 
@@ -55,7 +55,7 @@ Create table Entrenadores(
 
 Create table Duenyos(
     id number(3) primary key,
-	constraint due_id_fk foreign key (id) references PERSONAs(ID) on delete cascade
+	constraint due_id_fk foreign key (id) references PERSONAs(ID)
 );
 
 
@@ -69,7 +69,7 @@ Create table Equipos(
     presupuesto number(9),
     sponsor VARCHAR2(20),
     idDuenyo number(3),
-  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID) on delete cascade
+  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID)
 
 );
 
@@ -84,8 +84,8 @@ Create table jugadoresEquipos(
     clausula number(8) default '1000000',
     primary key(idJugador,idEquipo),
     constraint jugeq_suel_ck check ( sueldo in ('10000000' , '10500000' ,'15000000' ,'22500000')),
-    constraint jugeq_idJ_fk foreign key (idJugador) references JUGADORES(ID) on delete cascade,
-    constraint jugeq_idE_fk foreign key (idEquipo) references EQUIPOS(ID) on delete cascade
+    constraint jugeq_idJ_fk foreign key (idJugador) references JUGADORES(ID),
+    constraint jugeq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
 );
 
 Create table entrenadorEquipos(
@@ -95,7 +95,7 @@ Create table entrenadorEquipos(
     fechaInicio date,
     fechaFin date null,
     primary key(idEntrenador,idEquipo),
-    constraint jueq_idJ_fk foreign key (idEntrenador) references ENTRENADORES(ID) on delete cascade,
+    constraint jueq_idJ_fk foreign key (idEntrenador) references ENTRENADORES(ID),
     constraint jueq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
 );
 
@@ -106,8 +106,8 @@ Create table asistenteEquipos(
     fechaInicio date,
     fechaFin date null,
     primary key(idAsistente,idEquipo),
-    constraint asiseq_idJ_fk foreign key (idAsistente) references ASISTENTES(ID) on delete cascade,
-    constraint eq_idE_fk foreign key (idEquipo) references EQUIPOS(ID) on delete cascade
+    constraint asiseq_idJ_fk foreign key (idAsistente) references ASISTENTEs(ID),
+    constraint eq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
 );
 
 
@@ -128,7 +128,7 @@ fecha date,
 tipo varchar2(10),
 idSplit number(4), 
 constraint jor_tip_ck check (tipo in ('regular' , 'playoff')),
-constraint jor_idS_fk foreign key (idSplit) references Split(ID) on delete cascade
+constraint jor_idS_fk foreign key (idSplit) references Split(ID)
 );
 
 
@@ -136,11 +136,11 @@ constraint jor_idS_fk foreign key (idSplit) references Split(ID) on delete casca
 Create table partidos(
 id number(3) 
 generated always as identity primary key ,
-hora varchar2(4),
+hora varchar2(5),
 idEquipo number(2),
 idJornada number(2),
-constraint part_idE_fk foreign key (idEquipo) references EQUIPOS(ID) on delete cascade,
-constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID) on delete cascade
+constraint part_idE_fk foreign key (idEquipo) references EQUIPOS(ID),
+constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID)
 );
 
 Create table partidoEquipo1(
@@ -148,8 +148,8 @@ golesEquipo1 number(2),
 idPartido number(3),
 idEquipo number(2),
 primary key(idPartido,idEquipo),
-constraint parE1_idEq_fk foreign key (idEquipo) references EQUIPOS(id) on delete cascade,
-constraint parE1_idPa_fk foreign key (idPartido) references PARTIDOS(id) on delete cascade
+constraint parE1_idEq_fk foreign key (idEquipo) references EQUIPOS(id),
+constraint parE1_idPa_fk foreign key (idPartido) references PARTIDOS(id)
 );
 
 
@@ -158,8 +158,8 @@ golesEquipo2 number(2),
 idPartido number(3),
 idEquipo number(2),
 primary key(idPartido,idEquipo),
-constraint parE2_idE_fk foreign key (idPartido) references PARTIDOS(id) on delete cascade,
-constraint parE2_idP_fk foreign key (idEquipo) references EQUIPOS(id) on delete cascade
+constraint parE2_idE_fk foreign key (idPartido) references PARTIDOS(id),
+constraint parE2_idP_fk foreign key (idEquipo) references EQUIPOS(id)
 );
 
 
