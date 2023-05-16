@@ -3,22 +3,23 @@ package Vistas;
 import Controlador.Main;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class VentanaVerEquipo {
-    private JPanel ventanaVerEquipo;
-    private JPanel ventanaPrincipal;
+    private JPanel VentanaVerEquipo;
     private JPanel BasePiePagina;
     private JPanel BaseCabecera;
-    private JButton bUltimaJornada;
+    private JButton bSalir;
     private JComboBox cbEquipo;
-    private JLabel lEquipo;
+    private JTextArea taListaEquipos;
+    private JPanel BaseEleccion;
+    private JLabel Usuario;
+    private JLabel Logo;
 
     public JPanel getVentanaVerEquipo() {
-        return ventanaVerEquipo;
+        return VentanaVerEquipo;
     }
 
     public VentanaVerEquipo() {

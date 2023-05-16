@@ -18,6 +18,8 @@ public class VentanaCrearEquipo extends JDialog {
     private JButton bSalir;
     private JTextField tfSponsor;
     private JComboBox cbPropietario;
+    private JLabel logo;
+    private JLabel Usuario;
     private JButton buttonOK;
     private JButton buttonCancel;
     private ArrayList<Propietario> propietarios;
