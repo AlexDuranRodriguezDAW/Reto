@@ -16,7 +16,7 @@ public class VentanaAdministrador {
     private JPanel BaseEleccion;
     private JRadioButton rbEquipo;
     private JRadioButton rbJugador;
-    private JRadioButton rbDuenio;
+    private JRadioButton rbentrenador;
     private JRadioButton rbAsistente;
     private JButton bCrear;
     private JLabel Logoadmin;

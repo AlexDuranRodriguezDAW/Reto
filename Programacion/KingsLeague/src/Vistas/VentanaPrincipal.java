@@ -17,6 +17,7 @@ public class VentanaPrincipal {
     private JPanel VentanaPrincipal;
     private JButton bAdministrador;
     private JLabel logo;
+    private JLabel Usuario;
 
     public VentanaPrincipal() {
         bEquipos.addActionListener(new ActionListener() {

@@ -20,6 +20,8 @@ public class VentanaModificarEquipo extends JDialog {
     private JButton bSalir;
     private JComboBox cbNombre;
     private JTextField tfPresupuesto;
+    private JLabel Logo;
+    private JLabel Usuario;
     private ArrayList<Equipo> equipos;
     ArrayList<Propietario> propietarios;
 

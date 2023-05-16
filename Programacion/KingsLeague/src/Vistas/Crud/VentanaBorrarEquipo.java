@@ -17,6 +17,8 @@ public class VentanaBorrarEquipo extends JDialog {
     private JPanel BaseCabecera;
     private JButton bBorrar;
     private JButton bSalir;
+    private JLabel logo;
+    private JLabel Usuario;
 
     ArrayList<Equipo> equipos;
 
