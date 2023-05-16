@@ -1,9 +1,12 @@
 package Vistas.Crud;
 
 import Controlador.ControladorValidaciones;
+import Controlador.Main;
+import Modelo.Propietario;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class VentanaCrearEquipo extends JDialog {
     private JPanel ventanaCrearEquipo;
@@ -14,26 +17,33 @@ public class VentanaCrearEquipo extends JDialog {
     private JButton bCrear;
     private JButton bSalir;
     private JTextField tfSponsor;
-    private JComboBox comboBox1;
+    private JComboBox cbPropietario;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private ArrayList<Propietario> propietarios;
 
     public VentanaCrearEquipo() {
         setContentPane(ventanaCrearEquipo);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
+        try {
+            llenarComboBox();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+        }
+
+        bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     onOK();
                 } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
@@ -57,10 +67,22 @@ public class VentanaCrearEquipo extends JDialog {
 
     private void onOK() throws Exception {
         try {
-            ControladorValidaciones.validarDato(tfNombre.getText(),"Nombre equipo","");
-            ControladorValidaciones.validarDato(tfSponsor.getText(),"Nombre del sponsor","");
-        }catch (Exception e){
-            throw new Exception("Error al crear equipo");
+            if (tfNombre.getText().isEmpty() || tfSponsor.getText().isEmpty()){
+                throw new Exception("No pueden haber campos vacios");
+            }
+            ControladorValidaciones.validarDato(tfNombre.getText(), "Nombre equipo", "^[A-Z][a-z]*( [A-Z]?[a-z]*)*\\S$");
+            ControladorValidaciones.validarDato(tfSponsor.getText(), "Nombre del sponsor", "^[A-Z][a-z]*( [A-Z]?[a-z]*)*\\S$");
+            int n = Main.crearEquipo(tfNombre.getText(), tfSponsor.getText(), propietarios.get(cbPropietario.getSelectedIndex()));
+            if (n == 1) {
+                JOptionPane.showMessageDialog(null, "El equipo ha sido creado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "El equipo no ha podido ser creado");
+            }
+            tfNombre.setText("");
+            tfSponsor.setText("");
+            cbPropietario.setSelectedIndex(-1);
+        } catch (Exception e) {
+            throw new Exception("Error al crear el equipo" + e.getMessage());
         }
     }
 
@@ -68,10 +90,11 @@ public class VentanaCrearEquipo extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaCrearEquipo dialog = new VentanaCrearEquipo();
-        dialog.pack();
-        dialog.setVisible(true);
-        dialog.setLocationRelativeTo(null);
+    private void llenarComboBox() throws Exception {
+        propietarios = Main.sacarPropietarios();
+        for (Propietario propietario : propietarios) {
+            cbPropietario.addItem(propietario.getNombre() + " " + propietario.getApellidos());
+        }
+        cbPropietario.setSelectedIndex(-1);
     }
 }

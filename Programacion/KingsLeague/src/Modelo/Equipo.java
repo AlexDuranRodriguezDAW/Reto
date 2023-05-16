@@ -20,6 +20,13 @@ public class Equipo {
         this.propietario = propietario;
     }
 
+    public Equipo(String nombreEquipo, Double presupuesto, String sponsor, Propietario propietario) {
+        this.nombreEquipo = nombreEquipo;
+        this.presupuesto = presupuesto;
+        this.sponsor = sponsor;
+        this.propietario = propietario;
+    }
+
     public Equipo(String nombreEquipo, Double presupuesto, String sponsor) {
         this.nombreEquipo = nombreEquipo;
         this.presupuesto = presupuesto;

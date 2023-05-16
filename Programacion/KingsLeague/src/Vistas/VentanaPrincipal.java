@@ -15,6 +15,7 @@ public class VentanaPrincipal {
     private JPanel pTabla;
 
     private JPanel ventanaPrincipal;
+    private JButton bAdministrador;
 
     public VentanaPrincipal() {
         bEquipos.addActionListener(new ActionListener() {
@@ -23,8 +24,14 @@ public class VentanaPrincipal {
                 try {
                     Main.crearVentanaVerEquipo();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
+            }
+        });
+        bAdministrador.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaAdministrador();
             }
         });
     }
@@ -33,5 +40,5 @@ public class VentanaPrincipal {
         return ventanaPrincipal;
 
 
-
-}}
+    }
+}

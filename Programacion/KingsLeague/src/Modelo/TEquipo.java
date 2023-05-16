@@ -6,19 +6,18 @@ import java.util.ArrayList;
 
 public class TEquipo {
 
-    //En en esta funcion habria que mandar tambien el nombre del Duenyo para luego poder sacar el id del Propitario
-    public static void crearEquipo(Equipo e,Propietario p) throws Exception{
+    public static int crearEquipo(Equipo e) throws Exception{
 
         BaseDatos.abrirConexion();
-        //Se me a ocurrido crear una cb que aparecan los nombre y apellido de los propietarios pero guardar tambien el dni en el objeto para luego poderlo buscar
-        TPersona.buscarIdPropietario(p);
 
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Insert into Equipos (nombre,presupuesto,sponsor,idDuenyo) values (?,?,?,?)");
         ps.setString(1,e.getNombreEquipo());
         ps.setDouble(2,e.getPresupuesto());
         ps.setString(3,e.getSponsor());
+        ps.setString(4,e.getPropietario().getId());
+        int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
-
+        return n;
     }
 
     public static void borrarEquipo(String equipo) throws  Exception{
