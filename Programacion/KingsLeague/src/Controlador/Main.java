@@ -65,7 +65,14 @@ public class Main {
         return listaEquipos;
     }
 
-    public static void buscarPorNombre(Object nombre){
-        String nombreEquipo = (String) nombre;
+    public static String buscarPorNombre(int equipo) throws Exception {
+
+        ArrayList<Equipo> lista = TEquipo.seleccionarEquipo();
+
+        String resumenEquipo = "El equipo " + lista.get(equipo).getNombreEquipo() + " su presidente es " + lista.get(equipo).getPropietario()
+                + " tiene un presupuesto de " + lista.get(equipo).getPresupuesto() + " y " + lista.get(equipo).getSponsor() + " es su sponsor";
+
+
+        return  resumenEquipo;
     }
 }

@@ -25,7 +25,12 @@ public class VentanaVerEquipo {
         cbEquipo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.buscarPorNombre(cbEquipo.getSelectedItem());
+                try {
+                    String datosEquipo = Main.buscarPorNombre(cbEquipo.getSelectedIndex());
+                    JOptionPane.showMessageDialog(null, datosEquipo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
             }
         });
     }
