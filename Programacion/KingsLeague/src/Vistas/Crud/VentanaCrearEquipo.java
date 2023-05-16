@@ -1,9 +1,11 @@
 package Vistas.Crud;
 
 import Controlador.ControladorValidaciones;
+import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.SQLOutput;
 
 public class VentanaCrearEquipo extends JDialog {
     private JPanel ventanaCrearEquipo;
@@ -14,7 +16,7 @@ public class VentanaCrearEquipo extends JDialog {
     private JButton bCrear;
     private JButton bSalir;
     private JTextField tfSponsor;
-    private JComboBox comboBox1;
+    private JComboBox cbPropietario;
     private JButton buttonOK;
     private JButton buttonCancel;
 
@@ -23,12 +25,18 @@ public class VentanaCrearEquipo extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
+        try {
+            Main.llenarComboBoxPropietarios(cbPropietario);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comoBox Propietarios");
+        }
+
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     onOK();
                 } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
@@ -56,22 +64,11 @@ public class VentanaCrearEquipo extends JDialog {
     }
 
     private void onOK() throws Exception {
-        try {
-            ControladorValidaciones.validarDato(tfNombre.getText(),"Nombre equipo","");
-            ControladorValidaciones.validarDato(tfSponsor.getText(),"Nombre del sponsor","");
-        }catch (Exception e){
-            throw new Exception("Error al crear equipo");
-        }
+        ControladorValidaciones.validarDato(tfNombre.getText(), "Nombre equipo", "");
+        ControladorValidaciones.validarDato(tfSponsor.getText(), "Nombre del sponsor", "");
     }
 
     private void onCancel() {
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VentanaCrearEquipo dialog = new VentanaCrearEquipo();
-        dialog.pack();
-        dialog.setVisible(true);
-        dialog.setLocationRelativeTo(null);
     }
 }

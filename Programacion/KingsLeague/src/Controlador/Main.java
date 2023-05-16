@@ -1,6 +1,8 @@
 package Controlador;
 
 import Modelo.*;
+import Vistas.Crud.VentanaCrearEquipo;
+import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
 import Vistas.VentanaVerEquipo;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 public class Main {
     private static JFrame ventanaInicioSesion;
+    private static JFrame ventanaPrincipal;
     private static Login usuarioActual;
 
     public static void main(String[] args) throws Exception {
@@ -29,22 +32,38 @@ public class Main {
         ventanaInicioSesion.setVisible(true);
     }
 
-    public static void crearVentanaPrincipal(){
-        JFrame frame = new JFrame("VentanaPrincipal");
-        frame.setContentPane(new VentanaPrincipal().getVentanaPrincipal());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaInicioSesion);
-        frame.setVisible(true);
+    public static void crearVentanaPrincipal() {
+        ventanaPrincipal = new JFrame("VentanaPrincipal");
+        ventanaPrincipal.setContentPane(new VentanaPrincipal().getVentanaPrincipal());
+        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventanaPrincipal.pack();
+        ventanaPrincipal.setLocationRelativeTo(ventanaInicioSesion);
+        ventanaPrincipal.setVisible(true);
     }
 
-    public static void crearVentanaVerEquipo() throws Exception {
+    public static void crearVentanaVerEquipo() {
         JFrame frame = new JFrame("VentanaVerEquipo");
         frame.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(ventanaPrincipal);
         frame.setVisible(true);
+    }
+
+    public static void crearVentanaAdministrador() {
+        JFrame frame = new JFrame("VentanaAdministrador");
+        frame.setContentPane(new VentanaAdministrador().getpPrincipal());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaPrincipal);
+        frame.setVisible(true);
+    }
+
+    public static void crearVentanaCrearEquipo() {
+        VentanaCrearEquipo dialog = new VentanaCrearEquipo();
+        dialog.pack();
+        dialog.setLocationRelativeTo(ventanaPrincipal);
+        dialog.setVisible(true);
     }
 
     public static void validarPassword(String usuario,String pass) throws Exception {
@@ -70,5 +89,12 @@ public class Main {
 
     public static void buscarPorNombre(Object nombre){
         String nombreEquipo = (String) nombre;
+    }
+
+    public static void llenarComboBoxPropietarios(JComboBox comboBox) throws Exception{
+        ArrayList <Propietario> propietarios = TPropietario.consultarTodos();
+        for (Propietario propietario:propietarios){
+            comboBox.addItem(propietario.getDni());
+        }
     }
 }
