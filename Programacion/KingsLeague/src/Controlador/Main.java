@@ -1,7 +1,9 @@
 package Controlador;
 
 import Modelo.*;
+import Vistas.Crud.VentanaBorrarEquipo;
 import Vistas.Crud.VentanaCrearEquipo;
+import Vistas.Crud.VentanaModificarEquipo;
 import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
@@ -63,7 +65,21 @@ public class Main {
     public static void crearVentanaCrearEquipo() {
         VentanaCrearEquipo dialog = new VentanaCrearEquipo();
         dialog.pack();
-        dialog.setLocationRelativeTo(ventanaPrincipal);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaBorrarEquipo() {
+        VentanaBorrarEquipo dialog = new VentanaBorrarEquipo();
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaModificarEquipo() {
+        VentanaModificarEquipo dialog = new VentanaModificarEquipo();
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
 
@@ -92,12 +108,20 @@ public class Main {
         return resumenEquipo;
     }
 
-    public static ArrayList<Propietario> sacarPropietarios() throws Exception {
-       return TPropietario.consultarTodos();
+    public static ArrayList<Propietario> getPropietarios() throws Exception {
+        return TPropietario.consultarTodos();
     }
 
-    public static int crearEquipo (String nombre, String sponsor, Propietario propietario) throws Exception {
-        Equipo e1 = new Equipo(nombre, 200000000.0,sponsor,propietario);
+    public static int crearEquipo(String nombre, String sponsor, Propietario propietario) throws Exception {
+        Equipo e1 = new Equipo(nombre, 200000000.0, sponsor, propietario);
         return TEquipo.crearEquipo(e1);
+    }
+
+    public static ArrayList<Equipo> getEquipos() throws Exception {
+        return TEquipo.consultarTodos();
+    }
+
+    public static int borrarEquipo(String nombre) throws Exception {
+        return TEquipo.borrarEquipo(nombre);
     }
 }
