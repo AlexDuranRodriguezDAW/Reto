@@ -11,7 +11,8 @@ public class VentanaAdministrador {
     private JPanel BaseCabecera;
     private JPanel pPrincipal;
     private JMenuItem bCrearEquipo;
-    private JButton button1;
+    private JMenuItem bBorrarEquipo;
+    private JMenuItem bModificarEquipo;
 
     public JPanel getpPrincipal() {
         return pPrincipal;
@@ -22,6 +23,18 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.crearVentanaCrearEquipo();
+            }
+        });
+        bBorrarEquipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarEquipo();
+            }
+        });
+        bModificarEquipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaModificarEquipo();
             }
         });
     }

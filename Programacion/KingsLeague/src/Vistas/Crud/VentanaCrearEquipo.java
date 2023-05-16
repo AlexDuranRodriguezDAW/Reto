@@ -91,7 +91,7 @@ public class VentanaCrearEquipo extends JDialog {
     }
 
     private void llenarComboBox() throws Exception {
-        propietarios = Main.sacarPropietarios();
+        propietarios = Main.getPropietarios();
         for (Propietario propietario : propietarios) {
             cbPropietario.addItem(propietario.getNombre() + " " + propietario.getApellidos());
         }

@@ -1,5 +1,8 @@
 package Modelo;
 
+
+import oracle.jdbc.proxy.annotation.Pre;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -168,5 +171,14 @@ public class TPersona {
         BaseDatos.cerrarConexion();
     }
 
-
+    public static Propietario consultarPropietarioId (String id) throws Exception{
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from personas where id = ?");
+        ps.setString(1,id);
+        ResultSet rs = ps.executeQuery();
+        Propietario p1 = null;
+        if (rs.next()){
+            p1 = new Propietario(rs.getString("id"),rs.getString("dni"),rs.getString("apellido"),rs.getString("nombre"));
+        }
+        return p1;
+    }
 }
