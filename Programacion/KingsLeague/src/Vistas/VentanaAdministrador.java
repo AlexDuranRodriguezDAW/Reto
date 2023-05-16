@@ -9,13 +9,24 @@ import java.awt.event.ActionListener;
 public class VentanaAdministrador {
     private JPanel BasePiePagina;
     private JPanel BaseCabecera;
-    private JPanel pPrincipal;
+    private JPanel VentanaAdministrador;
     private JMenuItem bCrearEquipo;
     private JMenuItem bBorrarEquipo;
     private JMenuItem bModificarEquipo;
+    private JPanel BaseEleccion;
+    private JRadioButton rbEquipo;
+    private JRadioButton rbJugador;
+    private JRadioButton rbDuenio;
+    private JRadioButton rbAsistente;
+    private JButton bCrear;
+    private JLabel Logoadmin;
+    private JButton bModificar;
+    private JButton bBorrar;
+    private JLabel Usuario;
+    private JLabel Logo;
 
     public JPanel getpPrincipal() {
-        return pPrincipal;
+        return VentanaAdministrador;
     }
 
     public VentanaAdministrador() {
