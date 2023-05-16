@@ -16,12 +16,13 @@ public class Main {
     private static Login usuarioActual;
 
     public static void main(String[] args) throws Exception {
-        try{
+        try {
             crearVentanaInicioSesion();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Error al crear ventana inicio de sesion");
         }
     }
+
     //Metodos relacionados con las ventanas
     public static void crearVentanaInicioSesion() {
         ventanaInicioSesion = new JFrame("VentanaInicioSesion");
@@ -66,21 +67,18 @@ public class Main {
         dialog.setVisible(true);
     }
 
-    public static void validarPassword(String usuario,String pass) throws Exception {
-        Login lConsulta = new Login(usuario,pass);
+    public static void validarPassword(String usuario, String pass) throws Exception {
+        Login lConsulta = new Login(usuario, pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
         System.out.println("El usuario es " + usuarioActual.getUsuario() + " con pass " + usuarioActual.getContrasenya() + " y es tipo " + usuarioActual.getTipo());
         ventanaInicioSesion.dispose();
         crearVentanaPrincipal();
     }
 
-//********************************************CRUD EQUIPOS*************************************************************************
-    public static ArrayList<String> sacarEquipos() throws  Exception{
+    //********************************************CRUD EQUIPOS*************************************************************************
+    public static ArrayList<String> sacarEquipos() throws Exception {
         ArrayList<Equipo> lista = TEquipo.seleccionarEquipo();
-
         ArrayList<String> listaEquipos = new ArrayList<>();
-
-
         for (int i = 0; i < lista.size(); i++) {
             listaEquipos.add(lista.get(i).getNombreEquipo());
         }
@@ -88,20 +86,18 @@ public class Main {
     }
 
     public static String buscarPorNombre(int equipo) throws Exception {
-
         ArrayList<Equipo> lista = TEquipo.seleccionarEquipo();
-
         String resumenEquipo = "El equipo " + lista.get(equipo).getNombreEquipo() + " su presidente es " + lista.get(equipo).getPropietario()
                 + " tiene un presupuesto de " + lista.get(equipo).getPresupuesto() + " y " + lista.get(equipo).getSponsor() + " es su sponsor";
-
-
-        return  resumenEquipo;
+        return resumenEquipo;
     }
 
-    public static void llenarComboBoxPropietarios(JComboBox comboBox) throws Exception{
-        ArrayList <Propietario> propietarios = TPropietario.consultarTodos();
-        for (Propietario propietario:propietarios){
-            comboBox.addItem(propietario.getDni());
-        }
+    public static ArrayList<Propietario> sacarPropietarios() throws Exception {
+       return TPropietario.consultarTodos();
+    }
+
+    public static int crearEquipo (String nombre, String sponsor, Propietario propietario) throws Exception {
+        Equipo e1 = new Equipo(nombre, 200000000.0,sponsor,propietario);
+        return TEquipo.crearEquipo(e1);
     }
 }
