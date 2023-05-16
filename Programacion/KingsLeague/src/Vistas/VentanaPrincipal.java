@@ -14,8 +14,9 @@ public class VentanaPrincipal {
     private JButton bEquipos;
     private JPanel pTabla;
 
-    private JPanel ventanaPrincipal;
+    private JPanel VentanaPrincipal;
     private JButton bAdministrador;
+    private JLabel logo;
 
     public VentanaPrincipal() {
         bEquipos.addActionListener(new ActionListener() {
@@ -37,7 +38,7 @@ public class VentanaPrincipal {
     }
 
     public JPanel getVentanaPrincipal() {
-        return ventanaPrincipal;
+        return VentanaPrincipal;
 
 
     }

@@ -56,7 +56,7 @@
                     <properties>
                       <font name="Calibri" size="20" style="1"/>
                       <foreground color="-1"/>
-                      <icon value="Imagenes/TeamBonsai.png"/>
+                      <icon value="Recursos/Ventanas/TeamBonsai.png"/>
                       <iconTextGap value="30"/>
                       <text value="Bonsai Team"/>
                       <visible value="true"/>
@@ -81,7 +81,7 @@
                     <properties>
                       <font name="Calibri" size="40" style="1"/>
                       <foreground color="-1"/>
-                      <icon value="Imagenes/kings_league.png"/>
+                      <icon value="Recursos/Ventanas/kings_league.png"/>
                       <text value=""/>
                     </properties>
                   </component>
