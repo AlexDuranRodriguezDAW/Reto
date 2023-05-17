@@ -108,6 +108,7 @@
               <focusable value="false"/>
               <font name="Calibri" size="20" style="1"/>
               <foreground color="-1"/>
+              <selected value="true"/>
               <text value="Equipo"/>
             </properties>
           </component>
@@ -155,7 +156,7 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <enabled value="false"/>
+          <enabled value="true"/>
           <focusable value="false"/>
           <font name="Calibri" size="20" style="1"/>
           <foreground color="-1"/>
@@ -168,7 +169,7 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <enabled value="false"/>
+          <enabled value="true"/>
           <focusable value="false"/>
           <font name="Calibri" size="20" style="1"/>
           <foreground color="-1"/>
@@ -181,7 +182,7 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <enabled value="false"/>
+          <enabled value="true"/>
           <focusable value="false"/>
           <font name="Calibri" size="20" style="1"/>
           <foreground color="-1"/>

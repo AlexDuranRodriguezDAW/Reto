@@ -124,4 +124,83 @@ public class Main {
     public static int borrarEquipo(String nombre) throws Exception {
         return TEquipo.borrarEquipo(nombre);
     }
+
+
+
+
+
+
+    
+
+    public  static  ArrayList<Jugador> listaJugadores ;
+
+    public static ArrayList<String> sacarJugadores() throws  Exception{
+        //listaJugadores = TJugador.seleccionarJugadores();
+
+        ArrayList<String> lista = new ArrayList<>();
+
+        for (int i = 0; i < listaJugadores.size(); i++) {
+            lista.add(listaJugadores.get(i).getNombre() + " " + listaJugadores.get(i).getApellidos());
+        }
+        return lista;
+    }
+
+    public static void  crearPersonaJugador() throws Exception{
+
+        Jugador j = new Jugador();
+
+        TJugador.crearJugador(j);
+
+    }
+
+    public static void borrarJugador(int numero) throws Exception{
+        String nombre = listaJugadores.get(numero).getNombre();
+        String apellido = listaJugadores.get(numero).getApellidos();
+        TJugador.borrarJugador(nombre,apellido);
+    }
+
+    public static void modificarJugador(){
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public static ArrayList<Entrenador> listaEntrenadores;
+
+    public static ArrayList<String> sacarEntrenadores() throws  Exception{
+        //listaEntrenadores = TEntrenador.seleccionarEntrenador();
+        ArrayList<String> lista = new ArrayList<>();
+
+        for (int i = 0; i < listaEntrenadores.size(); i++) {
+            lista.add(listaEntrenadores.get(i).getNombre() + " " + listaEntrenadores.get(i).getApellidos());
+        }
+        return lista;
+    }
+
+    public static void crearEntrenador(String nombre, String apellido,String dni) throws  Exception{
+
+        Entrenador e = new Entrenador(nombre,apellido,dni);
+        TEntrenador.crearPersonaEntrenador(e);
+    }
+
+    public static void borrarEntrenador(String nombre,String apellido)throws Exception{
+
+        Entrenador e = new Entrenador(apellido,nombre);
+        TPersona.borrarPersonaEntrenador(e);
+
+    }
+
+
+    public static void modificarEntrenador(){
+
+    }
+
 }

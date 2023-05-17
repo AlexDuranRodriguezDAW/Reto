@@ -26,6 +26,7 @@ public class VentanaVerEquipo {
             llenarCB();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error llenado ComboBox");
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
 
         cbEquipo.addActionListener(new ActionListener() {
