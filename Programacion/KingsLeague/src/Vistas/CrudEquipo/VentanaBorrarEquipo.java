@@ -1,9 +1,7 @@
-package Vistas.Crud;
+package Vistas.CrudEquipo;
 
 import Controlador.Main;
 import Modelo.Equipo;
-import Modelo.Jornada;
-import Modelo.Propietario;
 
 import javax.swing.*;
 import java.awt.event.*;

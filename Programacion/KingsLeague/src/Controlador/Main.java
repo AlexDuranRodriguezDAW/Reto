@@ -1,9 +1,9 @@
 package Controlador;
 
 import Modelo.*;
-import Vistas.Crud.VentanaBorrarEquipo;
-import Vistas.Crud.VentanaCrearEquipo;
-import Vistas.Crud.VentanaModificarEquipo;
+import Vistas.CrudEquipo.VentanaBorrarEquipo;
+import Vistas.CrudEquipo.VentanaCrearEquipo;
+import Vistas.CrudEquipo.VentanaModificarEquipo;
 import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
