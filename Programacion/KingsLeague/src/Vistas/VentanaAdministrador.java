@@ -30,22 +30,47 @@ public class VentanaAdministrador {
     }
 
     public VentanaAdministrador() {
-        bCrearEquipo.addActionListener(new ActionListener() {
+        bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaCrearEquipo();
+                if(rbEquipo.isSelected()){
+                    Main.crearVentanaCrearEquipo();
+                } else if (rbAsistente.isSelected()) {
+
+                }else if (rbDuenio.isSelected()){
+
+                } else if (rbJugador.isSelected()) {
+                    Main.crearVentanaCrearJugador();
+                }
+
             }
         });
-        bBorrarEquipo.addActionListener(new ActionListener() {
+        bBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaBorrarEquipo();
+                if(rbEquipo.isSelected()){
+                    Main.crearVentanaBorrarEquipo();
+                } else if (rbAsistente.isSelected()) {
+
+                }else if (rbDuenio.isSelected()){
+
+                } else if (rbJugador.isSelected()) {
+                    Main.crearVentanaBorrarJugador();
+                }
             }
         });
-        bModificarEquipo.addActionListener(new ActionListener() {
+        bModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaModificarEquipo();
+                if(rbEquipo.isSelected()){
+                    Main.crearVentanaModificarEquipo();
+                } else if (rbAsistente.isSelected()) {
+
+                }else if (rbDuenio.isSelected()){
+
+                } else if (rbJugador.isSelected()) {
+
+                }
             }
         });
     }

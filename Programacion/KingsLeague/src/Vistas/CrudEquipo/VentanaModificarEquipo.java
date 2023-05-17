@@ -1,8 +1,7 @@
-package Vistas.Crud;
+package Vistas.CrudEquipo;
 
 import Controlador.Main;
 import Modelo.Equipo;
-import Modelo.Persona;
 import Modelo.Propietario;
 
 import javax.swing.*;
