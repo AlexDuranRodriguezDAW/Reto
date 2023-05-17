@@ -40,7 +40,7 @@ public class VentanaAdministrador {
                 }else if (rbEntrenador.isSelected()){
 
                 } else if (rbJugador.isSelected()) {
-                    Main.crearVentanaCrearJugador();
+
                 }
 
             }
@@ -55,7 +55,7 @@ public class VentanaAdministrador {
                 }else if (rbEntrenador.isSelected()){
 
                 } else if (rbJugador.isSelected()) {
-                    Main.crearVentanaBorrarJugador();
+
                 }
             }
         });

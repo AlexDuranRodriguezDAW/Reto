@@ -12,15 +12,14 @@ public class BaseDatos {
     public static void abrirConexion() throws SQLException {
         try {
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
+
             Class.forName("oracle.jdbc.OracleDriver");
             String url="jdbc:oracle:thin:@172.20.225.114:1521:orcl";
             String usuario="eqdaw03";
             String contrasenya="eqdaw03";
-<<<<<<< Updated upstream
+
 
 /*
 =======
@@ -33,12 +32,7 @@ public class BaseDatos {
 <<<<<<< Updated upstream
             String contrasenya = "12345";
 */
-=======
-            String contrasenya = "12345";ç
 
-             */
-
->>>>>>> Stashed changes
             con = DriverManager.getConnection(url, usuario, contrasenya);
 
         } catch (Exception e) {
