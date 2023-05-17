@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Main {
     private static JFrame ventanaInicioSesion;
     private static JFrame ventanaPrincipal;
-    private static Login usuarioActual;
+    private static Login usuarioActual ;
 
     public static void main(String[] args) throws Exception {
         try {
