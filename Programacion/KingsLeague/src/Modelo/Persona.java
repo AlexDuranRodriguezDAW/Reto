@@ -22,6 +22,11 @@ public abstract class Persona {
         this.nombre = nombre;
     }
 
+    public Persona(String apellidos, String nombre) {
+        this.apellidos = apellidos;
+        this.nombre = nombre;
+    }
+
     public Persona(String id) {
         this.id = id;
     }

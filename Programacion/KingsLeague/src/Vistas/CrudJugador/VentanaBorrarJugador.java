@@ -4,13 +4,14 @@ import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class VentanaBorrarJugador extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JPanel BaseBotones;
-    private JComboBox cbEquipo;
+    private JComboBox cbJugador;
     private JPanel BasePiePagina;
     private JPanel BaseCabecera;
     private JButton bBorrar;
@@ -48,7 +49,7 @@ public class VentanaBorrarJugador extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-        cbEquipo.addActionListener(new ActionListener() {
+        cbJugador.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -59,7 +60,7 @@ public class VentanaBorrarJugador extends JDialog {
     private void onOK() {
         // Borrar el equipo selecccionado
         try{
-
+            Main.borrarJugador(cbJugador.getSelectedIndex());
         }catch (Exception e ){
 
         }
@@ -70,5 +71,15 @@ public class VentanaBorrarJugador extends JDialog {
         dispose();
     }
 
+
+    public void llenarCB() throws  Exception{
+
+        ArrayList<String> listaJugadores = Main.sacarJugadores();
+
+        for (int i = 0; i < listaJugadores.size(); i++) {
+            cbJugador.addItem(listaJugadores.get(i));
+        }
+
+    }
 
 }
