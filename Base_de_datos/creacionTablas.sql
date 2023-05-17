@@ -1,6 +1,4 @@
 Drop table login;
-Drop table partidoEquipo2;
-Drop table partidoEquipo1;
 Drop table Partidos;
 Drop table Jornadas;
 Drop table Split;
@@ -69,7 +67,8 @@ Create table Equipos(
     presupuesto number(9),
     sponsor VARCHAR2(20),
     idDuenyo number(3),
-  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID)
+  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID),
+    constraint equi_pres_ck check(presupuesto<=200000000)
 
 );
 
@@ -81,9 +80,9 @@ Create table jugadoresEquipos(
     sueldo number (8),
     fechaInicio date,
     fechaFin date null,
-    clausula number(8) default '1000000',
+    clausula number(8) default 1000000,
     primary key(idJugador,idEquipo),
-    constraint jugeq_suel_ck check ( sueldo in ('10000000' , '10500000' ,'15000000' ,'22500000')),
+    constraint jugeq_suel_ck check ( sueldo in (10000000 , 10500000 ,15000000 ,22500000)),
     constraint jugeq_idJ_fk foreign key (idJugador) references JUGADORES(ID),
     constraint jugeq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
 );
@@ -137,30 +136,20 @@ Create table partidos(
 id number(3) 
 generated always as identity primary key ,
 hora varchar2(5),
-idEquipo number(2),
+idEquipoGana number(2),
 idJornada number(2),
-constraint part_idE_fk foreign key (idEquipo) references EQUIPOS(ID),
-constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID)
-);
-
-Create table partidoEquipo1(
+golesEquipo2 number(2) null,
 golesEquipo1 number(2),
-idPartido number(3),
-idEquipo number(2),
-primary key(idPartido,idEquipo),
-constraint parE1_idEq_fk foreign key (idEquipo) references EQUIPOS(id),
-constraint parE1_idPa_fk foreign key (idPartido) references PARTIDOS(id)
+idEquipo1 number(2),
+idEquipo2 number(2),
+constraint part_idE_fk foreign key (idEquipoGana) references EQUIPOS(ID),
+constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID),
+constraint part_idEq1_fk foreign key (idEquipo1) references EQUIPOS(id),
+constraint part_idEq2_fk foreign key (idEquipo2) references EQUIPOS(id)
+
 );
 
 
-Create table partidoEquipo2(
-golesEquipo2 number(2),
-idPartido number(3),
-idEquipo number(2),
-primary key(idPartido,idEquipo),
-constraint parE2_idE_fk foreign key (idPartido) references PARTIDOS(id),
-constraint parE2_idP_fk foreign key (idEquipo) references EQUIPOS(id)
-);
 
 
 

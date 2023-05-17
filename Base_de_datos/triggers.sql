@@ -9,11 +9,17 @@ DECLARE
 
 V_CursorNumJugadores SYS_REFCURSOR;
 V_NumJugadoresEquipo number;
+V_NumEquipos number;
 JugadoresInsuficientes EXCEPTION;
+EquiposInsuficientes EXCEPTION;
  
 BEGIN
 
-    OPEN V_CursorNumJugadores FOR
+    Select count(*) into  V_NumEquipos
+    from equipos;
+
+    if v_NumEquipos = 12 then
+        OPEN V_CursorNumJugadores FOR
   			SELECT COUNT(J.IDJUGADOR) AS "JUGADORES", E.ID
   			FROM JUGADORESEQUIPOS J, EQUIPOS E
             WHERE J.IDEQUIPO(+) = E.ID
@@ -30,13 +36,21 @@ BEGIN
   					RAISE JugadoresInsuficientes;
 
   				END IF;
+                
+                
 
   				END LOOP;
+        else
+            raise EquiposInsuficientes;
+        end if;
 
 EXCEPTION
  WHEN JugadoresInsuficientes THEN
    		RAISE_APPLICATION_ERROR(-20001,'Los equipos no cumplen el minimo de 
         jugadores requeridos para crear el calendario.');
+ when EquiposInsuficientes then
+    RAISE_APPLICATION_ERROR(-20002,'Tiene que haber 12 equipos');
+    
 END;
 
 --******************************************************************************
@@ -44,7 +58,6 @@ END;
 
 CREATE OR REPLACE TRIGGER ModificarPlantillas
 BEFORE INSERT OR UPDATE OR DELETE ON JUGADORESEQUIPOS
-FOR EACH ROW
 DECLARE
 
     V_Estado VARCHAR2(10);
