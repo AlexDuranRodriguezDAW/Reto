@@ -1,8 +1,7 @@
-package Vistas.Crud;
+package Vistas.CrudEquipo;
 
 import Controlador.Main;
 import Modelo.Equipo;
-import Modelo.Persona;
 import Modelo.Propietario;
 
 import javax.swing.*;
@@ -20,6 +19,8 @@ public class VentanaModificarEquipo extends JDialog {
     private JButton bSalir;
     private JComboBox cbNombre;
     private JTextField tfPresupuesto;
+    private JLabel Logo;
+    private JLabel Usuario;
     private ArrayList<Equipo> equipos;
     ArrayList<Propietario> propietarios;
 

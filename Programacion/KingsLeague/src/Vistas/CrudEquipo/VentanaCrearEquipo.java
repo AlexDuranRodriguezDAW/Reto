@@ -1,4 +1,4 @@
-package Vistas.Crud;
+package Vistas.CrudEquipo;
 
 import Controlador.ControladorValidaciones;
 import Controlador.Main;
