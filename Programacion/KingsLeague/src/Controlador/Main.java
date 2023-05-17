@@ -130,12 +130,12 @@ public class Main {
 
 
 
-    
+
 
     public  static  ArrayList<Jugador> listaJugadores ;
 
     public static ArrayList<String> sacarJugadores() throws  Exception{
-        //listaJugadores = TJugador.seleccionarJugadores();
+        listaJugadores = TJugador.seleccionarJugadores();
 
         ArrayList<String> lista = new ArrayList<>();
 
@@ -163,20 +163,12 @@ public class Main {
 
     }
 
-
-
-
-
-
-
-
-
-
+//********************************************CRUD ENTRENADOS **********************************************************
 
     public static ArrayList<Entrenador> listaEntrenadores;
 
     public static ArrayList<String> sacarEntrenadores() throws  Exception{
-        //listaEntrenadores = TEntrenador.seleccionarEntrenador();
+        listaEntrenadores = TEntrenador.seleccionarEntrenador();
         ArrayList<String> lista = new ArrayList<>();
 
         for (int i = 0; i < listaEntrenadores.size(); i++) {

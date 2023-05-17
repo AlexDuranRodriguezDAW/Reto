@@ -23,27 +23,29 @@ public class TJugador {
 
     }
 
-    public static void seleccionarJugadores() throws Exception{
+    public static ArrayList<Jugador> seleccionarJugadores() throws Exception{
         BaseDatos.abrirConexion();
 
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select j.*,p.* from jugadores j, personas p where j.id = p.id and id = (Select id from personas)");
 
         ResultSet rs = ps.executeQuery();
-        ArrayList<Jugador> listaJugadores;
+        ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
         while (rs.next()){
-            listaJugadores = new ArrayList<>();
+
 
             Jugador jugador = new Jugador();
 
-            jugador.setNombre("nombre");
-            jugador.setApellidos("apellido");
-            jugador.setPosicion("podicion");
+            jugador.setNombre(rs.getString("nombre"));
+            jugador.setApellidos(rs.getString("apellido"));
+            jugador.setPosicion(rs.getString("podicion"));
             //jugador.setTipo(Jugador.TipoJugador.valueOf("tipo"));
             listaJugadores.add(jugador);
         }
 
         BaseDatos.cerrarConexion();
+
+        return listaJugadores;
     }
 
     public static void borrarJugador(String nombre,String apellido) throws  Exception{
