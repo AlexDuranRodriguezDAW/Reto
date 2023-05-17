@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.*;
+import Vistas.CrudEntrenador.VentanaBorrarEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
 import Vistas.CrudEquipo.VentanaCrearEquipo;
 import Vistas.CrudEquipo.VentanaModificarEquipo;
@@ -44,18 +45,18 @@ public class Main {
         ventanaPrincipal.setVisible(true);
     }
 
-    public static void crearVentanaVerEquipo() {
-        JFrame frame = new JFrame("VentanaVerEquipo");
-        frame.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
+    public static void crearVentanaAdministrador() {
+        JFrame frame = new JFrame("VentanaAdministrador");
+        frame.setContentPane(new VentanaAdministrador().getpPrincipal());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(ventanaPrincipal);
         frame.setVisible(true);
     }
 
-    public static void crearVentanaAdministrador() {
-        JFrame frame = new JFrame("VentanaAdministrador");
-        frame.setContentPane(new VentanaAdministrador().getpPrincipal());
+    public static void crearVentanaVerEquipo() {
+        JFrame frame = new JFrame("VentanaVerEquipo");
+        frame.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(ventanaPrincipal);
@@ -83,6 +84,12 @@ public class Main {
         dialog.setVisible(true);
     }
 
+    public static void crearVentanBorrarEntrenador() throws Exception {
+        VentanaBorrarEntrenador dialog = new VentanaBorrarEntrenador();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
     public static void validarPassword(String usuario, String pass) throws Exception {
         Login lConsulta = new Login(usuario, pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
@@ -92,11 +99,13 @@ public class Main {
     }
 
     //********************************************CRUD EQUIPOS*************************************************************************
+
+    public static ArrayList<Equipo> listaE;
     public static ArrayList<String> sacarEquipos() throws Exception {
-        ArrayList<Equipo> lista = TEquipo.seleccionarEquipo();
+         listaE = TEquipo.seleccionarEquipo();
         ArrayList<String> listaEquipos = new ArrayList<>();
-        for (int i = 0; i < lista.size(); i++) {
-            listaEquipos.add(lista.get(i).getNombreEquipo());
+        for (int i = 0; i < listaE.size(); i++) {
+            listaEquipos.add(listaE.get(i).getNombreEquipo());
         }
         return listaEquipos;
     }
@@ -126,8 +135,26 @@ public class Main {
     }
 
 
+    public static void modificarEquipoPresupuesto(String p, int indexNombre) throws Exception {
+
+        int presupuesto = Integer.parseInt(p);
+
+        String nombreEquipo = listaE.get(indexNombre).getNombreEquipo();
+
+        TEquipo.modificarEquipoPresupuesto(presupuesto,nombreEquipo);
+
+    }
+
+    public static void modificarEquipoSponsor(String sponsor,int indexNombre) throws Exception {
+        String nombreEquipo = listaE.get(indexNombre).getNombreEquipo();
+
+        TEquipo.modificarEquipoSponsor(sponsor,nombreEquipo);
+
+    }
 
 
+
+//***********************************CRUD JUGADORES****************************************************************************
 
 
 
@@ -145,11 +172,19 @@ public class Main {
         return lista;
     }
 
-    public static void  crearPersonaJugador() throws Exception{
+    public static void crearPersonaJugadorDraft(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft) throws Exception{
 
-        Jugador j = new Jugador();
+        //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
 
-        TJugador.crearJugador(j);
+        //TJugador.crearJugador(j);
+
+    }
+
+    public static void crearPersonaJugadorWildCard(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador) throws Exception{
+
+        //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
+
+       // TJugador.crearJugador(j);
 
     }
 

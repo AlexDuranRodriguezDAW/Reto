@@ -53,7 +53,11 @@ public class VentanaAdministrador {
                 } else if (rbAsistente.isSelected()) {
 
                 }else if (rbEntrenador.isSelected()){
-
+                    try {
+                        Main.crearVentanBorrarEntrenador();
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 } else if (rbJugador.isSelected()) {
 
                 }
