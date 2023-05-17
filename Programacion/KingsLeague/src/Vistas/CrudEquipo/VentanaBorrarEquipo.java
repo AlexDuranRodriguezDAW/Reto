@@ -1,9 +1,7 @@
-package Vistas.Crud;
+package Vistas.CrudEquipo;
 
 import Controlador.Main;
 import Modelo.Equipo;
-import Modelo.Jornada;
-import Modelo.Propietario;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -68,7 +66,7 @@ public class VentanaBorrarEquipo extends JDialog {
 
     private void onOK() throws Exception {
         try {
-            Main.borrarEquipo((String) cbEquipo.getSelectedItem());
+            Main.borrarEquipo(cbEquipo.getSelectedItem());
             JOptionPane.showMessageDialog(null,"El equipo " + cbEquipo.getSelectedItem() + " ha sido borrado correctamenete");
             cbEquipo.setSelectedIndex(-1);
         } catch (Exception e) {

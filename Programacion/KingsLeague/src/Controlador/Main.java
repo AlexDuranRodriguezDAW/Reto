@@ -1,9 +1,11 @@
 package Controlador;
 
 import Modelo.*;
-import Vistas.Crud.VentanaBorrarEquipo;
-import Vistas.Crud.VentanaCrearEquipo;
-import Vistas.Crud.VentanaModificarEquipo;
+import Vistas.CrudEquipo.VentanaBorrarEquipo;
+import Vistas.CrudEquipo.VentanaCrearEquipo;
+import Vistas.CrudEquipo.VentanaModificarEquipo;
+import Vistas.CrudJugador.VentanaBorrarJugador;
+import Vistas.CrudJugador.VentanaCrearJugador;
 import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
@@ -83,6 +85,20 @@ public class Main {
         dialog.setVisible(true);
     }
 
+    public static void crearVentanaCrearJugador(){
+        VentanaCrearJugador dialog = new VentanaCrearJugador();
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaBorrarJugador(){
+        VentanaBorrarJugador dialog = new VentanaBorrarJugador();
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }
+
     public static void validarPassword(String usuario, String pass) throws Exception {
         Login lConsulta = new Login(usuario, pass);
         usuarioActual = TLogin.consultarUsuario(lConsulta);
@@ -121,7 +137,14 @@ public class Main {
         return TEquipo.consultarTodos();
     }
 
-    public static int borrarEquipo(String nombre) throws Exception {
+    public static int borrarEquipo(Object nombreEquipo) throws Exception {
+        String nombre = (String) nombreEquipo;
         return TEquipo.borrarEquipo(nombre);
+    }
+
+//******************************************************CRUD JUGADORES *************************************************
+    public static void sacarJugadores() throws  Exception{
+      ArrayList<Jugador> listaJugadores = TJugador.seleccionarJugadores();
+
     }
 }
