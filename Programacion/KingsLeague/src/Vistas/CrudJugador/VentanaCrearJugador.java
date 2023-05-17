@@ -1,5 +1,7 @@
 package Vistas.CrudJugador;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -28,12 +30,6 @@ public class VentanaCrearJugador extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
-
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
@@ -54,12 +50,26 @@ public class VentanaCrearJugador extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        bCrear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(rbDraft.isSelected()){
+                    try {
+                        Main.crearPersonaJugadorDraft(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfPosicion.getText(),cbEquipo.getSelectedIndex(),rbDraft.getName(),tfNumDraft.getText());
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                } else if (rbWildCard.isSelected()) {
+                    try {
+                        Main.crearPersonaJugadorWildCard(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfPosicion.getText(),cbEquipo.getSelectedIndex(),rbWildCard.getName());
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
 
     private void onCancel() {
         // add your code here if necessary

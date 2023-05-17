@@ -47,7 +47,7 @@ public class TEquipo {
         return listaEquipos;
     }
 
-    public static void modificarEquipo(String sponsor, String nombre) throws Exception{
+    public static void modificarEquipoSponsor(String sponsor, String nombre) throws Exception{
         BaseDatos.abrirConexion();
         PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set sponsor=? where nombre = ?");
         preparedStatement.setString(1,sponsor);
@@ -55,6 +55,17 @@ public class TEquipo {
         preparedStatement.executeUpdate();
         BaseDatos.cerrarConexion();
     }
+
+    public static void modificarEquipoPresupuesto(int presupuesto, String nombre) throws Exception{
+        BaseDatos.abrirConexion();
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set presupuesto=? where nombre = ?");
+        preparedStatement.setInt(1,presupuesto);
+        preparedStatement.setString(2,nombre);
+        preparedStatement.executeUpdate();
+        BaseDatos.cerrarConexion();
+    }
+
+
 
     public static ArrayList<Equipo> consultarTodos () throws Exception{
         BaseDatos.abrirConexion();

@@ -1,7 +1,10 @@
 package Vistas.CrudEntrenador;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class VentanaBorrarEntrenador extends JDialog {
     private JPanel VentanaBorrarEntrenador;
@@ -16,10 +19,11 @@ public class VentanaBorrarEntrenador extends JDialog {
     private JButton buttonOK;
     private JButton buttonCancel;
 
-    public VentanaBorrarEntrenador() {
+    public VentanaBorrarEntrenador() throws Exception {
         setContentPane(VentanaBorrarEntrenador);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        llenarCB();
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -60,9 +64,15 @@ public class VentanaBorrarEntrenador extends JDialog {
     }
 
     public static void main(String[] args) {
-        VentanaBorrarEntrenador dialog = new VentanaBorrarEntrenador();
-        dialog.pack();
-        dialog.setVisible(true);
+
         System.exit(0);
+    }
+
+    public void llenarCB() throws Exception {
+        ArrayList<String> listaEntrenadores = Main.sacarEntrenadores();
+
+        for (int i = 0; i < listaEntrenadores.size(); i++) {
+            cbEntrenador.addItem(listaEntrenadores.get(i));
+        }
     }
 }

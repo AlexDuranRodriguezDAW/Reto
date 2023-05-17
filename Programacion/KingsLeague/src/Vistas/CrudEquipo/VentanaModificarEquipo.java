@@ -34,7 +34,11 @@ public class VentanaModificarEquipo extends JDialog {
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -67,9 +71,23 @@ public class VentanaModificarEquipo extends JDialog {
         });
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        if (tfPresupuesto.getText().equalsIgnoreCase( String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()))){
+
+            Main.modificarEquipoPresupuesto(tfPresupuesto.getText(),cbNombre.getSelectedIndex());
+
+        } else if (tfSponsor.getText().equalsIgnoreCase(equipos.get(cbNombre.getSelectedIndex()).getSponsor()) ) {
+
+            Main.modificarEquipoSponsor(tfSponsor.getText(),cbNombre.getSelectedIndex());
+
+        }else{
+
+            Main.modificarEquipoPresupuesto(tfPresupuesto.getText(),cbNombre.getSelectedIndex());
+            Main.modificarEquipoSponsor(tfSponsor.getText(),cbNombre.getSelectedIndex());
+
+        }
+
     }
 
     private void onCancel() {
@@ -94,6 +112,8 @@ public class VentanaModificarEquipo extends JDialog {
         }
     }
 
+
+    //Funcion para sacar los datos del equipo seleccionado
     private void setDatos() {
         tfPresupuesto.setText(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()));
         tfSponsor.setText(equipos.get(cbNombre.getSelectedIndex()).getSponsor());
