@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="VentanaPrincipal" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1107" height="735"/>
+      <xy x="20" y="20" width="820" height="537"/>
     </constraints>
     <properties>
       <background color="-2057954"/>
@@ -46,17 +46,6 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="7f84f" class="javax.swing.JLabel" binding="Usuario">
-            <constraints>
-              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="20" style="3"/>
-              <foreground color="-1"/>
-              <icon value="Recursos/Ventanas/usuario.png"/>
-              <text value="Usuario"/>
-            </properties>
-          </component>
           <component id="20546" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -77,17 +66,142 @@
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
+          <component id="685b3" class="javax.swing.JLabel" binding="Usuario">
+            <constraints>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="3"/>
+              <foreground color="-1"/>
+              <icon value="Recursos/Ventanas/usuario.png"/>
+              <text value="Usuario"/>
+            </properties>
+          </component>
         </children>
       </grid>
+      <grid id="39c47" binding="BasePiePagina" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="30" left="30" bottom="30" right="30"/>
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="b467f" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-1"/>
+              <text value="Copyright © 2022 - 2023 Kings League Infojobs. All rights reserved."/>
+            </properties>
+          </component>
+          <component id="465ee" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-1"/>
+              <icon value="Recursos/Ventanas/TeamBonsai.png"/>
+              <iconTextGap value="30"/>
+              <text value="Bonsai Team"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="52b59">
+        <constraints>
+          <grid row="1" column="4" row-span="7" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="6d6da">
+        <constraints>
+          <grid row="2" column="2" row-span="5" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="bbad3" class="javax.swing.JButton" binding="bEquipos">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="78" height="34"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <focusable value="false"/>
+          <font name="Calibri" size="20" style="1"/>
+          <foreground color="-1"/>
+          <text value="Equipos"/>
+        </properties>
+      </component>
+      <hspacer id="48923">
+        <constraints>
+          <grid row="1" column="0" row-span="7" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="5e7be" class="javax.swing.JButton" binding="bUltimaJornada">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="78" height="34"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <focusable value="false"/>
+          <font name="Calibri" size="20" style="1"/>
+          <foreground color="-1"/>
+          <text value="Última Jornada"/>
+        </properties>
+      </component>
+      <component id="69889" class="javax.swing.JButton" binding="bClasificacion">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="78" height="34"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <focusable value="false"/>
+          <font name="Calibri" size="20" style="1"/>
+          <foreground color="-1"/>
+          <text value="Clasificación"/>
+        </properties>
+      </component>
+      <vspacer id="2556">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="4835a">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="b328c">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="2253e">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
       <grid id="51fed" binding="pTabla" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+        <margin top="2" left="2" bottom="2" right="2"/>
         <constraints>
           <grid row="2" column="3" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-1"/>
         </properties>
-        <border type="none"/>
+        <border type="line">
+          <color color="-16777216"/>
+        </border>
         <children>
           <component id="33006" class="javax.swing.JLabel">
             <constraints>
@@ -104,14 +218,6 @@
             </constraints>
             <properties>
               <text value="Equipo 1"/>
-            </properties>
-          </component>
-          <component id="87210" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Fecha / Hora"/>
             </properties>
           </component>
           <component id="c0de1" class="javax.swing.JLabel">
@@ -266,120 +372,16 @@
               <text value="Label"/>
             </properties>
           </component>
-        </children>
-      </grid>
-      <grid id="39c47" binding="BasePiePagina" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="30" left="30" bottom="30" right="30"/>
-        <constraints>
-          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-16777216"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="b467f" class="javax.swing.JLabel">
+          <component id="87210" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Calibri" size="20" style="1"/>
-              <foreground color="-1"/>
-              <text value="Copyright © 2022 - 2023 Kings League Infojobs. All rights reserved."/>
-            </properties>
-          </component>
-          <component id="465ee" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Calibri" size="20" style="1"/>
-              <foreground color="-1"/>
-              <icon value="Recursos/Ventanas/TeamBonsai.png"/>
-              <iconTextGap value="30"/>
-              <text value="Bonsai Team"/>
-              <visible value="true"/>
+              <text value="Fecha / Hora"/>
             </properties>
           </component>
         </children>
       </grid>
-      <hspacer id="52b59">
-        <constraints>
-          <grid row="1" column="4" row-span="7" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <hspacer id="6d6da">
-        <constraints>
-          <grid row="2" column="2" row-span="5" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <component id="bbad3" class="javax.swing.JButton" binding="bEquipos">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="78" height="34"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16777216"/>
-          <focusable value="false"/>
-          <font name="Calibri" size="20" style="1"/>
-          <foreground color="-1"/>
-          <text value="Equipos"/>
-        </properties>
-      </component>
-      <hspacer id="48923">
-        <constraints>
-          <grid row="1" column="0" row-span="7" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <component id="5e7be" class="javax.swing.JButton" binding="bUltimaJornada">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="78" height="34"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16777216"/>
-          <focusable value="false"/>
-          <font name="Calibri" size="20" style="1"/>
-          <foreground color="-1"/>
-          <text value="Última Jornada"/>
-        </properties>
-      </component>
-      <component id="69889" class="javax.swing.JButton" binding="bClasificacion">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false">
-            <preferred-size width="78" height="34"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-16777216"/>
-          <focusable value="false"/>
-          <font name="Calibri" size="20" style="1"/>
-          <foreground color="-1"/>
-          <text value="Clasificación"/>
-        </properties>
-      </component>
-      <vspacer id="2556">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="4835a">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="b328c">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="2253e">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
     </children>
   </grid>
 </form>

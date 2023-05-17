@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vistas.VentanaAdministrador">
-  <grid id="27dc6" binding="VentanaAdministrador" layout-manager="GridLayoutManager" row-count="12" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="VentanaAdministrador" layout-manager="GridLayoutManager" row-count="12" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1107" height="735"/>
+      <xy x="20" y="20" width="820" height="586"/>
     </constraints>
     <properties>
       <background color="-2057954"/>
@@ -13,7 +13,7 @@
       <grid id="563ce" binding="BaseCabecera" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="30" left="30" bottom="30" right="30"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16777216"/>
@@ -57,7 +57,7 @@
       <grid id="9230f" binding="BasePiePagina" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="30" left="30" bottom="30" right="30"/>
         <constraints>
-          <grid row="11" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="0" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16777216"/>
@@ -92,7 +92,7 @@
       <grid id="d0e83" binding="BaseEleccion" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="6" left="6" bottom="6" right="6"/>
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16777216"/>
@@ -201,7 +201,7 @@
       </vspacer>
       <vspacer id="4e877">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="6" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <hspacer id="bddb4">
@@ -235,12 +235,12 @@
       </component>
       <hspacer id="259c">
         <constraints>
-          <grid row="3" column="5" row-span="7" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="5" row-span="7" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="1f83c">
         <constraints>
-          <grid row="1" column="6" row-span="10" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="7" row-span="10" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="2f7ba">
@@ -253,6 +253,19 @@
           <grid row="10" column="1" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="8086" class="javax.swing.JButton">
+        <constraints>
+          <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <enabled value="true"/>
+          <focusable value="false"/>
+          <font name="Calibri" size="20" style="1"/>
+          <foreground color="-1"/>
+          <text value="Salir"/>
+        </properties>
+      </component>
     </children>
   </grid>
   <buttonGroups>
