@@ -1,6 +1,5 @@
 package Modelo;
 
-import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
