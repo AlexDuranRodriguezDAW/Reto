@@ -17,21 +17,19 @@ public class VentanaCrearAsistente extends JDialog {
     private JTextField tfDni;
     private JButton bCrear;
     private JButton bSalir;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaCrearAsistente() {
         setContentPane(VentanaCrearAsistente);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bCrear);
 
-        buttonOK.addActionListener(new ActionListener() {
+        bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

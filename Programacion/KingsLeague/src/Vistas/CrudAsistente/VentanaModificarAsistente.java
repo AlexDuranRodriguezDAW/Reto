@@ -15,21 +15,19 @@ public class VentanaModificarAsistente extends JDialog {
     private JComboBox cbAsistente;
     private JButton bModificar;
     private JButton bSalir;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaModificarAsistente() {
         setContentPane(VentanaModificarAsistente);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bModificar);
 
-        buttonOK.addActionListener(new ActionListener() {
+        bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

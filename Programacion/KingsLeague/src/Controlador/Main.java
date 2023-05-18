@@ -77,7 +77,7 @@ public class Main {
     public static void crearVentanaBorrarEquipo() {
         VentanaBorrarEquipo dialog = new VentanaBorrarEquipo();
         dialog.pack();
-        //dialog.setLocationRelativeTo(null);
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
 

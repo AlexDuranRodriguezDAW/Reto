@@ -16,22 +16,20 @@ public class VentanaBorrarEntrenador extends JDialog {
     private JComboBox cbEntrenador;
     private JButton bBorrar;
     private JButton bSalir;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaBorrarEntrenador() throws Exception {
         setContentPane(VentanaBorrarEntrenador);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bBorrar);
         llenarCB();
 
-        buttonOK.addActionListener(new ActionListener() {
+        bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

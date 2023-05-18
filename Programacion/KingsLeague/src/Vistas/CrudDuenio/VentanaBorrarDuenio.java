@@ -13,21 +13,19 @@ public class VentanaBorrarDuenio extends JDialog {
     private JComboBox cbAsistente;
     private JButton bBorrar;
     private JButton bSalir;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaBorrarDuenio() {
         setContentPane(VentanaBorrarDuenio);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bBorrar);
 
-        buttonOK.addActionListener(new ActionListener() {
+        bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
