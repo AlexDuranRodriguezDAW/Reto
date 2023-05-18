@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
 --****************************************************************************--
 --------------------------------------------------------------------------------
 
-    PROCEDURE EmparejarLigaRegular
+   PROCEDURE EmparejarLigaRegular
     AS
     
     V_FechaJornada      DATE := SYSDATE;
@@ -57,7 +57,7 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
             
             FOR EQUIPO2 IN (SELECT * FROM EQUIPOS)
             LOOP
-            
+                               
             SELECT COUNT(P.ID) INTO V_PartidoExiste
             FROM PARTIDOS P
             WHERE IDEQUIPO1 = EQUIPO1.ID AND IDJORNADA = V_IdJornada

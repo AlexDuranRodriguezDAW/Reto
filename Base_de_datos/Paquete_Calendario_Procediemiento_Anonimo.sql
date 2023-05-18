@@ -9,7 +9,6 @@ SET SERVEROUTPUT ON;
 INSERT INTO SPLIT (TIPO, FECHAINICIO)
 VALUES ('abierto', SYSDATE);
 
-
 -- Emparejamos los equipos.
 BEGIN
 
@@ -23,8 +22,8 @@ END;
 DECLARE
   c_cursor      SYS_REFCURSOR;
   V_IdPartido   PARTIDOS.ID%TYPE;
-  V_Equipo1     EQUIPOS.ID%TYPE;
-  V_Equipo2     EQUIPOS.ID%TYPE;
+  V_Equipo1     EQUIPOS.NOMBRE%TYPE;
+  V_Equipo2     EQUIPOS.NOMBRE%TYPE;
   V_IdJornada   PARTIDOS.IDJORNADA%TYPE;
   
 BEGIN
