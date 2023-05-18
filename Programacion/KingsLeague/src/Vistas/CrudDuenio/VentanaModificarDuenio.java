@@ -13,6 +13,7 @@ public class VentanaModificarDuenio extends JDialog {
     private JComboBox cbAsistente;
     private JButton bModificar;
     private JButton bSalir;
+    private JTextField tfDni;
 
     public VentanaModificarDuenio() {
         setContentPane(VentanaModificarDuenio);

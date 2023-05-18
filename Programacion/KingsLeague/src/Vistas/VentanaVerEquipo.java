@@ -13,6 +13,9 @@ public class VentanaVerEquipo {
     private JPanel BaseCabecera;
     private JButton bAtras;
     private JLabel lEquipo;
+    private JPanel BaseBuscador;
+    private JTextArea taEquipos;
+    private JLabel logo;
 
     public JPanel getVentanaVerEquipo() {
         return ventanaVerEquipo;
