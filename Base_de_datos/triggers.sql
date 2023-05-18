@@ -8,6 +8,7 @@ DECLARE
 
 V_JugadoresDraft                SYS_REFCURSOR;
 V_JugadoresWildCard             SYS_REFCURSOR;
+V_Jugadores                     SYS_REFCURSOR;
 V_NumJugadores                  NUMBER;
 V_NumEquipos                    NUMBER;
 JugadoresDraftInsuficientes     EXCEPTION;
@@ -29,11 +30,17 @@ BEGIN
         AND UPPER(JU.TIPO)='DRAFT'
         GROUP BY E.ID;
     
-        SELECT COUNT(*) INTO V_NumJugadores
-        FROM JUGAADORESEQUIPOS
+        OPEN V_Jugadores FOR
+        SELECT COUNT(*)
+        FROM JUGADORESEQUIPOS
         GROUP BY IDEQUIPO;
         
-        IF V_NumJugadores = 10 THEN
+        LOOP 
+        FETCH V_Jugadores INTO V_NumJugadores;
+        
+        EXIT WHEN V_Jugadores%NOTFOUND;
+        
+        IF V_NumJugadores > 10 THEN
 
         LOOP
 
@@ -74,12 +81,13 @@ BEGIN
             RAISE NumJugadoresError;
             
         END IF;
+        END LOOP;
     ELSE
-    
     
         RAISE NumEquiposError;
             
     END IF;
+    
 
 EXCEPTION
 
@@ -92,8 +100,11 @@ EXCEPTION
         jugadores tipo WildCard.');
                 
     WHEN NumEquiposError THEN
-    
         RAISE_APPLICATION_ERROR(-20003,'Tiene que haber 12 equipos');
+        
+    WHEN NumJugadoreserror THEN
+        RAISE_APPLICATION_ERROR(-20004,'Los equipos tiene que tener maximo 10 
+        jugadores.');
     
 END;
 
@@ -136,6 +147,15 @@ ORA-20002: Los equipos superan el maximo de
 ORA-06512: en "EQDAW03.COMPROBARPLANTILLA", línea 73
 ORA-04088: error durante la ejecución del disparador 'EQDAW03.COMPROBARPLANTILLA'
 
+ERROR POR SOBREPASAR EL MAXIMO DE JUGADORES
+
+Error que empieza en la línea: 1 del comando :
+insert into jornadas(fecha, tipo, idsplit) values (sysdate, 'regular', 1)
+Informe de error -
+ORA-20004: Los equipos tiene que tener maximo 10 
+        jugadores.
+ORA-06512: en "EQDAW03.COMPROBARPLANTILLA", línea 100
+ORA-04088: error durante la ejecución del disparador 'EQDAW03.COMPROBARPLANTILLA'
 
 
 */
