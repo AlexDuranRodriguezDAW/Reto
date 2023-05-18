@@ -54,4 +54,18 @@ public class TEquipo {
         }
         return equipos;
     }
+
+    public static String buscarIDEquipo(String nombreEquipo) throws Exception {
+
+        BaseDatos.abrirConexion();
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select id from equipos where nombre = ?");
+        ps.setString(1,nombreEquipo);
+        ResultSet rs = ps.executeQuery();
+        Equipo e = new Equipo();
+        if (rs.next()){
+            e.setId(rs.getString("id"));
+        }
+
+        return e.getId();
+    }
 }

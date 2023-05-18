@@ -59,4 +59,11 @@ public class TJugador {
 
         BaseDatos.cerrarConexion();
     }
+
+    public static void modificarJugador(Jugador jugador, String clausula, String sueldo, String equipo) {
+
+
+
+
+    }
 }

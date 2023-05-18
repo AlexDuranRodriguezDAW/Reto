@@ -27,7 +27,11 @@ public class VentanaCrearEntrenador extends JDialog {
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -53,9 +57,9 @@ public class VentanaCrearEntrenador extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        //Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText() );
+        Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText(),cbEquipo.getSelectedIndex(),tfSueldo.getText());
     }
 
     private void onCancel() {

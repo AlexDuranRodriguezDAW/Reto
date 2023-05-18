@@ -1,5 +1,7 @@
 package Vistas.CrudJugador;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -18,10 +20,12 @@ public class VentanaModificarJugador extends JDialog {
     private JButton bModificar;
     private JButton bSalir;
 
-    public VentanaModificarJugador() {
+    public VentanaModificarJugador() throws Exception {
         setContentPane(VentanaModificarJugador);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+
+        llenarCB();
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -53,7 +57,7 @@ public class VentanaModificarJugador extends JDialog {
 
     private void onOK() {
         // add your code here
-        dispose();
+        Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfPosicion.getText(),tfClausula.getText(),tfSueldo.getText());
     }
 
     private void onCancel() {
@@ -61,10 +65,10 @@ public class VentanaModificarJugador extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaModificarJugador dialog = new VentanaModificarJugador();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+
+    public void llenarCB() throws Exception {
+        Main.llenarComboBoxEquipo(cbEquipo);
+        Main.llenarComboBoxJugador(cbJugador);
     }
+
 }

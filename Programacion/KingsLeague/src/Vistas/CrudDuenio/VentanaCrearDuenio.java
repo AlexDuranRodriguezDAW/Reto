@@ -1,5 +1,7 @@
 package Vistas.CrudDuenio;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -24,7 +26,11 @@ public class VentanaCrearDuenio extends JDialog {
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -50,9 +56,9 @@ public class VentanaCrearDuenio extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        Main.crearDuenio(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),cbEquipo.getSelectedIndex());
     }
 
     private void onCancel() {
@@ -60,10 +66,5 @@ public class VentanaCrearDuenio extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaCrearDuenio dialog = new VentanaCrearDuenio();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

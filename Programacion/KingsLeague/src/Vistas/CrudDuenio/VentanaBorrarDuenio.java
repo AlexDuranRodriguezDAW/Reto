@@ -1,5 +1,7 @@
 package Vistas.CrudDuenio;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -10,7 +12,7 @@ public class VentanaBorrarDuenio extends JDialog {
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbAsistente;
+    private JComboBox cbDuenio;
     private JButton bBorrar;
     private JButton bSalir;
 
@@ -21,7 +23,11 @@ public class VentanaBorrarDuenio extends JDialog {
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -47,9 +53,15 @@ public class VentanaBorrarDuenio extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        int n = Main.borrarDuenio(cbDuenio.getSelectedIndex());
+
+        if (n != 0){
+            JOptionPane.showMessageDialog(null,"Se a borrado el dueño");
+        }
+
+
     }
 
     private void onCancel() {
@@ -57,10 +69,5 @@ public class VentanaBorrarDuenio extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaBorrarDuenio dialog = new VentanaBorrarDuenio();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

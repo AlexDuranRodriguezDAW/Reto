@@ -47,9 +47,11 @@ public class TPersona {
     }
 
     public static void borrarPersonaEntrenador(Entrenador e) throws Exception {
+        BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
         ps.setString(1, e.getDni());
         ps.executeUpdate();
+        BaseDatos.cerrarConexion();
     }
 
 //*****************************************STAFF************************************************************************
@@ -161,12 +163,13 @@ public class TPersona {
     }
 
 
-    public static void borrarPersonaPropietario(Propietario p) throws Exception {
+    public static int borrarPersonaPropietario(Propietario p) throws Exception {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
         ps.setString(1, p.getDni());
-        ps.executeUpdate();
+        int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
+        return n;
     }
 
     public static Propietario consultarPropietarioId (String id) throws Exception{
