@@ -37,7 +37,7 @@ public class VentanaModificarEquipo extends JDialog {
                 try {
                     onOK();
                 } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
             }
         });
@@ -73,7 +73,7 @@ public class VentanaModificarEquipo extends JDialog {
 
     private void onOK() throws Exception {
         // add your code here
-        if (tfPresupuesto.getText().equalsIgnoreCase( String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()))){
+       if (tfPresupuesto.getText().equals(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()))){
 
             Main.modificarEquipoPresupuesto(tfPresupuesto.getText(),cbNombre.getSelectedIndex());
 
@@ -102,11 +102,11 @@ public class VentanaModificarEquipo extends JDialog {
             for (Equipo equipo : equipos) {
                 cbNombre.addItem(equipo.getNombreEquipo());
             }
-            for (Propietario propietario : propietarios) {
+           /* for (Propietario propietario : propietarios) {
                 cbPropietario.addItem(propietario.getNombre() + " " + propietario.getApellidos());
-            }
+            }*/
             cbNombre.setSelectedIndex(-1);
-            cbPropietario.setSelectedIndex(-1);
+           // cbPropietario.setSelectedIndex(-1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al llenado de las comoboBox");
         }
@@ -115,7 +115,7 @@ public class VentanaModificarEquipo extends JDialog {
 
     //Funcion para sacar los datos del equipo seleccionado
     private void setDatos() {
-        tfPresupuesto.setText(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()));
+        //tfPresupuesto.setText(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()));
         tfSponsor.setText(equipos.get(cbNombre.getSelectedIndex()).getSponsor());
     }
 }

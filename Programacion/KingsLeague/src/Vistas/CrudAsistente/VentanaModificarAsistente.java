@@ -61,10 +61,5 @@ public class VentanaModificarAsistente extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaModificarAsistente dialog = new VentanaModificarAsistente();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }

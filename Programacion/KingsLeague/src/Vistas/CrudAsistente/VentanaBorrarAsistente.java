@@ -60,9 +60,7 @@ public class VentanaBorrarAsistente extends JDialog {
     }
 
     public static void main(String[] args) {
-        VentanaBorrarAsistente dialog = new VentanaBorrarAsistente();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+
+
     }
 }

@@ -36,9 +36,9 @@ public class VentanaAdministrador {
                 if(rbEquipo.isSelected()){
                     Main.crearVentanaCrearEquipo();
                 } else if (rbAsistente.isSelected()) {
-
+                    Main.crearVentanaCrearAsistente();
                 }else if (rbEntrenador.isSelected()){
-
+                    Main.crearVentanaCrearEntrenador();
                 } else if (rbJugador.isSelected()) {
 
                 }
@@ -51,7 +51,7 @@ public class VentanaAdministrador {
                 if(rbEquipo.isSelected()){
                     Main.crearVentanaBorrarEquipo();
                 } else if (rbAsistente.isSelected()) {
-
+                    Main.crearVentanaBorrarAsitente();
                 }else if (rbEntrenador.isSelected()){
                     try {
                         Main.crearVentanBorrarEntrenador();
@@ -69,7 +69,7 @@ public class VentanaAdministrador {
                 if(rbEquipo.isSelected()){
                     Main.crearVentanaModificarEquipo();
                 } else if (rbAsistente.isSelected()) {
-
+                    Main.crearVentanaModificarAsistente();
                 }else if (rbEntrenador.isSelected()){
 
                 } else if (rbJugador.isSelected()) {
