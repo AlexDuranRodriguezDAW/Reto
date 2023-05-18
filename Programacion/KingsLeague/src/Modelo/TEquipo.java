@@ -50,9 +50,12 @@ public class TEquipo {
     public static void modificarEquipoSponsor(String sponsor, String nombre) throws Exception{
         BaseDatos.abrirConexion();
         PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set sponsor=? where nombre = ?");
+        System.out.println(sponsor);
         preparedStatement.setString(1,sponsor);
         preparedStatement.setString(2,nombre);
-        preparedStatement.executeUpdate();
+        System.out.println(nombre);
+        int n = preparedStatement.executeUpdate();
+        System.out.println(n);
         BaseDatos.cerrarConexion();
     }
 

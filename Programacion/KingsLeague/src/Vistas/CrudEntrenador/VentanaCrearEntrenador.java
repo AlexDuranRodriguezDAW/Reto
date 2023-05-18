@@ -64,9 +64,7 @@ public class VentanaCrearEntrenador extends JDialog {
     }
 
     public static void main(String[] args) {
-        VentanaCrearEntrenador dialog = new VentanaCrearEntrenador();
-        dialog.pack();
-        dialog.setVisible(true);
+
         System.exit(0);
     }
 }

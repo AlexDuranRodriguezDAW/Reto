@@ -1,7 +1,11 @@
 package Controlador;
 
 import Modelo.*;
+import Vistas.CrudAsistente.VentanaBorrarAsistente;
+import Vistas.CrudAsistente.VentanaCrearAsistente;
+import Vistas.CrudAsistente.VentanaModificarAsistente;
 import Vistas.CrudEntrenador.VentanaBorrarEntrenador;
+import Vistas.CrudEntrenador.VentanaCrearEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
 import Vistas.CrudEquipo.VentanaCrearEquipo;
 import Vistas.CrudEquipo.VentanaModificarEquipo;
@@ -73,7 +77,7 @@ public class Main {
     public static void crearVentanaBorrarEquipo() {
         VentanaBorrarEquipo dialog = new VentanaBorrarEquipo();
         dialog.pack();
-        dialog.setLocationRelativeTo(null);
+        //dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
 
@@ -86,6 +90,31 @@ public class Main {
 
     public static void crearVentanBorrarEntrenador() throws Exception {
         VentanaBorrarEntrenador dialog = new VentanaBorrarEntrenador();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+
+    public static void crearVentanaBorrarAsitente(){
+        VentanaBorrarAsistente dialog = new VentanaBorrarAsistente();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaCrearAsistente(){
+        VentanaCrearAsistente dialog = new VentanaCrearAsistente();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaModificarAsistente(){
+        VentanaModificarAsistente dialog = new VentanaModificarAsistente();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaCrearEntrenador(){
+        VentanaCrearEntrenador dialog = new VentanaCrearEntrenador();
         dialog.pack();
         dialog.setVisible(true);
     }
