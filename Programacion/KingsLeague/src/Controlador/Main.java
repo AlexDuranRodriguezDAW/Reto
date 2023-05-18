@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.*;
 
 import javax.swing.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static Controlador.ControladorVentanas.ventanaInicioSesion;
@@ -240,5 +241,14 @@ public class Main {
 
     }
 
+//**********************************************GENERAR PARTIDOS********************************************************
+
+    public static void emparejarLigaRegular() throws SQLException {
+        TJornada.emparejarLigaRegular();
+    }
+
+    public static void emparejarPlayOff() throws SQLException {
+        TJornada.emparejarPlayOff();
+    }
 
 }

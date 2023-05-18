@@ -12,7 +12,7 @@ public class VentanaBorrarDuenio extends JDialog {
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbDuenio;
+    private JComboBox cbPropietario;
     private JButton bBorrar;
     private JButton bSalir;
 
@@ -56,7 +56,7 @@ public class VentanaBorrarDuenio extends JDialog {
 
     private void onOK() throws Exception {
         // add your code here
-        int n = Main.borrarDuenio(cbDuenio.getSelectedIndex());
+        int n = Main.borrarDuenio(cbPropietario.getSelectedIndex());
 
         if (n != 0){
             JOptionPane.showMessageDialog(null,"Se a borrado el dueño");
