@@ -1,6 +1,8 @@
 -- Trigger para comprobar que se cumplan todos los requisitos de la liga
 --> Trigger para asegurar que no se insertan mas de dos wildcard en un equipo
 
+
+
 CREATE OR REPLACE TRIGGER ComprobarPlantilla
 BEFORE INSERT OR UPDATE ON JORNADAS
 FOR EACH ROW
