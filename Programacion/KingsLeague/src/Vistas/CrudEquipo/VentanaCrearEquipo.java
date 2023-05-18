@@ -18,17 +18,14 @@ public class VentanaCrearEquipo extends JDialog {
     private JButton bSalir;
     private JTextField tfSponsor;
     private JComboBox cbPropietario;
-    private JButton buttonOK;
-    private JButton buttonCancel;
-    private ArrayList<Propietario> propietarios;
 
     public VentanaCrearEquipo() {
         setContentPane(ventanaCrearEquipo);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bCrear);
 
         try {
-            llenarComboBox();
+            Main.llenarComboBoxPropietario(cbPropietario);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error llenado comboBox");
         }
@@ -72,7 +69,7 @@ public class VentanaCrearEquipo extends JDialog {
             }
             ControladorValidaciones.validarDato(tfNombre.getText(), "Nombre equipo", "^[A-Z][a-z]*( [A-Z]?[a-z]*)*\\S$");
             ControladorValidaciones.validarDato(tfSponsor.getText(), "Nombre del sponsor", "^[A-Z][a-z]*( [A-Z]?[a-z]*)*\\S$");
-            int n = Main.crearEquipo(tfNombre.getText(), tfSponsor.getText(), propietarios.get(cbPropietario.getSelectedIndex()));
+            int n = Main.crearEquipo(tfNombre.getText(), tfSponsor.getText(), cbPropietario.getSelectedIndex());
             if (n == 1) {
                 JOptionPane.showMessageDialog(null, "El equipo ha sido creado correctamente");
             } else {
@@ -88,13 +85,5 @@ public class VentanaCrearEquipo extends JDialog {
 
     private void onCancel() {
         dispose();
-    }
-
-    private void llenarComboBox() throws Exception {
-        propietarios = Main.getPropietarios();
-        for (Propietario propietario : propietarios) {
-            cbPropietario.addItem(propietario.getNombre() + " " + propietario.getApellidos());
-        }
-        cbPropietario.setSelectedIndex(-1);
     }
 }

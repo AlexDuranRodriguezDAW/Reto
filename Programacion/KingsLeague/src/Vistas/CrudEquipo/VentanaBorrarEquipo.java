@@ -25,7 +25,8 @@ public class VentanaBorrarEquipo extends JDialog {
         getRootPane().setDefaultButton(bBorrar);
 
         try {
-            llenarComboBox();
+            Main.llenarComboBoxEquipo(cbEquipo);
+            cbEquipo.setSelectedIndex(-1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error llenado comboBox");
         }
@@ -75,13 +76,5 @@ public class VentanaBorrarEquipo extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    private void llenarComboBox() throws Exception {
-        equipos = Main.getEquipos();
-        for (Equipo equipo:equipos){
-            cbEquipo.addItem(equipo.getNombreEquipo());
-        }
-        cbEquipo.setSelectedIndex(-1);
     }
 }

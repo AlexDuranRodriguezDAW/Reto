@@ -27,7 +27,7 @@ public class VentanaBorrarJugador extends JDialog {
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

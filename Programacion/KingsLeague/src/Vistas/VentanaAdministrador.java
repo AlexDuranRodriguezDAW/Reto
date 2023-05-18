@@ -35,7 +35,7 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 if(rbEquipo.isSelected()){
                    // Main.crearVentanaCrearEquipo();
-                    Main.a();
+                    Main.crearVentanaCrearEquipo();
                 } else if (rbAsistente.isSelected()) {
                     Main.crearVentanaCrearAsistente();
                 }else if (rbEntrenador.isSelected()){
