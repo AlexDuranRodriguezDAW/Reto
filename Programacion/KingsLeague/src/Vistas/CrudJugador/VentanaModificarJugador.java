@@ -5,8 +5,6 @@ import java.awt.event.*;
 
 public class VentanaModificarJugador extends JDialog {
     private JPanel VentanaModificarJugador;
-    private JButton buttonOK;
-    private JButton buttonCancel;
     private JPanel BaseCabecera;
     private JLabel Logo;
     private JLabel Usuario;
@@ -23,15 +21,15 @@ public class VentanaModificarJugador extends JDialog {
     public VentanaModificarJugador() {
         setContentPane(VentanaModificarJugador);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bModificar);
 
-        buttonOK.addActionListener(new ActionListener() {
+        bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

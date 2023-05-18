@@ -22,15 +22,13 @@ public class VentanaCrearJugador extends JDialog {
     private JTextField tfDni;
     private JTextField tfNombre;
     private JTextField tfApellido;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaCrearJugador() {
         setContentPane(VentanaCrearJugador);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bCrear);
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class VentanaBorrarJugador extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
     private JPanel BaseBotones;
     private JComboBox cbJugador;
     private JPanel BasePiePagina;
@@ -21,7 +19,7 @@ public class VentanaBorrarJugador extends JDialog {
     public VentanaBorrarJugador() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bBorrar);
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

@@ -17,21 +17,19 @@ public class VentanaCrearEntrenador extends JDialog {
     private JTextField tfDni;
     private JButton bCrear;
     private JButton bSalir;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
     public VentanaCrearEntrenador() {
         setContentPane(VentanaCrearEntrenador);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(bCrear);
 
-        buttonOK.addActionListener(new ActionListener() {
+        bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }

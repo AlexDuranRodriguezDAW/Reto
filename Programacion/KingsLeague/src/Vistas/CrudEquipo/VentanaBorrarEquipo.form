@@ -95,7 +95,7 @@
                 <properties>
                   <font name="Calibri" size="20" style="1"/>
                   <foreground color="-1"/>
-                  <icon value="Imagenes/TeamBonsai.png"/>
+                  <icon value="Recursos/Ventanas/TeamBonsai.png"/>
                   <iconTextGap value="30"/>
                   <text value="Bonsai Team"/>
                   <visible value="true"/>
