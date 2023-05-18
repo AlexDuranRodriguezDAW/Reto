@@ -24,14 +24,14 @@ public class BaseDatos {
 
             //Codigo para pruebas en la base de datos de local
             Class.forName("oracle.jdbc.OracleDriver");
-            String url = "jdbc:oracle:thin:@10.100.11.196:1521:xe";
+            String url = "jdbc:oracle:thin:@192.168.0.40:1521:xe";
             String usuario = "alex";
             String contrasenya = "12345";
 
             con = DriverManager.getConnection(url, usuario, contrasenya);
 
         } catch (Exception e) {
-
+            System.out.println("Problemas al abrir la base de datos " + e.getMessage());
         }
     }
 

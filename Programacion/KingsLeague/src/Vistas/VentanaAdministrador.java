@@ -1,6 +1,6 @@
 package Vistas;
 
-import Controlador.Main;
+import Controlador.ControladorVentanas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +24,7 @@ public class VentanaAdministrador {
     private JButton bBorrar;
     private JLabel Usuario;
     private JLabel Logo;
+    private JButton bSalir;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
@@ -35,11 +36,11 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 if(rbEquipo.isSelected()){
                    // Main.crearVentanaCrearEquipo();
-                    Main.crearVentanaCrearEquipo();
+                    ControladorVentanas.crearVentanaCrearEquipo();
                 } else if (rbAsistente.isSelected()) {
-                    Main.crearVentanaCrearAsistente();
+                    ControladorVentanas.crearVentanaCrearAsistente();
                 }else if (rbEntrenador.isSelected()){
-                    Main.crearVentanaCrearEntrenador();
+                    ControladorVentanas.crearVentanaCrearEntrenador();
                 } else if (rbJugador.isSelected()) {
 
                 }
@@ -50,12 +51,12 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(rbEquipo.isSelected()){
-                    Main.crearVentanaBorrarEquipo();
+                    ControladorVentanas.crearVentanaBorrarEquipo();
                 } else if (rbAsistente.isSelected()) {
-                    Main.crearVentanaBorrarAsitente();
+                    ControladorVentanas.crearVentanaBorrarAsitente();
                 }else if (rbEntrenador.isSelected()){
                     try {
-                        Main.crearVentanBorrarEntrenador();
+                        ControladorVentanas.crearVentanBorrarEntrenador();
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
@@ -68,14 +69,20 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(rbEquipo.isSelected()){
-                    Main.crearVentanaModificarEquipo();
+                    ControladorVentanas.crearVentanaModificarEquipo();
                 } else if (rbAsistente.isSelected()) {
-                    Main.crearVentanaModificarAsistente();
+                    ControladorVentanas.crearVentanaModificarAsistente();
                 }else if (rbEntrenador.isSelected()){
 
                 } else if (rbJugador.isSelected()) {
 
                 }
+            }
+        });
+        bSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.ventanaAdministrador.dispose();
             }
         });
     }

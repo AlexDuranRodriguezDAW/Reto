@@ -1,6 +1,9 @@
 package Vistas.CrudAsistente;
 
+import Controlador.Main;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class VentanaBorrarAsistente extends JDialog {
@@ -18,6 +21,12 @@ public class VentanaBorrarAsistente extends JDialog {
         setContentPane(VentanaBorrarAsistente);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
+
+        try {
+            Main.llenarComboBoxAsistente(cbAsistente);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error llenado comboBox " + e.getMessage());
+        }
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,17 +57,17 @@ public class VentanaBorrarAsistente extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
-        dispose();
+        try {
+            int n = Main.borrarAsistente(cbAsistente.getSelectedIndex());
+            JOptionPane.showMessageDialog(null,n + " Asistente ha sido borrado");
+            cbAsistente.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error borrar asistente " + e.getMessage());
+        }
     }
 
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-
-
     }
 }

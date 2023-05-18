@@ -1,121 +1,28 @@
 package Controlador;
 
 import Modelo.*;
-import Vistas.*;
-import Vistas.CrudAsistente.VentanaBorrarAsistente;
-import Vistas.CrudAsistente.VentanaCrearAsistente;
-import Vistas.CrudAsistente.VentanaModificarAsistente;
-import Vistas.CrudEntrenador.VentanaBorrarEntrenador;
-import Vistas.CrudEntrenador.VentanaCrearEntrenador;
-import Vistas.CrudEquipo.VentanaBorrarEquipo;
-import Vistas.CrudEquipo.VentanaCrearEquipo;
-import Vistas.CrudEquipo.VentanaModificarEquipo;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
+import static Controlador.ControladorVentanas.ventanaInicioSesion;
+
 public class Main {
-    private static JFrame ventanaInicioSesion;
-    private static JFrame ventanaPrincipal;
     private static Login usuarioActual;
+    private static ArrayList<Entrenador> listaEntrenadores;
+    private static ArrayList<Equipo> listaEquipos;
+    private static ArrayList<Propietario> listaPropietarios;
+    private static ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Staff> listaAsistentes;
+
 
     public static void main(String[] args) throws Exception {
         try {
-            crearVentanaInicioSesion();
+            ControladorVentanas.crearVentanaInicioSesion();
 
         } catch (Exception e) {
             throw new Exception("Error al crear ventana inicio de sesion");
         }
-    }
-
-
-    //Metodos relacionados con las ventanas
-    public static void crearVentanaInicioSesion() {
-        ventanaInicioSesion = new JFrame("VentanaInicioSesion");
-        ventanaInicioSesion.setContentPane(new VentanaInicioSesion().getVentanaInicioSesion());
-        ventanaInicioSesion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventanaInicioSesion.pack();
-        ventanaInicioSesion.setLocationRelativeTo(null);
-        ventanaInicioSesion.setVisible(true);
-    }
-
-    public static void crearVentanaPrincipal() {
-        ventanaPrincipal = new JFrame("VentanaPrincipal");
-        ventanaPrincipal.setContentPane(new VentanaPrincipal().getVentanaPrincipal());
-        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventanaPrincipal.pack();
-        ventanaPrincipal.setLocationRelativeTo(ventanaInicioSesion);
-        ventanaPrincipal.setVisible(true);
-    }
-
-    public static void crearVentanaAdministrador() {
-        JFrame frame = new JFrame("VentanaAdministrador");
-        frame.setContentPane(new VentanaAdministrador().getpPrincipal());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaPrincipal);
-        frame.setVisible(true);
-    }
-
-    public static void crearVentanaVerEquipo() {
-        JFrame frame = new JFrame("VentanaVerEquipo");
-        frame.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaPrincipal);
-        frame.setVisible(true);
-    }
-
-    public static void crearVentanaCrearEquipo() {
-        VentanaCrearEquipo dialog = new VentanaCrearEquipo();
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanaBorrarEquipo() {
-        VentanaBorrarEquipo dialog = new VentanaBorrarEquipo();
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanaModificarEquipo() {
-        VentanaModificarEquipo dialog = new VentanaModificarEquipo();
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanBorrarEntrenador() throws Exception {
-        VentanaBorrarEntrenador dialog = new VentanaBorrarEntrenador();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
-
-
-    public static void crearVentanaBorrarAsitente() {
-        VentanaBorrarAsistente dialog = new VentanaBorrarAsistente();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanaCrearAsistente() {
-        VentanaCrearAsistente dialog = new VentanaCrearAsistente();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanaModificarAsistente() {
-        VentanaModificarAsistente dialog = new VentanaModificarAsistente();
-        dialog.pack();
-        dialog.setVisible(true);
-    }
-
-    public static void crearVentanaCrearEntrenador() {
-        VentanaCrearEntrenador dialog = new VentanaCrearEntrenador();
-        dialog.pack();
-        dialog.setVisible(true);
     }
 
     public static void validarPassword(String usuario, String pass) throws Exception {
@@ -123,13 +30,11 @@ public class Main {
         usuarioActual = TLogin.consultarUsuario(lConsulta);
         System.out.println("El usuario es " + usuarioActual.getUsuario() + " con pass " + usuarioActual.getContrasenya() + " y es tipo " + usuarioActual.getTipo());
         ventanaInicioSesion.dispose();
-        crearVentanaPrincipal();
+        ControladorVentanas.crearVentanaPrincipal();
     }
 
     //********************************************CRUD EQUIPOS*************************************************************************
 
-    public static ArrayList<Equipo> listaEquipos;
-    public static ArrayList<Propietario> listaPropietarios;
 
     public static void llenarComboBoxEquipo(JComboBox comboBox) throws Exception {
         listaEquipos = TEquipo.consultarTodos();
@@ -180,8 +85,6 @@ public class Main {
 //***********************************CRUD JUGADORES****************************************************************************
 
 
-    public static ArrayList<Jugador> listaJugadores;
-
     public static ArrayList<String> sacarJugadores() throws Exception {
         listaJugadores = TJugador.seleccionarJugadores();
 
@@ -219,9 +122,8 @@ public class Main {
 
     }
 
-//********************************************CRUD ENTRENADOS **********************************************************
+//********************************************CRUD ENTRENADORES **********************************************************
 
-    public static ArrayList<Entrenador> listaEntrenadores;
 
     public static ArrayList<String> sacarEntrenadores() throws Exception {
         listaEntrenadores = TEntrenador.seleccionarEntrenador();
@@ -251,4 +153,40 @@ public class Main {
 
     }
 
+    //********************************************CRUD ASISTENTES*************************************************************************
+
+    public static void llenarComboBoxAsistente(JComboBox comboBox) throws Exception {
+        listaAsistentes = TStaff.consultarTodos();
+        for (Staff staff : listaAsistentes) {
+            comboBox.addItem(staff.getNombre() + " " + staff.getApellidos());
+        }
+    }
+
+    public static int crearAsistente(String dni, String nombre, String apellidos) throws Exception {
+        Staff s1 = new Staff(dni, apellidos, nombre);
+        return TStaff.crearPersonaStaff(s1);
+    }
+
+    public static void asignarAsistenteEquipo(String dni, int indexEquipo, double sueldo) throws Exception {
+        Staff s1 = new Staff();
+        s1.setDni(dni);
+        Staff sConsulta = new Staff();
+        sConsulta.setId(TPersona.buscarIdStaff(s1));
+        Equipo eConsulta = listaEquipos.get(indexEquipo);
+        StaffEquipo se = new StaffEquipo(eConsulta, sConsulta, sueldo);
+        TStaffEquipo.crearPersonaStaffEquipo(se);
+    }
+
+    public static int borrarAsistente(int indexAsistente) throws Exception {
+        return TPersona.borrarPersonaStaff(listaAsistentes.get(indexAsistente));
+    }
+
+    public static double getSueldo(int indexAsistente) throws Exception {
+        return TStaffEquipo.getSueldoId(listaAsistentes.get(indexAsistente));
+    }
+
+    public static int modificarAsistente(int indexEquipo,int indexAsistente, double sueldo) throws Exception{
+        StaffEquipo se = new StaffEquipo(listaEquipos.get(indexEquipo),listaAsistentes.get(indexAsistente),sueldo);
+        return TStaffEquipo.modificarStaffEquipo(se);
+    }
 }

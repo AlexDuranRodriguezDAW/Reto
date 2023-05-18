@@ -65,13 +65,10 @@ public class TPersona {
             ps.setString(3, s.getApellidos());
             int n = ps.executeUpdate();
         }
-      /*
-         if (n!=0){
-            buscarId(e)}
-       */
     }
 
     public static String buscarIdStaff(Staff s) throws Exception {
+        BaseDatos.abrirConexion();
         PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
         preparedStatement.setString(1, s.getDni());
         ResultSet rs = preparedStatement.executeQuery();
@@ -82,12 +79,13 @@ public class TPersona {
         return staff.getId();
     }
 
-    public static void borrarPersonaStaff(Staff s) throws Exception {
+    public static int borrarPersonaStaff(Staff s) throws Exception {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
         ps.setString(1, s.getDni());
-        ps.executeUpdate();
+        int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
+        return n;
     }
 
 
