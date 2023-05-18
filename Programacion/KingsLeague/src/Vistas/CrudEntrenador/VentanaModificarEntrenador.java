@@ -1,5 +1,7 @@
 package Vistas.CrudEntrenador;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -21,6 +23,7 @@ public class VentanaModificarEntrenador extends JDialog {
         setContentPane(VentanaModificarEntrenador);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+        Usuario.setText(Main.getUsuario());
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

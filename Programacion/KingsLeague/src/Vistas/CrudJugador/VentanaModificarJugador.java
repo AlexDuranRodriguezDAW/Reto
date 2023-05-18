@@ -24,6 +24,8 @@ public class VentanaModificarJugador extends JDialog {
         setContentPane(VentanaModificarJugador);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+        Usuario.setText(Main.getUsuario());
+
 
         llenarCB();
 

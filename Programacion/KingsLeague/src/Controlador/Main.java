@@ -33,7 +33,7 @@ public class Main {
         ControladorVentanas.crearVentanaPrincipal();
     }
 
-    //********************************************CRUD EQUIPOS*************************************************************************
+//********************************************CRUD EQUIPOS**************************************************************
 
 
     public static void llenarComboBoxEquipo(JComboBox comboBox) throws Exception {
@@ -91,7 +91,7 @@ public class Main {
         return listaEquipos.get(index).getPresupuesto();
     }
 
-//***********************************CRUD JUGADORES****************************************************************************
+//*********************************************CRUD JUGADORES***********************************************************
 
 
     public static ArrayList<String> sacarJugadores() throws Exception {
@@ -142,7 +142,7 @@ public class Main {
 
     }
 
-//********************************************CRUD ENTRENADORES **********************************************************
+//********************************************CRUD ENTRENADORES ********************************************************
 
 
     public static ArrayList<String> sacarEntrenadores() throws Exception {
@@ -172,10 +172,7 @@ public class Main {
         TPersona.borrarPersonaEntrenador(e);
 
     }
-
-
-
-    //********************************************CRUD ASISTENTES*************************************************************************
+//********************************************CRUD ASISTENTES***********************************************************
 
     public static void llenarComboBoxAsistente(JComboBox comboBox) throws Exception {
         listaAsistentes = TStaff.consultarTodos();
@@ -213,7 +210,7 @@ public class Main {
     }
 
 
-//************************************************Dueño****************************************************************
+//************************************************CRUD DUEÑO************************************************************
 
 
     public static int borrarDuenio(int indexDuenio) throws Exception {
@@ -228,12 +225,20 @@ public class Main {
 
         TPropietario.crearPropietario(p,nombreEquipo);
 
-
     }
 
 
 
+//************************************************SACAR USUARIO*********************************************************
 
+    public static String getUsuario()
+    {
+
+        String usuario = usuarioActual.getUsuario();
+
+        return usuario;
+
+    }
 
 
 }

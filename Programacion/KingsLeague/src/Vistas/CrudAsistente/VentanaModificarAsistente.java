@@ -23,6 +23,7 @@ public class VentanaModificarAsistente extends JDialog {
         setContentPane(VentanaModificarAsistente);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+        Usuario.setText(Main.getUsuario());
 
         try {
             Main.llenarComboBoxAsistente(cbAsistente);

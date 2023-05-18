@@ -21,6 +21,7 @@ public class VentanaBorrarAsistente extends JDialog {
         setContentPane(VentanaBorrarAsistente);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
+        Usuario.setText(Main.getUsuario());
 
         try {
             Main.llenarComboBoxAsistente(cbAsistente);

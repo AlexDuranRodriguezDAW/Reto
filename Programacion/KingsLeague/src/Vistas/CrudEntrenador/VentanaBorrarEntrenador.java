@@ -22,6 +22,7 @@ public class VentanaBorrarEntrenador extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
         llenarCB();
+        Usuario.setText(Main.getUsuario());
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

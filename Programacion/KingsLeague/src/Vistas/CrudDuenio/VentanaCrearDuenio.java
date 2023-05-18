@@ -23,6 +23,7 @@ public class VentanaCrearDuenio extends JDialog {
         setContentPane(VentanaCrearDuenio);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+        Usuario.setText(Main.getUsuario());
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

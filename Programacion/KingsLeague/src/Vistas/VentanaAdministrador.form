@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vistas.VentanaAdministrador">
-  <grid id="27dc6" binding="VentanaAdministrador" layout-manager="GridLayoutManager" row-count="18" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="VentanaAdministrador" layout-manager="GridLayoutManager" row-count="18" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="822" height="754"/>
@@ -13,7 +13,7 @@
       <grid id="563ce" binding="BaseCabecera" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="30" left="30" bottom="30" right="30"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="9" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16777216"/>
@@ -57,7 +57,7 @@
       <grid id="9230f" binding="BasePiePagina" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="30" left="30" bottom="30" right="30"/>
         <constraints>
-          <grid row="17" column="0" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="0" row-span="1" col-span="9" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-16777216"/>
@@ -89,7 +89,7 @@
           </component>
         </children>
       </grid>
-      <grid id="d0e83" binding="BaseEleccion" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d0e83" binding="BaseEleccion" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="6" left="6" bottom="6" right="6"/>
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -146,6 +146,18 @@
               <font name="Calibri" size="20" style="1"/>
               <foreground color="-1"/>
               <text value="Asistente"/>
+            </properties>
+          </component>
+          <component id="8ebb9" class="javax.swing.JRadioButton">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16777216"/>
+              <focusable value="false"/>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-1"/>
+              <text value="Dueño"/>
             </properties>
           </component>
         </children>
@@ -240,7 +252,7 @@
       </hspacer>
       <hspacer id="1f83c">
         <constraints>
-          <grid row="1" column="7" row-span="16" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="8" row-span="16" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="2f7ba">
@@ -323,6 +335,7 @@
       <member id="6cda0"/>
       <member id="2c831"/>
       <member id="1d171"/>
+      <member id="8ebb9"/>
     </group>
   </buttonGroups>
 </form>

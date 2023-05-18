@@ -18,11 +18,15 @@ public class VentanaCrearEquipo extends JDialog {
     private JButton bSalir;
     private JTextField tfSponsor;
     private JComboBox cbPropietario;
+    private JLabel Usuario;
+    private JLabel Logo;
 
     public VentanaCrearEquipo() {
         setContentPane(ventanaCrearEquipo);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+        Usuario.setText(Main.getUsuario());
+
 
         try {
             Main.llenarComboBoxPropietario(cbPropietario);
