@@ -25,6 +25,9 @@ public class VentanaAdministrador {
     private JLabel Usuario;
     private JLabel Logo;
     private JButton bSalir;
+    private JButton bFinalPlayOff;
+    private JButton bGenerarPlayOff;
+    private JButton bGenerarLiga;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
