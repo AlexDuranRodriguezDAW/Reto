@@ -94,25 +94,25 @@ public class Main {
     }
 
 
-    public static void crearVentanaBorrarAsitente(){
+    public static void crearVentanaBorrarAsitente() {
         VentanaBorrarAsistente dialog = new VentanaBorrarAsistente();
         dialog.pack();
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaCrearAsistente(){
+    public static void crearVentanaCrearAsistente() {
         VentanaCrearAsistente dialog = new VentanaCrearAsistente();
         dialog.pack();
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaModificarAsistente(){
+    public static void crearVentanaModificarAsistente() {
         VentanaModificarAsistente dialog = new VentanaModificarAsistente();
         dialog.pack();
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaCrearEntrenador(){
+    public static void crearVentanaCrearEntrenador() {
         VentanaCrearEntrenador dialog = new VentanaCrearEntrenador();
         dialog.pack();
         dialog.setVisible(true);
@@ -128,68 +128,61 @@ public class Main {
 
     //********************************************CRUD EQUIPOS*************************************************************************
 
-    public static ArrayList<Equipo> listaE;
-    public static ArrayList<String> sacarEquipos() throws Exception {
-         listaE = TEquipo.seleccionarEquipo();
-        ArrayList<String> listaEquipos = new ArrayList<>();
-        for (int i = 0; i < listaE.size(); i++) {
-            listaEquipos.add(listaE.get(i).getNombreEquipo());
+    public static ArrayList<Equipo> listaEquipos;
+    public static ArrayList<Propietario> listaPropietarios;
+
+    public static void llenarComboBoxEquipo(JComboBox comboBox) throws Exception {
+        listaEquipos = TEquipo.consultarTodos();
+        for (Equipo equipo : listaEquipos) {
+            comboBox.addItem(equipo.getNombreEquipo());
         }
-        return listaEquipos;
+    }
+
+    public static void llenarComboBoxPropietario(JComboBox comboBox) throws Exception {
+        listaPropietarios = TPropietario.consultarTodos();
+        for (Propietario propietario : listaPropietarios) {
+            comboBox.addItem(propietario.getNombre() + " " + propietario.getApellidos());
+        }
     }
 
     public static String buscarPorNombre(int equipo) throws Exception {
-        ArrayList<Equipo> lista = TEquipo.seleccionarEquipo();
-        String resumenEquipo = "El equipo " + lista.get(equipo).getNombreEquipo() + " su presidente es " + lista.get(equipo).getPropietario()
-                + " tiene un presupuesto de " + lista.get(equipo).getPresupuesto() + " y " + lista.get(equipo).getSponsor() + " es su sponsor";
+        ArrayList<Equipo> lista = TEquipo.consultarTodos();
+        //Casteos para cambiar de DOUBLE clase a int para mostrarlo mejor
+        double pres = lista.get(equipo).getPresupuesto();
+        int presu = (int) pres;
+        String resumenEquipo = "El equipo " + lista.get(equipo).getNombreEquipo() + " su presidente es " + lista.get(equipo).getPropietario().getNombre() + " " + lista.get(equipo).getPropietario().getApellidos()
+                + " tiene un presupuesto de " + presu + " y " + lista.get(equipo).getSponsor() + " es su sponsor";
         return resumenEquipo;
     }
 
-    public static ArrayList<Propietario> getPropietarios() throws Exception {
-        return TPropietario.consultarTodos();
-    }
-
-    public static int crearEquipo(String nombre, String sponsor, Propietario propietario) throws Exception {
-        Equipo e1 = new Equipo(nombre, 200000000.0, sponsor, propietario);
+    public static int crearEquipo(String nombre, String sponsor, int indexPropietario) throws Exception {
+        Equipo e1 = new Equipo(nombre, 200000000.0, sponsor, listaPropietarios.get(indexPropietario));
         return TEquipo.crearEquipo(e1);
-    }
-
-    public static ArrayList<Equipo> getEquipos() throws Exception {
-        return TEquipo.consultarTodos();
     }
 
     public static int borrarEquipo(String nombre) throws Exception {
         return TEquipo.borrarEquipo(nombre);
     }
 
-
-    public static void modificarEquipoPresupuesto(String p, int indexNombre) throws Exception {
-
-        int presupuesto = Integer.parseInt(p);
-
-        String nombreEquipo = listaE.get(indexNombre).getNombreEquipo();
-
-        TEquipo.modificarEquipoPresupuesto(presupuesto,nombreEquipo);
-
+    public static int modificarEquipo(String nombre, String sponsor, double presupuesto) throws Exception {
+        Equipo e1 = new Equipo(nombre, presupuesto, sponsor);
+        return TEquipo.modificarEquipo(e1);
     }
 
-    public static void modificarEquipoSponsor(String sponsor,int indexNombre) throws Exception {
-        String nombreEquipo = listaE.get(indexNombre).getNombreEquipo();
-
-        TEquipo.modificarEquipoSponsor(sponsor,nombreEquipo);
-
+    public static String getSponsorEquipo(int index) {
+        return listaEquipos.get(index).getSponsor();
     }
 
-
+    public static double getPresupuestoEquipo(int index) {
+        return listaEquipos.get(index).getPresupuesto();
+    }
 
 //***********************************CRUD JUGADORES****************************************************************************
 
 
+    public static ArrayList<Jugador> listaJugadores;
 
-
-    public  static  ArrayList<Jugador> listaJugadores ;
-
-    public static ArrayList<String> sacarJugadores() throws  Exception{
+    public static ArrayList<String> sacarJugadores() throws Exception {
         listaJugadores = TJugador.seleccionarJugadores();
 
         ArrayList<String> lista = new ArrayList<>();
@@ -200,7 +193,7 @@ public class Main {
         return lista;
     }
 
-    public static void crearPersonaJugadorDraft(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft) throws Exception{
+    public static void crearPersonaJugadorDraft(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft) throws Exception {
 
         //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
 
@@ -208,21 +201,21 @@ public class Main {
 
     }
 
-    public static void crearPersonaJugadorWildCard(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador) throws Exception{
+    public static void crearPersonaJugadorWildCard(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador) throws Exception {
 
         //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
 
-       // TJugador.crearJugador(j);
+        // TJugador.crearJugador(j);
 
     }
 
-    public static void borrarJugador(int numero) throws Exception{
+    public static void borrarJugador(int numero) throws Exception {
         String nombre = listaJugadores.get(numero).getNombre();
         String apellido = listaJugadores.get(numero).getApellidos();
-        TJugador.borrarJugador(nombre,apellido);
+        TJugador.borrarJugador(nombre, apellido);
     }
 
-    public static void modificarJugador(){
+    public static void modificarJugador() {
 
     }
 
@@ -230,7 +223,7 @@ public class Main {
 
     public static ArrayList<Entrenador> listaEntrenadores;
 
-    public static ArrayList<String> sacarEntrenadores() throws  Exception{
+    public static ArrayList<String> sacarEntrenadores() throws Exception {
         listaEntrenadores = TEntrenador.seleccionarEntrenador();
         ArrayList<String> lista = new ArrayList<>();
 
@@ -240,21 +233,21 @@ public class Main {
         return lista;
     }
 
-    public static void crearEntrenador(String nombre, String apellido,String dni) throws  Exception{
+    public static void crearEntrenador(String nombre, String apellido, String dni) throws Exception {
 
-        Entrenador e = new Entrenador(nombre,apellido,dni);
+        Entrenador e = new Entrenador(nombre, apellido, dni);
         TEntrenador.crearPersonaEntrenador(e);
     }
 
-    public static void borrarEntrenador(String nombre,String apellido)throws Exception{
+    public static void borrarEntrenador(String nombre, String apellido) throws Exception {
 
-        Entrenador e = new Entrenador(apellido,nombre);
+        Entrenador e = new Entrenador(apellido, nombre);
         TPersona.borrarPersonaEntrenador(e);
 
     }
 
 
-    public static void modificarEntrenador(){
+    public static void modificarEntrenador() {
 
     }
 

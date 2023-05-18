@@ -1,5 +1,6 @@
 package Vistas.CrudEquipo;
 
+import Controlador.ControladorValidaciones;
 import Controlador.Main;
 import Modelo.Equipo;
 import Modelo.Propietario;
@@ -21,16 +22,17 @@ public class VentanaModificarEquipo extends JDialog {
     private JTextField tfPresupuesto;
     private JLabel Logo;
     private JLabel Usuario;
-    private ArrayList<Equipo> equipos;
-    ArrayList<Propietario> propietarios;
 
 
     public VentanaModificarEquipo() {
         setContentPane(ventanaModificarEquipo);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
-
-        llenarComboBox();
+        try {
+            Main.llenarComboBoxEquipo(cbNombre);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error al llenar las comboBox " + e.getMessage());
+        }
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -72,22 +74,13 @@ public class VentanaModificarEquipo extends JDialog {
     }
 
     private void onOK() throws Exception {
-        // add your code here
-       if (tfPresupuesto.getText().equals(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()))){
-
-            Main.modificarEquipoPresupuesto(tfPresupuesto.getText(),cbNombre.getSelectedIndex());
-
-        } else if (tfSponsor.getText().equalsIgnoreCase(equipos.get(cbNombre.getSelectedIndex()).getSponsor()) ) {
-
-            Main.modificarEquipoSponsor(tfSponsor.getText(),cbNombre.getSelectedIndex());
-
-        }else{
-
-            Main.modificarEquipoPresupuesto(tfPresupuesto.getText(),cbNombre.getSelectedIndex());
-            Main.modificarEquipoSponsor(tfSponsor.getText(),cbNombre.getSelectedIndex());
-
+        //ControladorValidaciones.validarDato(tfSponsor.getText(), "Nombre del sponsor", "^[A-Z][a-z]*( [A-z]*)*\\S$");
+        int n = Main.modificarEquipo(String.valueOf(cbNombre.getSelectedItem()),tfSponsor.getText(),Double.parseDouble(tfPresupuesto.getText()));
+        if (n == 1 ){
+            JOptionPane.showMessageDialog(null,"El equipo ha sido modificado correctamente");
+        }else {
+            JOptionPane.showMessageDialog(null,"Error al modificar el equipo");
         }
-
     }
 
     private void onCancel() {
@@ -95,27 +88,11 @@ public class VentanaModificarEquipo extends JDialog {
         dispose();
     }
 
-    private void llenarComboBox() {
-        try {
-            equipos = Main.getEquipos();
-            propietarios = Main.getPropietarios();
-            for (Equipo equipo : equipos) {
-                cbNombre.addItem(equipo.getNombreEquipo());
-            }
-           /* for (Propietario propietario : propietarios) {
-                cbPropietario.addItem(propietario.getNombre() + " " + propietario.getApellidos());
-            }*/
-            cbNombre.setSelectedIndex(-1);
-           // cbPropietario.setSelectedIndex(-1);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al llenado de las comoboBox");
-        }
-    }
-
 
     //Funcion para sacar los datos del equipo seleccionado
     private void setDatos() {
-        //tfPresupuesto.setText(String.valueOf(equipos.get(cbNombre.getSelectedIndex()).getPresupuesto()));
-        tfSponsor.setText(equipos.get(cbNombre.getSelectedIndex()).getSponsor());
+        int n = (int) Main.getPresupuestoEquipo(cbNombre.getSelectedIndex());
+        tfPresupuesto.setText(String.valueOf(n));
+        tfSponsor.setText(Main.getSponsorEquipo(cbNombre.getSelectedIndex()));
     }
 }

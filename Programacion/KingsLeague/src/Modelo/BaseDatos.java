@@ -14,24 +14,19 @@ public class BaseDatos {
 
 
 
-
+/*
             Class.forName("oracle.jdbc.OracleDriver");
             String url="jdbc:oracle:thin:@172.20.225.114:1521:orcl";
             String usuario="eqdaw03";
             String contrasenya="eqdaw03";
+*/
 
 
-/*
-=======
-            /*
->>>>>>> Stashed changes
             //Codigo para pruebas en la base de datos de local
             Class.forName("oracle.jdbc.OracleDriver");
             String url = "jdbc:oracle:thin:@10.100.11.196:1521:xe";
             String usuario = "alex";
-<<<<<<< Updated upstream
             String contrasenya = "12345";
-*/
 
             con = DriverManager.getConnection(url, usuario, contrasenya);
 

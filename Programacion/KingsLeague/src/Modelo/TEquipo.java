@@ -30,42 +30,15 @@ public class TEquipo {
         return n;
     }
 
-    public static ArrayList<Equipo> seleccionarEquipo() throws  Exception{
+    public static int modificarEquipo(Equipo equipo) throws Exception{
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from equipos");
-        ResultSet rs = ps.executeQuery();
-        ArrayList<Equipo> listaEquipos = new ArrayList<>();
-        while (rs.next()){
-            Equipo e = new Equipo();
-            e.setNombreEquipo("nombre");
-            e.setPresupuesto(Double.valueOf("presupuesto"));
-            e.setSponsor("sponsor");
-            //Como guardar el presidente
-            listaEquipos.add(e);
-        }
-        BaseDatos.cerrarConexion();
-        return listaEquipos;
-    }
-
-    public static void modificarEquipoSponsor(String sponsor, String nombre) throws Exception{
-        BaseDatos.abrirConexion();
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set sponsor=? where nombre = ?");
-        System.out.println(sponsor);
-        preparedStatement.setString(1,sponsor);
-        preparedStatement.setString(2,nombre);
-        System.out.println(nombre);
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set sponsor=? , presupuesto = ? where nombre = ?");
+        preparedStatement.setString(1,equipo.getSponsor());
+        preparedStatement.setDouble(2,equipo.getPresupuesto());
+        preparedStatement.setString(3,equipo.getNombreEquipo());
         int n = preparedStatement.executeUpdate();
-        System.out.println(n);
         BaseDatos.cerrarConexion();
-    }
-
-    public static void modificarEquipoPresupuesto(int presupuesto, String nombre) throws Exception{
-        BaseDatos.abrirConexion();
-        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Update equipos set presupuesto=? where nombre = ?");
-        preparedStatement.setInt(1,presupuesto);
-        preparedStatement.setString(2,nombre);
-        preparedStatement.executeUpdate();
-        BaseDatos.cerrarConexion();
+        return n;
     }
 
 
