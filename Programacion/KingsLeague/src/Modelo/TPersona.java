@@ -110,6 +110,7 @@ public class TPersona {
     }
 
     public static String buscarIdJugador(Jugador j) throws Exception {
+        BaseDatos.abrirConexion();
         PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("select id from personas where dni = ?");
         preparedStatement.setString(1, j.getDni());
         ResultSet rs = preparedStatement.executeQuery();

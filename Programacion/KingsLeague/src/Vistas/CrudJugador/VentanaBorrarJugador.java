@@ -4,10 +4,9 @@ import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class VentanaBorrarJugador extends JDialog {
-    private JPanel contentPane;
+    private JPanel ventanaBorrarJugador;
     private JPanel BaseBotones;
     private JComboBox cbJugador;
     private JPanel BasePiePagina;
@@ -17,7 +16,7 @@ public class VentanaBorrarJugador extends JDialog {
     private JLabel lNombreJugador;
 
     public VentanaBorrarJugador() {
-        setContentPane(contentPane);
+        setContentPane(ventanaBorrarJugador);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
 
@@ -42,7 +41,7 @@ public class VentanaBorrarJugador extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
+        ventanaBorrarJugador.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
@@ -69,15 +68,7 @@ public class VentanaBorrarJugador extends JDialog {
         dispose();
     }
 
-
-    public void llenarCB() throws  Exception{
-
-        ArrayList<String> listaJugadores = Main.sacarJugadores();
-
-        for (int i = 0; i < listaJugadores.size(); i++) {
-            cbJugador.addItem(listaJugadores.get(i));
-        }
-
+    public JPanel getVentanaBorrarJugador() {
+        return ventanaBorrarJugador;
     }
-
 }

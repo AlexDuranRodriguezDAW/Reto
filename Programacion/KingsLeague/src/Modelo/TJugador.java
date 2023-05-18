@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class TJugador {
 
-    public static void crearJugador(Jugador j) throws  Exception{
+    public static int crearJugador(Jugador j) throws  Exception{
         BaseDatos.abrirConexion();
         TPersona.insertarJugador(j);
         String id = TPersona.buscarIdJugador(j);
@@ -16,11 +16,8 @@ public class TJugador {
         ps.setString(3,j.getNumDraft());
         ps.setString(4,j.getTipo().toString());
         int n = ps.executeUpdate();
-        if (n==0){
-            System.out.println("error");
-        }
         BaseDatos.cerrarConexion();
-
+        return n;
     }
 
     public static ArrayList<Jugador> seleccionarJugadores() throws Exception{

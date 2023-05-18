@@ -8,6 +8,8 @@ import Vistas.CrudEntrenador.VentanaCrearEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
 import Vistas.CrudEquipo.VentanaCrearEquipo;
 import Vistas.CrudEquipo.VentanaModificarEquipo;
+import Vistas.CrudJugador.VentanaBorrarJugador;
+import Vistas.CrudJugador.VentanaCrearJugador;
 import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
@@ -115,4 +117,21 @@ public class ControladorVentanas {
         dialog.setVisible(true);
     }
 
+    public static void crearVentanaCrearJugador(){
+        JFrame frame = new JFrame("VentanaCrearJugador");
+        frame.setContentPane(new VentanaCrearJugador().getVentanaCrearJugador());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaAdministrador);
+        frame.setVisible(true);
+    }
+
+    public static void crearVentanaBorrarJugador(){
+        JFrame frame = new JFrame("VentanaBorrarJugador");
+        frame.setContentPane(new VentanaBorrarJugador().getVentanaBorrarJugador());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaAdministrador);
+        frame.setVisible(true);
+    }
 }

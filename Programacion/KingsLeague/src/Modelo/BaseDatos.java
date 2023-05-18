@@ -24,7 +24,7 @@ public class BaseDatos {
 
             //Codigo para pruebas en la base de datos de local
             Class.forName("oracle.jdbc.OracleDriver");
-            String url = "jdbc:oracle:thin:@192.168.0.40:1521:xe";
+            String url = "jdbc:oracle:thin:@192.168.0.42:1521:xe";
             String usuario = "alex";
             String contrasenya = "12345";
 

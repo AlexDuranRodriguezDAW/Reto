@@ -96,20 +96,25 @@ public class Main {
         return lista;
     }
 
-    public static void crearPersonaJugadorDraft(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft) throws Exception {
-
-        //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
-
-        //TJugador.crearJugador(j);
-
+    public static void crearPersonaJugador(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft,double sueldo,double clausula) throws Exception {
+        Jugador j1;
+        if (tipoJugador.equalsIgnoreCase("draft")){
+            j1 = new Jugador(dni,apellido,nombre,posicion, Jugador.TipoJugador.draft,numDraft);
+        }else {
+            j1 = new Jugador(dni,apellido,nombre,posicion, Jugador.TipoJugador.wildcard,numDraft);
+        }
+        TJugador.crearJugador(j1);
+        asignarJugadorEquipo(dni,indexEquipo,sueldo,clausula);
     }
 
-    public static void crearPersonaJugadorWildCard(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador) throws Exception {
-
-        //Jugador j = new Jugador(dni,apellido,nombre,posicion,tipoJugador,numDraft);
-
-        // TJugador.crearJugador(j);
-
+    public static void asignarJugadorEquipo(String dni, int indexEquipo, double sueldo,double clausula) throws Exception {
+        Jugador j1 = new Jugador();
+        j1.setDni(dni);
+        Jugador jConsulta = new Jugador();
+        jConsulta.setId(TPersona.buscarIdJugador(j1));
+        Equipo eConsulta = listaEquipos.get(indexEquipo);
+        ContratoJugador cj = new ContratoJugador(jConsulta,eConsulta,clausula,sueldo);
+        TContratoJugador.crearContratoJugador(cj);
     }
 
     public static void borrarJugador(int numero) throws Exception {
@@ -185,8 +190,8 @@ public class Main {
         return TStaffEquipo.getSueldoId(listaAsistentes.get(indexAsistente));
     }
 
-    public static int modificarAsistente(int indexEquipo,int indexAsistente, double sueldo) throws Exception{
-        StaffEquipo se = new StaffEquipo(listaEquipos.get(indexEquipo),listaAsistentes.get(indexAsistente),sueldo);
+    public static int modificarAsistente(int indexEquipo, int indexAsistente, double sueldo) throws Exception {
+        StaffEquipo se = new StaffEquipo(listaEquipos.get(indexEquipo), listaAsistentes.get(indexAsistente), sueldo);
         return TStaffEquipo.modificarStaffEquipo(se);
     }
 }

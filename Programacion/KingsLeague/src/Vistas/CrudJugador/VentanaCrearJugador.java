@@ -22,11 +22,19 @@ public class VentanaCrearJugador extends JDialog {
     private JTextField tfDni;
     private JTextField tfNombre;
     private JTextField tfApellido;
+    private JTextField tfClausula;
+    private JComboBox cbSueldo;
 
     public VentanaCrearJugador() {
         setContentPane(VentanaCrearJugador);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+
+        try {
+            Main.llenarComboBoxEquipo(cbEquipo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al llenar la combo box de equipo " + e.getMessage());
+        }
 
         bSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -51,19 +59,44 @@ public class VentanaCrearJugador extends JDialog {
         bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(rbDraft.isSelected()){
-                    try {
-                        Main.crearPersonaJugadorDraft(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfPosicion.getText(),cbEquipo.getSelectedIndex(),rbDraft.getName(),tfNumDraft.getText());
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+                try {
+                    if (tfDni.getText().isEmpty() || tfNombre.getText().isEmpty() || tfApellido.getText().isEmpty() || cbEquipo.getSelectedIndex() == -1 || tfPosicion.getText().isEmpty() || tfClausula.getText().isEmpty()) {
+                        throw new Exception("No pueden haber campos vacios");
                     }
-                } else if (rbWildCard.isSelected()) {
-                    try {
-                        Main.crearPersonaJugadorWildCard(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),tfPosicion.getText(),cbEquipo.getSelectedIndex(),rbWildCard.getName());
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+
+                    double sueldo = Double.parseDouble(cbSueldo.getSelectedItem().toString());
+
+                    if (rbDraft.isSelected()) {
+                        if (tfNumDraft.getText().isEmpty()) {
+                            throw new Exception("El campo numero de draft no puede estar vacio");
+                        }
+                        Main.crearPersonaJugador(tfDni.getText(), tfNombre.getText(), tfApellido.getText(), tfPosicion.getText(), cbEquipo.getSelectedIndex(), "draft", tfNumDraft.getText(), sueldo, Double.parseDouble(tfClausula.getText()));
+                    } else {
+                        if (rbWildCard.isSelected()) {
+                            Main.crearPersonaJugador(tfDni.getText(), tfNombre.getText(), tfApellido.getText(), tfPosicion.getText(), cbEquipo.getSelectedIndex(), "wildcard", null, sueldo, Double.parseDouble(tfClausula.getText()));
+                        } else {
+                            throw new Exception("No se ha seleccionado si es wildcard o draft");
+                        }
                     }
+
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error creado de jugador " + ex.getMessage());
                 }
+            }
+        });
+        rbDraft.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                tfNumDraft.setEnabled(true);
+            }
+        });
+        rbWildCard.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                tfNumDraft.setEnabled(false);
             }
         });
     }
@@ -74,5 +107,7 @@ public class VentanaCrearJugador extends JDialog {
         dispose();
     }
 
-
+    public JPanel getVentanaCrearJugador() {
+        return VentanaCrearJugador;
+    }
 }
