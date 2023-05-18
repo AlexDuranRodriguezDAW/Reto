@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class TPropietario {
 
-    public static void crearPropietario(Propietario propietario) throws Exception {
+    public static void crearPropietario(Propietario propietario, String nombreEquipo) throws Exception {
         BaseDatos.abrirConexion();
         TPersona.insertarPropietario(propietario);
         String id = TPersona.buscarIdPropietario(propietario);

@@ -50,6 +50,15 @@ public class Main {
         }
     }
 
+
+
+    public static void llenarComboBoxJugador(JComboBox comboBox) throws Exception{
+        listaJugadores = TJugador.seleccionarJugadores();
+        for (int i = 0; i < listaJugadores.size(); i++) {
+            comboBox.addItem(listaJugadores.get(i).getNombre() + " " + listaJugadores.get(i).getApellidos());
+        }
+    }
+
     public static String buscarPorNombre(int equipo) throws Exception {
         ArrayList<Equipo> lista = TEquipo.consultarTodos();
         //Casteos para cambiar de DOUBLE clase a int para mostrarlo mejor
@@ -123,7 +132,13 @@ public class Main {
         TJugador.borrarJugador(nombre, apellido);
     }
 
-    public static void modificarJugador() {
+    public static void modificarJugador(int indexEquipo, int indexJugador, String posicion, String clausula, String sueldo) {
+
+        String equipo = listaEquipos.get(indexEquipo).getNombreEquipo();
+        String jugadorNombre = listaJugadores.get(indexJugador).getNombre();
+        String jugadorApellido = listaJugadores.get(indexJugador).getApellidos();
+        Jugador jugador = new Jugador(jugadorApellido,jugadorNombre,posicion);
+        TJugador.modificarJugador(jugador,clausula,sueldo,equipo);
 
     }
 
@@ -140,23 +155,25 @@ public class Main {
         return lista;
     }
 
-    public static void crearEntrenador(String nombre, String apellido, String dni) throws Exception {
+    public static void crearEntrenador(String nombre, String apellido, String dni,int i,String sueldo) throws Exception {
+
+        String equipo =listaEquipos.get(i).getNombreEquipo();
 
         Entrenador e = new Entrenador(nombre, apellido, dni);
-        TEntrenador.crearPersonaEntrenador(e);
+        TEntrenador.crearPersonaEntrenador(e,equipo,sueldo);
     }
 
-    public static void borrarEntrenador(String nombre, String apellido) throws Exception {
+    public static void borrarEntrenador(int indexEntrenador) throws Exception {
 
+
+        String nombre = listaEntrenadores.get(indexEntrenador).getNombre();
+        String apellido = listaEntrenadores.get(indexEntrenador).getApellidos();
         Entrenador e = new Entrenador(apellido, nombre);
         TPersona.borrarPersonaEntrenador(e);
 
     }
 
 
-    public static void modificarEntrenador() {
-
-    }
 
     //********************************************CRUD ASISTENTES*************************************************************************
 
@@ -194,4 +211,29 @@ public class Main {
         StaffEquipo se = new StaffEquipo(listaEquipos.get(indexEquipo), listaAsistentes.get(indexAsistente), sueldo);
         return TStaffEquipo.modificarStaffEquipo(se);
     }
+
+
+//************************************************Dueño****************************************************************
+
+
+    public static int borrarDuenio(int indexDuenio) throws Exception {
+
+       return  TPersona.borrarPersonaPropietario(listaPropietarios.get(indexDuenio));
+
+    }
+
+    public static void crearDuenio(String dni, String nombre, String apellido, int indexEquipo) throws Exception {
+        String nombreEquipo = listaEquipos.get(indexEquipo).getNombreEquipo();
+        Propietario p = new Propietario(dni,nombre,apellido);
+
+        TPropietario.crearPropietario(p,nombreEquipo);
+
+
+    }
+
+
+
+
+
+
 }

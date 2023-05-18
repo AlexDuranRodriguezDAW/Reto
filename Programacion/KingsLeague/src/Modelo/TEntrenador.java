@@ -2,11 +2,12 @@ package Modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TEntrenador {
 
-    public static void crearPersonaEntrenador(Entrenador e) throws  Exception{
+    public static void crearPersonaEntrenador(Entrenador e,String equipo,String sueldo) throws  Exception{
         BaseDatos.abrirConexion();
         TPersona.insertarEntrenador(e);
         String id = TPersona.buscarIdEntrenador(e);
@@ -15,8 +16,29 @@ public class TEntrenador {
         int n = ps.executeUpdate();
         if (n==0){
             System.out.println("error");
+        }else{
+            insertarEquipoEntrenador(id,equipo,sueldo);
         }
         BaseDatos.cerrarConexion();
+    }
+
+    public static void insertarEquipoEntrenador(String id, String equipo, String sueldo) throws Exception{
+        BaseDatos.abrirConexion();
+        String idEquipo = TEquipo.buscarIDEquipo(equipo);
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into entrenadorEquipos (idEntrenador,idEquipo,sueldo,fechaInicio) values(?,?,?,?)");
+        ps.setString(1,id);
+        ps.setString(2,idEquipo);
+        ps.setString(3,sueldo);
+        ps.setString(4, String.valueOf(LocalDate.now()));
+
+        int n = ps.executeUpdate();
+
+        BaseDatos.cerrarConexion();
+
+        if (n==0){
+            System.out.println("error");
+        }
     }
 
     public static ArrayList<Entrenador> seleccionarEntrenador() throws Exception{

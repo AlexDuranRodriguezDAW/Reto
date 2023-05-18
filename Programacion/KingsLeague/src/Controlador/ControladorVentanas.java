@@ -3,6 +3,8 @@ package Controlador;
 import Vistas.CrudAsistente.VentanaBorrarAsistente;
 import Vistas.CrudAsistente.VentanaCrearAsistente;
 import Vistas.CrudAsistente.VentanaModificarAsistente;
+import Vistas.CrudDuenio.VentanaBorrarDuenio;
+import Vistas.CrudDuenio.VentanaCrearDuenio;
 import Vistas.CrudEntrenador.VentanaBorrarEntrenador;
 import Vistas.CrudEntrenador.VentanaCrearEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
@@ -10,6 +12,7 @@ import Vistas.CrudEquipo.VentanaCrearEquipo;
 import Vistas.CrudEquipo.VentanaModificarEquipo;
 import Vistas.CrudJugador.VentanaBorrarJugador;
 import Vistas.CrudJugador.VentanaCrearJugador;
+import Vistas.CrudJugador.VentanaModificarJugador;
 import Vistas.VentanaAdministrador;
 import Vistas.VentanaInicioSesion;
 import Vistas.VentanaPrincipal;
@@ -133,5 +136,24 @@ public class ControladorVentanas {
         frame.pack();
         frame.setLocationRelativeTo(ventanaAdministrador);
         frame.setVisible(true);
+    }
+
+
+    public static void crearVentanaModificarJuador () throws Exception {
+        VentanaModificarJugador dialog = new VentanaModificarJugador();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaBorrarDuenio (){
+        VentanaBorrarDuenio dialog = new VentanaBorrarDuenio();
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+
+    public static void crearVentanaCrearDuenio(){
+        VentanaCrearDuenio dialog = new VentanaCrearDuenio();
+        dialog.pack();
+        dialog.setVisible(true);
     }
 }

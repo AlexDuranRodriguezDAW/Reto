@@ -2,6 +2,10 @@ package Modelo;
 
 public class Jugador extends Persona {
 
+    public Jugador(String jugadorApellido, String jugadorNombre, String posicicion) {
+
+    }
+
     public enum TipoJugador {
         draft, wildcard
     }

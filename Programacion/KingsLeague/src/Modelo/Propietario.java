@@ -11,4 +11,8 @@ public class Propietario extends Persona {
     public Propietario(String id) {
         super(id);
     }
+
+    public Propietario(String dni, String nombre, String apellido) {
+
+    }
 }

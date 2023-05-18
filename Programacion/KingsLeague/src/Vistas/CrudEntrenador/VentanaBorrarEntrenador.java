@@ -25,7 +25,11 @@ public class VentanaBorrarEntrenador extends JDialog {
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -51,9 +55,9 @@ public class VentanaBorrarEntrenador extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        Main.borrarEntrenador(cbEntrenador.getSelectedIndex());
     }
 
     private void onCancel() {
@@ -61,10 +65,7 @@ public class VentanaBorrarEntrenador extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
 
-        System.exit(0);
-    }
 
     public void llenarCB() throws Exception {
         ArrayList<String> listaEntrenadores = Main.sacarEntrenadores();
