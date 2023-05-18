@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.*;
+import Vistas.*;
 import Vistas.CrudAsistente.VentanaBorrarAsistente;
 import Vistas.CrudAsistente.VentanaCrearAsistente;
 import Vistas.CrudAsistente.VentanaModificarAsistente;
@@ -9,10 +10,6 @@ import Vistas.CrudEntrenador.VentanaCrearEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
 import Vistas.CrudEquipo.VentanaCrearEquipo;
 import Vistas.CrudEquipo.VentanaModificarEquipo;
-import Vistas.VentanaAdministrador;
-import Vistas.VentanaInicioSesion;
-import Vistas.VentanaPrincipal;
-import Vistas.VentanaVerEquipo;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -25,10 +22,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         try {
             crearVentanaInicioSesion();
+
         } catch (Exception e) {
             throw new Exception("Error al crear ventana inicio de sesion");
         }
     }
+
 
     //Metodos relacionados con las ventanas
     public static void crearVentanaInicioSesion() {

@@ -34,7 +34,8 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(rbEquipo.isSelected()){
-                    Main.crearVentanaCrearEquipo();
+                   // Main.crearVentanaCrearEquipo();
+                    Main.a();
                 } else if (rbAsistente.isSelected()) {
                     Main.crearVentanaCrearAsistente();
                 }else if (rbEntrenador.isSelected()){

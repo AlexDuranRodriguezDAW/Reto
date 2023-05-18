@@ -1,5 +1,7 @@
 package Vistas.CrudEntrenador;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -53,7 +55,7 @@ public class VentanaCrearEntrenador extends JDialog {
 
     private void onOK() {
         // add your code here
-        dispose();
+        Main.crearEntrenador(tfNombre.getText(),tfApellido.getText(),tfDni.getText(),);
     }
 
     private void onCancel() {
@@ -61,8 +63,5 @@ public class VentanaCrearEntrenador extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
 
-        System.exit(0);
-    }
 }
