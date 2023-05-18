@@ -30,7 +30,7 @@ BEGIN
 
         LOOP
 
-            FETCH V_JugadoresDraft INTO V_NumJugadoresEquipo;
+            FETCH V_JugadoresDraft INTO V_NumJugadores;
 
         	EXIT WHEN V_JugadoresDraft%NOTFOUND;
 
@@ -42,7 +42,7 @@ BEGIN
                 
         END LOOP;
 
-        OPEN V_JugadoresDraft FOR
+        OPEN V_JugadoresWildCard FOR
         SELECT COUNT(J.IDJUGADOR)
         FROM JUGADORESEQUIPOS J, EQUIPOS E, JUGADORES JU
         WHERE J.IDEQUIPO(+) = E.ID AND JU.ID = J.IDJUGADOR 
@@ -51,7 +51,7 @@ BEGIN
 
         LOOP 
 
-            FETCH V_JugadoresWildCard INTO V_NumJugadoresEquipo;
+            FETCH V_JugadoresWildCard INTO V_NumJugadores;
 
         	EXIT WHEN V_JugadoresWildCard%NOTFOUND;
 
@@ -75,14 +75,59 @@ EXCEPTION
    		RAISE_APPLICATION_ERROR(-20001,'Los equipos no cumplen el minimo de 
         jugadores tipo draft requeridos para crear el calendario.');
         
-    WHEN JugadoresWildfCardSobrepasados THEN
+    WHEN JugadoresWildCardSobrepasados THEN
         RAISE_APPLICATION_ERROR(-20002,'Los equipos superan el maximo de 
         jugadores tipo WildCard.');
-        
+                
     WHEN EquiposInsuficientes THEN
+    
         RAISE_APPLICATION_ERROR(-20003,'Tiene que haber 12 equipos');
     
 END;
+
+
+/*
+
+
+ERROR POR SOBREPASAR EL MAXIMO DE EQUIPOS 
+
+insert into equipos(nombre,presupuesto,sponsor,idduenyo) values('aritz',200000000,'a','1'); 
+
+insert into jornadas(fecha,tipo,idsplit) values (sysdate,'regular',1);
+
+
+Error que empieza en la lï¿½nea: 7 del comando :
+insert into jornadas(fecha,tipo,idsplit) values (sysdate,'regular',1)
+Informe de error -
+ORA-20003: Tiene que haber 12 equipos
+ORA-06512: en "EQDAW03.COMPROBARPLANTILLA", lï¿½nea 76
+ORA-04088: error durante la ejecuciï¿½n del disparador 'EQDAW03.COMPROBARPLANTILLA'
+
+ERROR POR NO TENER SUFICIENTES JUGADORES DE DRAFT
+
+Error que empieza en la línea: 4 del comando :
+iNSERT INTO JORNADAS (FECHA,TIPO,IDSPLIT) VALUES (SYSDATE,'regular',1)
+Informe de error -
+ORA-20001: Los equipos no cumplen el minimo de 
+        jugadores tipo draft requeridos para crear el calendario.
+ORA-06512: en "EQDAW03.COMPROBARPLANTILLA", línea 69
+ORA-04088: error durante la ejecución del disparador 'EQDAW03.COMPROBARPLANTILLA'
+
+
+ERROR POR TENER DEMASIADOS WILDCARD
+
+Error que empieza en la línea: 4 del comando :
+iNSERT INTO JORNADAS (FECHA,TIPO,IDSPLIT) VALUES (SYSDATE,'regular',1)
+Informe de error -
+ORA-20002: Los equipos superan el maximo de 
+        jugadores tipo WildCard.
+ORA-06512: en "EQDAW03.COMPROBARPLANTILLA", línea 73
+ORA-04088: error durante la ejecución del disparador 'EQDAW03.COMPROBARPLANTILLA'
+
+
+
+*/
+
 
 --******************************************************************************
 -- Trigger para mirar si la liga esta abierta o cerrada
@@ -119,14 +164,14 @@ set clausula = 15100000
 where idjugador = 4;
 
 
-Error que empieza en la línea: 72 del comando :
+Error que empieza en la lï¿½nea: 72 del comando :
 update JUGADORESEQUIPOS
 set clausula = 15100000
 where idjugador = 4
 Informe de error -
 ORA-20000: La liga esta cerrada
-ORA-06512: en "EQDAW03.MODIFICARPLANTILLAS", línea 19
-ORA-04088: error durante la ejecución del disparador 'EQDAW03.MODIFICARPLANTILLAS'
+ORA-06512: en "EQDAW03.MODIFICARPLANTILLAS", lï¿½nea 19
+ORA-04088: error durante la ejecuciï¿½n del disparador 'EQDAW03.MODIFICARPLANTILLAS'
 */
 
 --****************************************************************************

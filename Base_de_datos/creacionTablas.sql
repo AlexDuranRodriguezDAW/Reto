@@ -32,7 +32,7 @@ Create table Jugadores(
     numDraft varchar2(3) null,
     tipo varchar2(10),
     constraint jug_tip_ck check ( tipo in ('draft' , 'wildcard')),
-	constraint jug_id_fk foreign key (id) references PERSONAS(ID)
+	constraint jug_id_fk foreign key (id) references PERSONAS(ID) on delete cascade
 );
 
 
@@ -40,12 +40,12 @@ Create table Jugadores(
 
 Create table Asistentes(
     id number(3)  primary key,
-	constraint asi_id_fk foreign key (id) references PERSONAS(ID)
+	constraint asi_id_fk foreign key (id) references PERSONAS(ID)on delete cascade
 );
 -- Tabla entrenador
 Create table Entrenadores(
     id number(3) primary key,
-	constraint ent_id_fk foreign key (id) references PERSONAS(ID)
+	constraint ent_id_fk foreign key (id) references PERSONAS(ID)on delete cascade
 );
 
 
@@ -53,7 +53,7 @@ Create table Entrenadores(
 
 Create table Duenyos(
     id number(3) primary key,
-	constraint due_id_fk foreign key (id) references PERSONAs(ID)
+	constraint due_id_fk foreign key (id) references PERSONAs(ID)on delete cascade
 );
 
 
@@ -67,7 +67,7 @@ Create table Equipos(
     presupuesto number(9),
     sponsor VARCHAR2(20),
     idDuenyo number(3),
-  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID),
+  	constraint equ_idD_fk foreign key (idDuenyo) references Duenyos(ID) on delete cascade,
     constraint equi_pres_ck check(presupuesto<=200000000)
 
 );
@@ -94,8 +94,8 @@ Create table entrenadorEquipos(
     fechaInicio date,
     fechaFin date null,
     primary key(idEntrenador,idEquipo),
-    constraint jueq_idJ_fk foreign key (idEntrenador) references ENTRENADORES(ID),
-    constraint jueq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
+    constraint jueq_idJ_fk foreign key (idEntrenador) references ENTRENADORES(ID) on delete cascade,
+    constraint jueq_idE_fk foreign key (idEquipo) references EQUIPOS(ID) on delete cascade
 );
 
 Create table asistenteEquipos(
@@ -105,7 +105,7 @@ Create table asistenteEquipos(
     fechaInicio date,
     fechaFin date null,
     primary key(idAsistente,idEquipo),
-    constraint asiseq_idJ_fk foreign key (idAsistente) references ASISTENTEs(ID),
+    constraint asiseq_idJ_fk foreign key (idAsistente) references ASISTENTEs(ID) on delete cascade,
     constraint eq_idE_fk foreign key (idEquipo) references EQUIPOS(ID)
 );
 
@@ -127,7 +127,7 @@ fecha date,
 tipo varchar2(10),
 idSplit number(4), 
 constraint jor_tip_ck check (tipo in ('regular' , 'playoff')),
-constraint jor_idS_fk foreign key (idSplit) references Split(ID)
+constraint jor_idS_fk foreign key (idSplit) references Split(ID) on delete cascade
 );
 
 
@@ -142,10 +142,10 @@ golesEquipo2 number(2) null,
 golesEquipo1 number(2),
 idEquipo1 number(2),
 idEquipo2 number(2),
-constraint part_idE_fk foreign key (idEquipoGana) references EQUIPOS(ID),
-constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID),
-constraint part_idEq1_fk foreign key (idEquipo1) references EQUIPOS(id),
-constraint part_idEq2_fk foreign key (idEquipo2) references EQUIPOS(id)
+constraint part_idE_fk foreign key (idEquipoGana) references EQUIPOS(ID) on delete cascade,
+constraint part_jor_fk foreign key (idJornada) references JORNADAS(ID) on delete cascade,
+constraint part_idEq1_fk foreign key (idEquipo1) references EQUIPOS(id) on delete cascade,
+constraint part_idEq2_fk foreign key (idEquipo2) references EQUIPOS(id) on delete cascade
 
 );
 
