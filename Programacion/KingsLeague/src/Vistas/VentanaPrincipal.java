@@ -1,5 +1,6 @@
 package Vistas;
 
+import Controlador.ControladorVentanas;
 import Controlador.Main;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ public class VentanaPrincipal {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Main.crearVentanaVerEquipo();
+                    ControladorVentanas.crearVentanaVerEquipo();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
@@ -33,7 +34,7 @@ public class VentanaPrincipal {
         bAdministrador.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaAdministrador();
+                ControladorVentanas.crearVentanaAdministrador();
             }
         });
     }

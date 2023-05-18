@@ -11,7 +11,7 @@ public class VentanaVerEquipo {
     private JComboBox cbEquipo;
     private JPanel BasePiePagina;
     private JPanel BaseCabecera;
-    private JButton bUltimaJornada;
+    private JButton bAtras;
     private JLabel lEquipo;
 
     public JPanel getVentanaVerEquipo() {
@@ -35,6 +35,12 @@ public class VentanaVerEquipo {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
+            }
+        });
+        bAtras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

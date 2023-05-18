@@ -1,6 +1,9 @@
 package Vistas.CrudAsistente;
 
+import Controlador.Main;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class VentanaCrearAsistente extends JDialog {
@@ -22,6 +25,12 @@ public class VentanaCrearAsistente extends JDialog {
         setContentPane(VentanaCrearAsistente);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+
+        try {
+            Main.llenarComboBoxEquipo(cbEquipo);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error al llenar la combo box de equipo " + e.getMessage());
+        }
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -52,8 +61,17 @@ public class VentanaCrearAsistente extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
-        dispose();
+        try{
+            if (tfNombre.getText().isEmpty() || tfApellido.getText().isEmpty() || tfDni.getText().isEmpty() || tfSueldo.getText().isEmpty() || cbEquipo.getSelectedIndex() == -1){
+                throw new Exception("No puede haber campos vacios");
+            }
+            int n = Main.crearAsistente(tfDni.getText(),tfNombre.getText(),tfApellido.getText());
+            Main.asignarAsistenteEquipo(tfDni.getText(),cbEquipo.getSelectedIndex(), Double.parseDouble(tfSueldo.getText()));
+            JOptionPane.showMessageDialog(null,n + " Asistente ha sido creado");
+            vaciarCampos();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
     }
 
     private void onCancel() {
@@ -61,5 +79,12 @@ public class VentanaCrearAsistente extends JDialog {
         dispose();
     }
 
+    private void vaciarCampos(){
+        tfDni.setText("");
+        tfNombre.setText("");
+        tfApellido.setText("");
+        cbEquipo.setSelectedIndex(-1);
+        tfSueldo.setText("");
+    }
 
 }

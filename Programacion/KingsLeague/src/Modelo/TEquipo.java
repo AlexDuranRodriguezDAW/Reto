@@ -49,7 +49,7 @@ public class TEquipo {
         ResultSet rs = ps.executeQuery();
         ArrayList <Equipo> equipos = new ArrayList<>();
         while (rs.next()){
-            Equipo e1 = new Equipo(rs.getString("nombre"),rs.getDouble("presupuesto"),rs.getString("sponsor"),TPersona.consultarPropietarioId(rs.getString("idduenyo")));
+            Equipo e1 = new Equipo(rs.getString("id"),rs.getString("nombre"),rs.getDouble("presupuesto"),rs.getString("sponsor"),TPersona.consultarPropietarioId(rs.getString("idduenyo")));
             equipos.add(e1);
         }
         return equipos;
