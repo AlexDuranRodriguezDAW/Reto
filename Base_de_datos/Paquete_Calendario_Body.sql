@@ -69,8 +69,8 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
                 
                 SELECT COUNT(P.ID) INTO V_PartidoExiste
                 FROM PARTIDOS P
-                WHERE   IDEQUIPO1 = EQUIPO1.ID AND IDEQUIPO2 = EQUIPO2
-                OR IDEQUIPO1 = EQUIPO2.ID AND IDEQUIPO2 = EQUIPO1
+                WHERE   IDEQUIPO1 = EQUIPO1.ID AND IDEQUIPO2 = EQUIPO2.ID
+                OR IDEQUIPO1 = EQUIPO2.ID AND IDEQUIPO2 = EQUIPO1.ID
                 OR IDEQUIPO1 = EQUIPO2.ID AND IDJORNADA = V_IdJornada
                 OR IDEQUIPO1 = EQUIPO2.ID AND IDJORNADA = V_IdJornada;
         
@@ -135,7 +135,7 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
     V_Equipo6       EQUIPOS.ID%TYPE;
     V_Equipo7       EQUIPOS.ID%TYPE;
     V_Equipo8       EQUIPOS.ID%TYPE;
-    V_IdSplit       SPLIT.ID%TYPE;
+    V_Split       SPLIT.ID%TYPE;
     V_IdJornada     JORNADAS.ID%TYPE;
     V_Contador      NUMBER := 1;
     
@@ -174,7 +174,7 @@ CREATE OR REPLACE PACKAGE BODY DatosCalendario AS
     FROM SPLIT;
     
     -- Jornada PlayOff 1 --
-    INSERT INTO IDJORNADA (FECHA, TIPO, IDSPLIT)
+    INSERT INTO JORNADAS (FECHA, TIPO, IDSPLIT)
     VALUES (SYSDATE, 'playoff', V_Split);
     
     SELECT ID INTO V_IdJornada
