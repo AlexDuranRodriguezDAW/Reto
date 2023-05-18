@@ -34,15 +34,14 @@ public class VentanaAdministrador {
         bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(rbEquipo.isSelected()){
-                   // Main.crearVentanaCrearEquipo();
+                if (rbEquipo.isSelected()) {
                     ControladorVentanas.crearVentanaCrearEquipo();
                 } else if (rbAsistente.isSelected()) {
                     ControladorVentanas.crearVentanaCrearAsistente();
-                }else if (rbEntrenador.isSelected()){
+                } else if (rbEntrenador.isSelected()) {
                     ControladorVentanas.crearVentanaCrearEntrenador();
                 } else if (rbJugador.isSelected()) {
-
+                    ControladorVentanas.crearVentanaCrearJugador();
                 }
 
             }
@@ -50,29 +49,29 @@ public class VentanaAdministrador {
         bBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(rbEquipo.isSelected()){
+                if (rbEquipo.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarEquipo();
                 } else if (rbAsistente.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarAsitente();
-                }else if (rbEntrenador.isSelected()){
+                } else if (rbEntrenador.isSelected()) {
                     try {
                         ControladorVentanas.crearVentanBorrarEntrenador();
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
                 } else if (rbJugador.isSelected()) {
-
+                    ControladorVentanas.crearVentanaBorrarJugador();
                 }
             }
         });
         bModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(rbEquipo.isSelected()){
+                if (rbEquipo.isSelected()) {
                     ControladorVentanas.crearVentanaModificarEquipo();
                 } else if (rbAsistente.isSelected()) {
                     ControladorVentanas.crearVentanaModificarAsistente();
-                }else if (rbEntrenador.isSelected()){
+                } else if (rbEntrenador.isSelected()) {
 
                 } else if (rbJugador.isSelected()) {
 

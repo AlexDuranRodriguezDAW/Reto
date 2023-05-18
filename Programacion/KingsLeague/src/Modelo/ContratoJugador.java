@@ -26,6 +26,13 @@ public class ContratoJugador {
         this.fechaFin = fechaFin;
     }
 
+    public ContratoJugador(Jugador jugador, Equipo equipo, double clausula, double sueldo) {
+        this.jugador = jugador;
+        this.equipo = equipo;
+        this.clausula = clausula;
+        this.sueldo = sueldo;
+    }
+
     public Jugador getJugador() {
         return jugador;
     }

@@ -10,8 +10,6 @@ public class VentanaModificarDuenio extends JDialog {
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbEquipo;
-    private JTextField tfSueldo;
     private JComboBox cbAsistente;
     private JButton bModificar;
     private JButton bSalir;
