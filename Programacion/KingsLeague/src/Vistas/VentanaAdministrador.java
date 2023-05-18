@@ -6,6 +6,7 @@ import Controlador.Main;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class VentanaAdministrador {
     private JPanel BasePiePagina;
@@ -92,6 +93,26 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ControladorVentanas.ventanaAdministrador.dispose();
+            }
+        });
+        bGenerarLiga.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Main.emparejarLigaRegular();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        bGenerarPlayOff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Main.emparejarPlayOff();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

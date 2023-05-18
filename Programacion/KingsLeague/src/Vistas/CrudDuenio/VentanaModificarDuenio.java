@@ -12,10 +12,12 @@ public class VentanaModificarDuenio extends JDialog {
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbAsistente;
+    private JComboBox cbPropietario;
     private JButton bModificar;
     private JButton bSalir;
     private JTextField tfDni;
+    private JTextField tfNombre;
+    private JTextField tfApellido;
 
     public VentanaModificarDuenio() {
         setContentPane(VentanaModificarDuenio);
