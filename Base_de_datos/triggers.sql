@@ -12,7 +12,8 @@ V_NumJugadores                  NUMBER;
 V_NumEquipos                    NUMBER;
 JugadoresDraftInsuficientes     EXCEPTION;
 JugadoresWildCardSobrepasados   EXCEPTION;
-EquiposInsuficientes            EXCEPTION;
+NumEquiposError                 EXCEPTION;
+NumJugadoresError               EXCEPTION;
  
 BEGIN
 
@@ -27,6 +28,12 @@ BEGIN
         WHERE J.IDEQUIPO(+) = E.ID AND JU.ID = J.IDJUGADOR 
         AND UPPER(JU.TIPO)='DRAFT'
         GROUP BY E.ID;
+    
+        SELECT COUNT(*) INTO V_NumJugadores
+        FROM JUGAADORESEQUIPOS
+        GROUP BY IDEQUIPO;
+        
+        IF V_NumJugadores = 10 THEN
 
         LOOP
 
@@ -62,10 +69,15 @@ BEGIN
             END IF;
                 
         END LOOP;
-
+        ELSE
+        
+            RAISE NumJugadoresError;
+            
+        END IF;
     ELSE
     
-        RAISE EquiposInsuficientes;
+    
+        RAISE NumEquiposError;
             
     END IF;
 
@@ -79,7 +91,7 @@ EXCEPTION
         RAISE_APPLICATION_ERROR(-20002,'Los equipos superan el maximo de 
         jugadores tipo WildCard.');
                 
-    WHEN EquiposInsuficientes THEN
+    WHEN NumEquiposError THEN
     
         RAISE_APPLICATION_ERROR(-20003,'Tiene que haber 12 equipos');
     
