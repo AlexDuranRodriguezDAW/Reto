@@ -15,6 +15,8 @@ public class VentanaBorrarEquipo extends JDialog {
     private JPanel BaseCabecera;
     private JButton bBorrar;
     private JButton bSalir;
+    private JLabel Logo;
+    private JLabel Usuario;
 
     ArrayList<Equipo> equipos;
 
@@ -23,6 +25,7 @@ public class VentanaBorrarEquipo extends JDialog {
         setContentPane(ventanaBorrarEquipo);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
+        Usuario.setText(Main.getUsuario());
 
         try {
             Main.llenarComboBoxEquipo(cbEquipo);

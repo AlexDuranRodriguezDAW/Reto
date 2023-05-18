@@ -24,6 +24,7 @@ public class VentanaCrearEntrenador extends JDialog {
         setContentPane(VentanaCrearEntrenador);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+        Usuario.setText(Main.getUsuario());
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

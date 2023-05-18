@@ -14,11 +14,15 @@ public class VentanaBorrarJugador extends JDialog {
     private JButton bBorrar;
     private JButton bSalir;
     private JLabel lNombreJugador;
+    private JLabel Logo;
+    private JLabel Usuario;
 
     public VentanaBorrarJugador() {
         setContentPane(ventanaBorrarJugador);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
+        Usuario.setText(Main.getUsuario());
+
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

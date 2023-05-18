@@ -28,6 +28,8 @@ public class VentanaModificarEquipo extends JDialog {
         setContentPane(ventanaModificarEquipo);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+        Usuario.setText(Main.getUsuario());
+
         try {
             Main.llenarComboBoxEquipo(cbNombre);
         }catch (Exception e){

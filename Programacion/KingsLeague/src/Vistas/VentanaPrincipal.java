@@ -20,6 +20,7 @@ public class VentanaPrincipal {
     private JLabel Usuario;
 
     public VentanaPrincipal() {
+        Usuario.setText(Main.getUsuario());
         bEquipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

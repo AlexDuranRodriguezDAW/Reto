@@ -20,6 +20,7 @@ public class VentanaInicioSesion {
     private JButton bIniciarSesion;
 
     public VentanaInicioSesion() {
+
         bSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

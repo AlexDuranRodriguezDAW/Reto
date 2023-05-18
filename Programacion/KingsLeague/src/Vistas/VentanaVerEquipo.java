@@ -16,12 +16,15 @@ public class VentanaVerEquipo {
     private JPanel BaseBuscador;
     private JTextArea taEquipos;
     private JLabel logo;
+    private JLabel Usuario;
 
     public JPanel getVentanaVerEquipo() {
         return ventanaVerEquipo;
     }
 
     public VentanaVerEquipo() {
+        Usuario.setText(Main.getUsuario());
+
         try {
             Main.llenarComboBoxEquipo(cbEquipo);
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package Vistas;
 
 import Controlador.ControladorVentanas;
+import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -34,6 +35,8 @@ public class VentanaAdministrador {
     }
 
     public VentanaAdministrador() {
+        Usuario.setText(Main.getUsuario());
+
         bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

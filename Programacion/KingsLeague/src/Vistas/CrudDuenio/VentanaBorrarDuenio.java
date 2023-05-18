@@ -20,6 +20,7 @@ public class VentanaBorrarDuenio extends JDialog {
         setContentPane(VentanaBorrarDuenio);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
+        Usuario.setText(Main.getUsuario());
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

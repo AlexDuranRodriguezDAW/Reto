@@ -1,5 +1,7 @@
 package Vistas.CrudDuenio;
 
+import Controlador.Main;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -19,6 +21,7 @@ public class VentanaModificarDuenio extends JDialog {
         setContentPane(VentanaModificarDuenio);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
+        Usuario.setText(Main.getUsuario());
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

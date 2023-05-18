@@ -25,6 +25,7 @@ public class VentanaCrearAsistente extends JDialog {
         setContentPane(VentanaCrearAsistente);
         setModal(true);
         getRootPane().setDefaultButton(bCrear);
+        Usuario.setText(Main.getUsuario());
 
         try {
             Main.llenarComboBoxEquipo(cbEquipo);
