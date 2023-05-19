@@ -157,6 +157,14 @@ public class Main {
         TPersona.borrarPersonaEntrenador(e);
 
     }
+
+    public static void llenarComboBoxEntrenador(JComboBox comboBox) throws Exception {
+        listaEntrenadores = TEntrenador.consultarTodos();
+        for (Entrenador entrenador : listaEntrenadores) {
+            comboBox.addItem(entrenador.getNombre() + " " + entrenador.getApellidos());
+        }
+    }
+
 //********************************************CRUD ASISTENTES***********************************************************
 
     public static void llenarComboBoxAsistente(JComboBox comboBox) throws Exception {

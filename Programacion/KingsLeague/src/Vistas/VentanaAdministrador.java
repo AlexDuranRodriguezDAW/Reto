@@ -86,7 +86,7 @@ public class VentanaAdministrador {
                 } else if (rbAsistente.isSelected()) {
                     ControladorVentanas.crearVentanaModificarAsistente();
                 } else if (rbEntrenador.isSelected()) {
-
+                    ControladorVentanas.crearVentanaModificarEntrenador();
                 } else if (rbJugador.isSelected()) {
                     try {
                         ControladorVentanas.crearVentanaModificarJuador();

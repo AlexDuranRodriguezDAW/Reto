@@ -65,4 +65,18 @@ public class TEntrenador {
         return lista;
 
     }
+
+    public static ArrayList<Entrenador> consultarTodos () throws Exception{
+        BaseDatos.abrirConexion();
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from entrenador");
+        ResultSet rs = ps.executeQuery();
+        ArrayList <Entrenador> entrenadores = new ArrayList<>();
+        while (rs.next()){
+            Entrenador e1 = new Entrenador(rs.getString("id"),rs.getString("dni"),
+                    rs.getString("nombre"),rs.getString("apellido"));
+            entrenadores.add(e1);
+        }
+        return entrenadores;
+    }
+
 }
