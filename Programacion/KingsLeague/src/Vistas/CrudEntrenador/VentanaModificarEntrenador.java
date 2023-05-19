@@ -25,6 +25,20 @@ public class VentanaModificarEntrenador extends JDialog {
         getRootPane().setDefaultButton(bModificar);
         Usuario.setText(Main.getUsuario());
 
+        try {
+            Main.llenarComboBoxEntrenador(cbEntrenador);
+            cbEntrenador.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+        }
+
+        try {
+            Main.llenarComboBoxEquipo(cbEquipo);
+            cbEquipo.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+        }
+
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
@@ -64,10 +78,4 @@ public class VentanaModificarEntrenador extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaModificarEntrenador dialog = new VentanaModificarEntrenador();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
 }

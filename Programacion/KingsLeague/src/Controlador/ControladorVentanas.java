@@ -3,6 +3,7 @@ package Controlador;
 import Vistas.CrudAsistente.VentanaBorrarAsistente;
 import Vistas.CrudAsistente.VentanaCrearAsistente;
 import Vistas.CrudAsistente.VentanaModificarAsistente;
+import Vistas.CrudEntrenador.VentanaModificarEntrenador;
 import Vistas.CrudPropietario.VentanaBorrarPropietario;
 import Vistas.CrudPropietario.VentanaCrearPropietario;
 import Vistas.CrudPropietario.VentanaModificarPropietario;
@@ -143,22 +144,24 @@ public class ControladorVentanas {
     public static void crearVentanaModificarJuador () throws Exception {
         VentanaModificarJugador dialog = new VentanaModificarJugador();
         dialog.pack();
+        dialog.setGlassPane(ventanaAdministrador);
         dialog.setVisible(true);
     }
 
     public static void crearVentanaBorrarPropietario (){
         VentanaBorrarPropietario dialog = new VentanaBorrarPropietario();
         dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
-        dialog.setLocationRelativeTo(null);
 
     }
 
     public static void crearVentanaCrearPropietario(){
         VentanaCrearPropietario dialog = new VentanaCrearPropietario();
         dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
-        dialog.setLocationRelativeTo(null);
+
     }
 
     public static void crearVentanaModificarPropietario()
@@ -166,9 +169,17 @@ public class ControladorVentanas {
 
         VentanaModificarPropietario dialog = new VentanaModificarPropietario();
         dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
-        dialog.setLocationRelativeTo(null);
 
+    }
+
+    public static void crearVentanaModificarEntrenador()
+    {
+        VentanaModificarEntrenador dialog = new VentanaModificarEntrenador();
+        dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
+        dialog.setVisible(true);
     }
 
 }
