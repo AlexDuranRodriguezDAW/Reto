@@ -51,15 +51,6 @@ public class Main {
         }
     }
 
-
-
-    public static void llenarComboBoxJugador(JComboBox comboBox) throws Exception{
-        listaJugadores = TJugador.seleccionarJugadores();
-        for (int i = 0; i < listaJugadores.size(); i++) {
-            comboBox.addItem(listaJugadores.get(i).getNombre() + " " + listaJugadores.get(i).getApellidos());
-        }
-    }
-
     public static String buscarPorNombre(int equipo) throws Exception {
         ArrayList<Equipo> lista = TEquipo.consultarTodos();
         //Casteos para cambiar de DOUBLE clase a int para mostrarlo mejor
@@ -94,18 +85,12 @@ public class Main {
 
 //*********************************************CRUD JUGADORES***********************************************************
 
-
-    public static ArrayList<String> sacarJugadores() throws Exception {
-        listaJugadores = TJugador.seleccionarJugadores();
-
-        ArrayList<String> lista = new ArrayList<>();
-
-        for (int i = 0; i < listaJugadores.size(); i++) {
-            lista.add(listaJugadores.get(i).getNombre() + " " + listaJugadores.get(i).getApellidos());
+    public static void llenarComboBoxJugador(JComboBox comboBox) throws Exception{
+        listaJugadores = TJugador.consultarTodos();
+        for (Jugador jugador:listaJugadores){
+            comboBox.addItem(jugador.getNombre() + " " + jugador.getApellidos());
         }
-        return lista;
     }
-
     public static void crearPersonaJugador(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft,double sueldo,double clausula) throws Exception {
         Jugador j1;
         if (tipoJugador.equalsIgnoreCase("draft")){
@@ -133,14 +118,13 @@ public class Main {
         TJugador.borrarJugador(nombre, apellido);
     }
 
-    public static void modificarJugador(int indexEquipo, int indexJugador, String posicion, String clausula, String sueldo) {
-
-        String equipo = listaEquipos.get(indexEquipo).getNombreEquipo();
-        String jugadorNombre = listaJugadores.get(indexJugador).getNombre();
-        String jugadorApellido = listaJugadores.get(indexJugador).getApellidos();
-        Jugador jugador = new Jugador(jugadorApellido,jugadorNombre,posicion);
-        TJugador.modificarJugador(jugador,clausula,sueldo,equipo);
-
+    public static void modificarJugador(int indexEquipo, int indexJugador, String clausula, String sueldo) throws Exception{
+        Equipo equipo = listaEquipos.get(indexEquipo);
+        Jugador jugador = listaJugadores.get(indexJugador);
+        double clausulaD = Double.parseDouble(clausula);
+        double sueldoD = Double.parseDouble(sueldo);
+        ContratoJugador cj = new ContratoJugador(jugador,equipo,clausulaD,sueldoD);
+        TContratoJugador.modificarJugador(cj);
     }
 
 //********************************************CRUD ENTRENADORES ********************************************************

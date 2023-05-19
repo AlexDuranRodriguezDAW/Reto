@@ -19,31 +19,30 @@ public class TJugador {
         BaseDatos.cerrarConexion();
         return n;
     }
-
-    public static ArrayList<Jugador> seleccionarJugadores() throws Exception{
+    public static ArrayList<Jugador> consultarTodos() throws Exception {
         BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select j.*,p.* from jugadores j, personas p where j.id = p.id and id = (Select id from personas)");
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from personas p, jugadores x where p.id= x.id ");
         ResultSet rs = ps.executeQuery();
-        ArrayList<Jugador> listaJugadores = new ArrayList<>();
-
-        while (rs.next()){
-
-
-            Jugador jugador = new Jugador();
-
-            jugador.setNombre(rs.getString("nombre"));
-            jugador.setApellidos(rs.getString("apellido"));
-            jugador.setPosicion(rs.getString("podicion"));
-            //jugador.setTipo(Jugador.TipoJugador.valueOf("tipo"));
-            listaJugadores.add(jugador);
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        while (rs.next()) {
+            Jugador j1 = new Jugador();
+            j1.setId(rs.getString("id"));
+            j1.setDni(rs.getString("dni"));
+            j1.setApellidos(rs.getString("apellido"));
+            j1.setNombre(rs.getString("nombre"));
+            j1.setPosicion(rs.getString("posicion"));
+            if (rs.getString("tipo").equalsIgnoreCase("draft")){
+                j1.setTipo(Jugador.TipoJugador.draft);
+                j1.setNumDraft(rs.getString("numdraft"));
+            }else {
+                j1.setTipo(Jugador.TipoJugador.wildcard);
+            }
+            jugadores.add(j1);
         }
-
         BaseDatos.cerrarConexion();
-
-        return listaJugadores;
+        return jugadores;
     }
+
 
     public static void borrarJugador(String nombre,String apellido) throws  Exception{
         BaseDatos.abrirConexion();
@@ -58,12 +57,5 @@ public class TJugador {
         ps.executeUpdate();
 
         BaseDatos.cerrarConexion();
-    }
-
-    public static void modificarJugador(Jugador jugador, String clausula, String sueldo, String equipo) {
-
-
-
-
     }
 }
