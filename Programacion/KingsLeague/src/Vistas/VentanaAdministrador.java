@@ -30,6 +30,7 @@ public class VentanaAdministrador {
     private JButton bFinalPlayOff;
     private JButton bGenerarPlayOff;
     private JButton bGenerarLiga;
+    private JRadioButton rbPropietario;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
@@ -49,6 +50,9 @@ public class VentanaAdministrador {
                     ControladorVentanas.crearVentanaCrearEntrenador();
                 } else if (rbJugador.isSelected()) {
                     ControladorVentanas.crearVentanaCrearJugador();
+                } else if (rbPropietario.isSelected())
+                {
+                    ControladorVentanas.crearVentanaCrearPropietario();
                 }
 
             }
@@ -68,6 +72,9 @@ public class VentanaAdministrador {
                     }
                 } else if (rbJugador.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarJugador();
+                } else if (rbPropietario.isSelected())
+                {
+                    ControladorVentanas.crearVentanaBorrarPropietario();
                 }
             }
         });
@@ -86,6 +93,9 @@ public class VentanaAdministrador {
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
+                } else if (rbPropietario.isSelected())
+                {
+                    ControladorVentanas.crearVentanaModificarPropietario();
                 }
             }
         });

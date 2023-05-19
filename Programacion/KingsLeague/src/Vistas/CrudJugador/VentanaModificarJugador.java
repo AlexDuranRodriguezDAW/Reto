@@ -19,6 +19,7 @@ public class VentanaModificarJugador extends JDialog {
     private JTextField tfClausula;
     private JButton bModificar;
     private JButton bSalir;
+    private JComboBox cbSueldo;
 
     public VentanaModificarJugador() throws Exception {
         setContentPane(VentanaModificarJugador);
@@ -59,7 +60,7 @@ public class VentanaModificarJugador extends JDialog {
 
     private void onOK() {
         // add your code here
-        Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfPosicion.getText(),tfClausula.getText(),tfSueldo.getText());
+        Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfPosicion.getText(),tfClausula.getText(), String.valueOf(cbSueldo.getSelectedItem()));
     }
 
     private void onCancel() {

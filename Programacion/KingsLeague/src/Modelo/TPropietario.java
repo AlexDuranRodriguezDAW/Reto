@@ -32,4 +32,5 @@ public class TPropietario {
         BaseDatos.cerrarConexion();
         return propietarios;
     }
+
 }

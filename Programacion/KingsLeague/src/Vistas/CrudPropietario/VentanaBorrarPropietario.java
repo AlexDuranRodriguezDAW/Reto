@@ -1,11 +1,11 @@
-package Vistas.CrudDuenio;
+package Vistas.CrudPropietario;
 
 import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
 
-public class VentanaBorrarDuenio extends JDialog {
+public class VentanaBorrarPropietario extends JDialog {
     private JPanel VentanaBorrarDuenio;
     private JPanel BaseCabecera;
     private JLabel Logo;
@@ -16,11 +16,18 @@ public class VentanaBorrarDuenio extends JDialog {
     private JButton bBorrar;
     private JButton bSalir;
 
-    public VentanaBorrarDuenio() {
+    public VentanaBorrarPropietario() {
         setContentPane(VentanaBorrarDuenio);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
         Usuario.setText(Main.getUsuario());
+
+        try {
+            Main.llenarComboBoxPropietario(cbPropietario);
+            cbPropietario.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+        }
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

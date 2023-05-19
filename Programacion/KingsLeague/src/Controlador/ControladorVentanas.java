@@ -3,8 +3,9 @@ package Controlador;
 import Vistas.CrudAsistente.VentanaBorrarAsistente;
 import Vistas.CrudAsistente.VentanaCrearAsistente;
 import Vistas.CrudAsistente.VentanaModificarAsistente;
-import Vistas.CrudDuenio.VentanaBorrarDuenio;
-import Vistas.CrudDuenio.VentanaCrearDuenio;
+import Vistas.CrudPropietario.VentanaBorrarPropietario;
+import Vistas.CrudPropietario.VentanaCrearPropietario;
+import Vistas.CrudPropietario.VentanaModificarPropietario;
 import Vistas.CrudEntrenador.VentanaBorrarEntrenador;
 import Vistas.CrudEntrenador.VentanaCrearEntrenador;
 import Vistas.CrudEquipo.VentanaBorrarEquipo;
@@ -145,15 +146,29 @@ public class ControladorVentanas {
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaBorrarDuenio (){
-        VentanaBorrarDuenio dialog = new VentanaBorrarDuenio();
+    public static void crearVentanaBorrarPropietario (){
+        VentanaBorrarPropietario dialog = new VentanaBorrarPropietario();
         dialog.pack();
         dialog.setVisible(true);
+        dialog.setLocationRelativeTo(null);
+
     }
 
-    public static void crearVentanaCrearDuenio(){
-        VentanaCrearDuenio dialog = new VentanaCrearDuenio();
+    public static void crearVentanaCrearPropietario(){
+        VentanaCrearPropietario dialog = new VentanaCrearPropietario();
         dialog.pack();
         dialog.setVisible(true);
+        dialog.setLocationRelativeTo(null);
     }
+
+    public static void crearVentanaModificarPropietario()
+    {
+
+        VentanaModificarPropietario dialog = new VentanaModificarPropietario();
+        dialog.pack();
+        dialog.setVisible(true);
+        dialog.setLocationRelativeTo(null);
+
+    }
+
 }

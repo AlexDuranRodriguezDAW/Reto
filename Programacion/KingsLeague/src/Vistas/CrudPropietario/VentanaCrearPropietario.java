@@ -1,33 +1,37 @@
-package Vistas.CrudDuenio;
+package Vistas.CrudPropietario;
 
 import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
 
-public class VentanaModificarDuenio extends JDialog {
-    private JPanel VentanaModificarDuenio;
+public class VentanaCrearPropietario extends JDialog {
+    private JPanel VentanaCrearDuenio;
     private JPanel BaseCabecera;
     private JLabel Logo;
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbPropietario;
-    private JButton bModificar;
-    private JButton bSalir;
-    private JTextField tfDni;
-    private JTextField tfNombre;
+    private JComboBox cbEquipo;
     private JTextField tfApellido;
+    private JTextField tfNombre;
+    private JTextField tfDni;
+    private JButton bCrear;
+    private JButton bSalir;
 
-    public VentanaModificarDuenio() {
-        setContentPane(VentanaModificarDuenio);
+    public VentanaCrearPropietario() {
+        setContentPane(VentanaCrearDuenio);
         setModal(true);
-        getRootPane().setDefaultButton(bModificar);
+        getRootPane().setDefaultButton(bCrear);
         Usuario.setText(Main.getUsuario());
 
-        bModificar.addActionListener(new ActionListener() {
+        bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -46,16 +50,16 @@ public class VentanaModificarDuenio extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        VentanaModificarDuenio.registerKeyboardAction(new ActionListener() {
+        VentanaCrearDuenio.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        Main.crearDuenio(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),cbEquipo.getSelectedIndex());
     }
 
     private void onCancel() {
@@ -63,10 +67,5 @@ public class VentanaModificarDuenio extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        VentanaModificarDuenio dialog = new VentanaModificarDuenio();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }
