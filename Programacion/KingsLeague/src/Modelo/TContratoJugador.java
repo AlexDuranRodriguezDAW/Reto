@@ -21,12 +21,11 @@ public class TContratoJugador {
 
     public static void modificarJugador(ContratoJugador cj) throws Exception {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update jugadoresequipos set posicion = ?, idequipo = ?, sueldo = ?, clausula = ? where idjugador = ?");
-        ps.setString(1,cj.getJugador().getPosicion());
-        ps.setString(2,cj.getEquipo().getId());
-        ps.setDouble(3,cj.getSueldo());
-        ps.setDouble(4,cj.getClausula());
-        ps.setString(5,cj.getJugador().getId());
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update jugadoresequipos set idequipo = ?, sueldo = ?, clausula = ? where idjugador = ?");
+        ps.setString(1,cj.getEquipo().getId());
+        ps.setDouble(2,cj.getSueldo());
+        ps.setDouble(3,cj.getClausula());
+        ps.setString(4,cj.getJugador().getId());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
     }
