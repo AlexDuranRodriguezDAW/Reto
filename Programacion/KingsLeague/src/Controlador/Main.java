@@ -228,6 +228,13 @@ public class Main {
 
     }
 
+    public static void modificarPropietario(String dni, String nombre, String apellido) throws SQLException {
+        Propietario p = new Propietario(dni, nombre, apellido);
+
+        TPersona.modificarPropietario(p);
+
+    }
+
 
 
 //************************************************SACAR USUARIO*********************************************************

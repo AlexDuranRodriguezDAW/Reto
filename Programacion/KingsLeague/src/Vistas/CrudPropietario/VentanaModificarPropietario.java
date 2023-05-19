@@ -1,35 +1,43 @@
-package Vistas.CrudDuenio;
+package Vistas.CrudPropietario;
 
 import Controlador.Main;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 
-public class VentanaCrearDuenio extends JDialog {
-    private JPanel VentanaCrearDuenio;
+public class VentanaModificarPropietario extends JDialog {
+    private JPanel VentanaModificarDuenio;
     private JPanel BaseCabecera;
     private JLabel Logo;
     private JLabel Usuario;
     private JPanel BasePiePagina;
     private JPanel BaseBotones;
-    private JComboBox cbEquipo;
-    private JTextField tfApellido;
-    private JTextField tfNombre;
-    private JTextField tfDni;
-    private JButton bCrear;
+    private JComboBox cbPropietario;
+    private JButton bModificar;
     private JButton bSalir;
+    private JTextField tfDni;
+    private JTextField tfNombre;
+    private JTextField tfApellido;
 
-    public VentanaCrearDuenio() {
-        setContentPane(VentanaCrearDuenio);
+    public VentanaModificarPropietario() {
+        setContentPane(VentanaModificarDuenio);
         setModal(true);
-        getRootPane().setDefaultButton(bCrear);
+        getRootPane().setDefaultButton(bModificar);
         Usuario.setText(Main.getUsuario());
 
-        bCrear.addActionListener(new ActionListener() {
+        try {
+            Main.llenarComboBoxPropietario(cbPropietario);
+            cbPropietario.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+        }
+
+        bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     onOK();
-                } catch (Exception ex) {
+                } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
             }
@@ -50,22 +58,21 @@ public class VentanaCrearDuenio extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        VentanaCrearDuenio.registerKeyboardAction(new ActionListener() {
+        VentanaModificarDuenio.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() throws Exception {
+    private void onOK() throws SQLException {
         // add your code here
-        Main.crearDuenio(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),cbEquipo.getSelectedIndex());
+        Main.modificarPropietario(tfDni.getText(), tfNombre.getText(),tfApellido.getText());
     }
 
     private void onCancel() {
         // add your code here if necessary
         dispose();
     }
-
 
 }

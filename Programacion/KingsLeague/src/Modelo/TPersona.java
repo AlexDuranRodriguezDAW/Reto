@@ -4,6 +4,7 @@ package Modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TPersona {
 
@@ -182,4 +183,24 @@ public class TPersona {
         }
         return p1;
     }
+
+    public static void modificarPropietario(Propietario p) throws SQLException {
+        BaseDatos.abrirConexion();
+
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Update personas" +
+                                                                        "set dni = ?," +
+                                                                        "nombre = ?," +
+                                                                        "apellido = ?"
+        );
+
+        ps.setString(1, p.getDni());
+        ps.setString(2, p.getNombre());
+        ps.setString(3, p.getApellidos());
+
+        ps.executeUpdate();
+
+
+        BaseDatos.cerrarConexion();
+    }
+
 }
