@@ -1,6 +1,7 @@
 package Vistas.CrudJugador;
 
 import Controlador.Main;
+import Modelo.Jugador;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -23,6 +24,11 @@ public class VentanaBorrarJugador extends JDialog {
         getRootPane().setDefaultButton(bBorrar);
         Usuario.setText(Main.getUsuario());
 
+        try{
+            Main.llenarComboBoxJugador(cbJugador);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error al llenar la combo box");
+        }
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -63,7 +69,7 @@ public class VentanaBorrarJugador extends JDialog {
         try{
             Main.borrarJugador(cbJugador.getSelectedIndex());
         }catch (Exception e ){
-
+            JOptionPane.showMessageDialog(null,"Error borrar jugador");
         }
     }
 
