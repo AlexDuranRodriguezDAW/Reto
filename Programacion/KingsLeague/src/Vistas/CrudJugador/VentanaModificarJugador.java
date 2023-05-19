@@ -14,8 +14,6 @@ public class VentanaModificarJugador extends JDialog {
     private JPanel BaseBotones;
     private JComboBox cbEquipo;
     private JComboBox cbJugador;
-    private JTextField tfPosicion;
-    private JTextField tfSueldo;
     private JTextField tfClausula;
     private JButton bModificar;
     private JButton bSalir;
@@ -60,7 +58,14 @@ public class VentanaModificarJugador extends JDialog {
 
     private void onOK() {
         // add your code here
-        Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfPosicion.getText(),tfClausula.getText(), String.valueOf(cbSueldo.getSelectedItem()));
+        try{
+            if (cbJugador.getSelectedIndex() == -1 || cbEquipo.getSelectedIndex() == -1 || cbSueldo.getSelectedIndex() == -1 || tfClausula.getText().isEmpty()){
+                throw new Exception("No puede haber campos vacios");
+            }
+            Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfClausula.getText(), String.valueOf(cbSueldo.getSelectedItem()));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error modificar jugador " + e.getMessage());
+        }
     }
 
     private void onCancel() {
