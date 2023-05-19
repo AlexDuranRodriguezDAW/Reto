@@ -44,16 +44,11 @@ public class TJugador {
     }
 
 
-    public static void borrarJugador(String nombre,String apellido) throws  Exception{
+    public static void borrarJugador(Jugador j) throws  Exception{
         BaseDatos.abrirConexion();
 
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Delete from jugadores where id = " +
-                "(Select id " +
-                "from personas where nombre = ? and apellido = ?)");
-
-        ps.setString(1,nombre);
-        ps.setString(2,apellido);
-
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where id = ? ");
+        ps.setString(1,j.getId());
         ps.executeUpdate();
 
         BaseDatos.cerrarConexion();
