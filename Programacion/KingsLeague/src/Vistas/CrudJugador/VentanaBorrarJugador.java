@@ -67,7 +67,8 @@ public class VentanaBorrarJugador extends JDialog {
     private void onOK() {
         // Borrar el equipo selecccionado
         try{
-            Main.borrarJugador(cbJugador.getSelectedIndex());
+            int n = Main.borrarJugador(cbJugador.getSelectedIndex());
+            JOptionPane.showMessageDialog(null,n + " Jugador se ha borrado");
         }catch (Exception e ){
             JOptionPane.showMessageDialog(null,"Error borrar jugador");
         }

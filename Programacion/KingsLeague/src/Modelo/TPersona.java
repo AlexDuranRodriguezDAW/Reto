@@ -125,12 +125,13 @@ public class TPersona {
     }
 
 
-    public static void borrarPersonaJugadorf(Jugador j) throws Exception {
+    public static int borrarPersonaJugadorf(Jugador j) throws Exception {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where dni = ?");
         ps.setString(1, j.getDni());
-        ps.executeUpdate();
+        int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
+        return n;
     }
 
 

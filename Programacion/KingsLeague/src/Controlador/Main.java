@@ -112,10 +112,9 @@ public class Main {
         TContratoJugador.crearContratoJugador(cj);
     }
 
-    public static void borrarJugador(int numero) throws Exception {
-        String nombre = listaJugadores.get(numero).getNombre();
-        String apellido = listaJugadores.get(numero).getApellidos();
-        TJugador.borrarJugador(nombre, apellido);
+    public static int borrarJugador(int numero) throws Exception {
+        Jugador j1 = listaJugadores.get(numero);
+        return TPersona.borrarPersonaJugadorf(j1);
     }
 
     public static void modificarJugador(int indexEquipo, int indexJugador, String clausula, String sueldo) throws Exception{
