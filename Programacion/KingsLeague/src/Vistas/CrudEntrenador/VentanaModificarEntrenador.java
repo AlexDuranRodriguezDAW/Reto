@@ -41,7 +41,11 @@ public class VentanaModificarEntrenador extends JDialog {
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -68,9 +72,9 @@ public class VentanaModificarEntrenador extends JDialog {
 
     }
 
-    private void onOK() {
+    private void onOK() throws Exception {
         // add your code here
-        dispose();
+        Main.modificarEntrenador(cbEntrenador.getSelectedIndex(),cbEquipo.getSelectedIndex(),tfSueldo.getText());
     }
 
     private void onCancel() {
