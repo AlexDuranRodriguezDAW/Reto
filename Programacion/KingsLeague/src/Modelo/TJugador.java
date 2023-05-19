@@ -42,15 +42,4 @@ public class TJugador {
         BaseDatos.cerrarConexion();
         return jugadores;
     }
-
-
-    public static void borrarJugador(Jugador j) throws  Exception{
-        BaseDatos.abrirConexion();
-
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from personas where id = ? ");
-        ps.setString(1,j.getId());
-        ps.executeUpdate();
-
-        BaseDatos.cerrarConexion();
-    }
 }
