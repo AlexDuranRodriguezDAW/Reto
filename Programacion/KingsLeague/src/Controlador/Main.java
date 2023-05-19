@@ -164,6 +164,11 @@ public class Main {
         }
     }
 
+    public static void modificarEntrenador(int entrenador, int equipo, String sueldo) throws Exception {
+        EntrenadorEquipo ee = new EntrenadorEquipo(listaEquipos.get(equipo), listaEntrenadores.get(entrenador), Double.parseDouble(sueldo));
+        TEntrenadorEquipo.modificarEntrenadorEquipo(ee);
+    }
+
 //********************************************CRUD ASISTENTES***********************************************************
 
     public static void llenarComboBoxAsistente(JComboBox comboBox) throws Exception {

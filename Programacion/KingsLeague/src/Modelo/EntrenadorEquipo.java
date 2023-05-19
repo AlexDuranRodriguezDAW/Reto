@@ -20,6 +20,12 @@ public class EntrenadorEquipo {
         this.sueldo = sueldo;
     }
 
+    public EntrenadorEquipo(Equipo equipo, Entrenador entrenador, Double sueldo) {
+        this.equipo = equipo;
+        this.entrenador = entrenador;
+        this.sueldo = sueldo;
+    }
+
     public Equipo getEquipo() {
         return equipo;
     }

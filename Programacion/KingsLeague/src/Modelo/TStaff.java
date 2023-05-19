@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class TStaff {
+public class    TStaff {
 
     public static int crearPersonaStaff(Staff s) throws Exception {
         BaseDatos.abrirConexion();
