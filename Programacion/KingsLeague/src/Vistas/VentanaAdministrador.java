@@ -120,6 +120,7 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Main.emparejarPlayOff();
+                    JOptionPane.showMessageDialog(null, "Liga regular creada con exito.");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }

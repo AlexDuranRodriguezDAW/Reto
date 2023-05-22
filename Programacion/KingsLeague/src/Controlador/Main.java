@@ -244,6 +244,13 @@ public class Main {
 
     }
 
+    public static String getTipoUsuario()
+    {
+        String tipo = String.valueOf(usuarioActual.getTipo());
+
+        return tipo;
+    }
+
 //**********************************************GENERAR PARTIDOS********************************************************
 
     public static void emparejarLigaRegular() throws SQLException {
