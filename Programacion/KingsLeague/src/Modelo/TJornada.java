@@ -2,7 +2,9 @@ package Modelo;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class TJornada {
 
@@ -35,4 +37,28 @@ public class TJornada {
         BaseDatos.cerrarConexion();
     }
 
+    public static ArrayList<Equipo> sacarClasificacion() throws SQLException {
+
+        BaseDatos.abrirConexion();
+
+        PreparedStatement preparedStatement = BaseDatos.getCon().prepareStatement("Select e.nombre" +
+                                                                                    "from jornadas j, equipos e" +
+                                                                                    "where j.idEquipoGana = e.id\n" +
+                                                                                    "order by  j.idEquipoGana desc;");
+        ResultSet rs = preparedStatement.executeQuery();
+
+        ArrayList<Equipo> listaClasificacion = new ArrayList<>();
+        Equipo e = new Equipo();
+        while (rs.next()){
+
+            e.getNombreEquipo();
+
+            listaClasificacion.add(e);
+
+        }
+
+        BaseDatos.cerrarConexion();
+
+        return listaClasificacion;
+    }
 }

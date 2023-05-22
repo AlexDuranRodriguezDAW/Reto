@@ -256,4 +256,24 @@ public class Main {
         TJornada.emparejarPlayOff();
     }
 
+    public static String sacarClasificacion() throws SQLException {
+        ArrayList<Equipo> clasificacion = TJornada.sacarClasificacion();
+
+        String clasifi = "1º" + clasificacion.get(1).getNombreEquipo()
+                +"\n 2º " + clasificacion.get(2).getNombreEquipo()
+                +"\n3º"+ clasificacion.get(3).getNombreEquipo()
+                +"\n4º" +clasificacion.get(4).getNombreEquipo()
+                +"\n5º" +clasificacion.get(5).getNombreEquipo()
+                +"\n6º" +clasificacion.get(6).getNombreEquipo()
+                +"\n7º" +clasificacion.get(7).getNombreEquipo()
+                +"\n8º"+clasificacion.get(8).getNombreEquipo()
+                +"\n9º"+clasificacion.get(9).getNombreEquipo()
+                +"\n10º"+clasificacion.get(10).getNombreEquipo()
+                +"\n11º" +clasificacion.get(11).getNombreEquipo()
+                +"\n12º"+ clasificacion.get(12).getNombreEquipo();
+
+        return clasifi;
+
+
+    }
 }
