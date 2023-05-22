@@ -21,6 +21,12 @@ public class VentanaPrincipal {
 
     public VentanaPrincipal() {
         Usuario.setText(Main.getUsuario());
+
+        if (Main.getTipoUsuario() == "usuario")
+        {
+            bAdministrador.setVisible(false);
+        }
+
         bEquipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,7 +51,4 @@ public class VentanaPrincipal {
 
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }
