@@ -29,7 +29,7 @@ public class VentanaModificarEntrenador extends JDialog {
             Main.llenarComboBoxEntrenador(cbEntrenador);
             cbEntrenador.setSelectedIndex(-1);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error llenado comboBox");
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox" + e.getMessage());
         }
 
         try {
