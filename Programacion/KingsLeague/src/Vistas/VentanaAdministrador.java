@@ -89,11 +89,7 @@ public class VentanaAdministrador {
                 } else if (rbEntrenador.isSelected()) {
                     ControladorVentanas.crearVentanaModificarEntrenador();
                 } else if (rbJugador.isSelected()) {
-                    try {
                         ControladorVentanas.crearVentanaModificarJuador();
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
-                    }
                 } else if (rbPropietario.isSelected())
                 {
                     ControladorVentanas.crearVentanaModificarPropietario();

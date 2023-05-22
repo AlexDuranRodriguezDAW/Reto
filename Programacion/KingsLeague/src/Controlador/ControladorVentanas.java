@@ -142,10 +142,10 @@ public class ControladorVentanas {
     }
 
 
-    public static void crearVentanaModificarJuador() throws Exception {
+    public static void crearVentanaModificarJuador() {
         VentanaModificarJugador dialog = new VentanaModificarJugador();
         dialog.pack();
-        dialog.setGlassPane(ventanaAdministrador);
+        dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
     }
 
