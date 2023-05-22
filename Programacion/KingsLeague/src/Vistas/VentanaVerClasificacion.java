@@ -3,6 +3,7 @@ package Vistas;
 import Controlador.Main;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class VentanaVerClasificacion {
     private JPanel VentanaVerClasidficacion;
@@ -13,10 +14,10 @@ public class VentanaVerClasificacion {
     private JButton bAtras;
     private JLabel Usuario;
 
-    public VentanaVerClasificacion()
-    {
+    public VentanaVerClasificacion() throws Exception {
         Usuario.setText(Main.getUsuario());
-
+        taClasificacion.setText(Main.sacarClasificacion());
     }
+
 
 }
