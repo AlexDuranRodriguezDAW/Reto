@@ -1,5 +1,6 @@
 package Vistas.CrudJugador;
 
+import Controlador.ControladorVentanas;
 import Controlador.Main;
 import Modelo.Jugador;
 
@@ -60,6 +61,13 @@ public class VentanaBorrarJugador extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+
+        bSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onCancel();
             }
         });
     }

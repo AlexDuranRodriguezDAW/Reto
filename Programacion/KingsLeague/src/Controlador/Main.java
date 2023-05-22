@@ -129,18 +129,7 @@ public class Main {
 
 //********************************************CRUD ENTRENADORES ********************************************************
 
-
-    public static ArrayList<String> sacarEntrenadores() throws Exception {
-        listaEntrenadores = TEntrenador.seleccionarEntrenador();
-        ArrayList<String> lista = new ArrayList<>();
-
-        for (int i = 0; i < listaEntrenadores.size(); i++) {
-            lista.add(listaEntrenadores.get(i).getNombre() + " " + listaEntrenadores.get(i).getApellidos());
-        }
-        return lista;
-    }
-
-    public static void crearEntrenador(String nombre, String apellido, String dni, int i, String sueldo) throws Exception {
+    public static void crearEntrenador(String nombre, String apellido, String dni,int i,String sueldo) throws Exception {
 
         String equipo = listaEquipos.get(i).getNombreEquipo();
 

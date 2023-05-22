@@ -3343,3 +3343,19 @@ VALUES ((SELECT ID
           WHERE UPPER(NOMBRE) = 'KUNISPORTS'), 10000000, SYSDATE, 15000000);
 
 ---------------------------------------------------------------------------------------------
+
+-- Crear Usuario
+
+Insert into login (tipo,usuario,contrasenya) values ('admin','jorge','jorge');
+
+commit;
+
+
+
+
+
+
+
+
+
+

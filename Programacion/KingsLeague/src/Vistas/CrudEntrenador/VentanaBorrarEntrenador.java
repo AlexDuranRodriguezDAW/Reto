@@ -21,8 +21,13 @@ public class VentanaBorrarEntrenador extends JDialog {
         setContentPane(VentanaBorrarEntrenador);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
-        llenarCB();
         Usuario.setText(Main.getUsuario());
+
+        try {
+            Main.llenarComboBoxEntrenador(cbEntrenador);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error llenar combobox");
+        }
 
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -66,13 +71,4 @@ public class VentanaBorrarEntrenador extends JDialog {
         dispose();
     }
 
-
-
-    public void llenarCB() throws Exception {
-        ArrayList<String> listaEntrenadores = Main.sacarEntrenadores();
-
-        for (int i = 0; i < listaEntrenadores.size(); i++) {
-            cbEntrenador.addItem(listaEntrenadores.get(i));
-        }
-    }
 }

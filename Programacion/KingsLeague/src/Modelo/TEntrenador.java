@@ -43,7 +43,7 @@ public class TEntrenador {
 
     public static ArrayList<Entrenador> seleccionarEntrenador() throws Exception{
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select e.*,p.* from entrenador e , persona p " +
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select e.*,p.* from entrenadores e , personas p " +
                                                                         "where e.id = p.id and e.id = (Select id " +
                                                                                                     "from persona) ");
 
