@@ -45,7 +45,7 @@ public class VentanaCrearJugador extends JDialog {
         });
 
         // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+       // setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 onCancel();
@@ -87,10 +87,10 @@ public class VentanaCrearJugador extends JDialog {
                 }
             }
         });
-        rbDraft.addFocusListener(new FocusAdapter() {
+        /*rbDraft.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                super.focusLost(e);
+               // super.focusLost(e);
                 tfNumDraft.setEnabled(true);
             }
         });
@@ -100,7 +100,7 @@ public class VentanaCrearJugador extends JDialog {
                 super.focusLost(e);
                 tfNumDraft.setEnabled(false);
             }
-        });
+        });*/
     }
 
 

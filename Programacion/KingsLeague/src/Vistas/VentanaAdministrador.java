@@ -68,7 +68,7 @@ public class VentanaAdministrador {
                     try {
                         ControladorVentanas.crearVentanBorrarEntrenador();
                     } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 } else if (rbJugador.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarJugador();
@@ -91,7 +91,7 @@ public class VentanaAdministrador {
                     try {
                         ControladorVentanas.crearVentanaModificarJuador();
                     } catch (Exception ex) {
-                        throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(null,ex.getMessage());
                     }
                 } else if (rbPropietario.isSelected())
                 {
