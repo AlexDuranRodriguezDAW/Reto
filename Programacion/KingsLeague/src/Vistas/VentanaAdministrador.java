@@ -31,6 +31,7 @@ public class VentanaAdministrador {
     private JButton bGenerarPlayOff;
     private JButton bGenerarLiga;
     private JRadioButton rbPropietario;
+    private JButton bCrearUsuario;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
@@ -124,6 +125,12 @@ public class VentanaAdministrador {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        bCrearUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.crearVentanaCrearUsuario();
             }
         });
     }

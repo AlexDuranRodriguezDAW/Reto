@@ -85,30 +85,31 @@ public class Main {
 
 //*********************************************CRUD JUGADORES***********************************************************
 
-    public static void llenarComboBoxJugador(JComboBox comboBox) throws Exception{
+    public static void llenarComboBoxJugador(JComboBox comboBox) throws Exception {
         listaJugadores = TJugador.consultarTodos();
-        for (Jugador jugador:listaJugadores){
+        for (Jugador jugador : listaJugadores) {
             comboBox.addItem(jugador.getNombre() + " " + jugador.getApellidos());
         }
     }
-    public static void crearPersonaJugador(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft,double sueldo,double clausula) throws Exception {
+
+    public static void crearPersonaJugador(String dni, String nombre, String apellido, String posicion, int indexEquipo, String tipoJugador, String numDraft, double sueldo, double clausula) throws Exception {
         Jugador j1;
-        if (tipoJugador.equalsIgnoreCase("draft")){
-            j1 = new Jugador(dni,apellido,nombre,posicion, Jugador.TipoJugador.draft,numDraft);
-        }else {
-            j1 = new Jugador(dni,apellido,nombre,posicion, Jugador.TipoJugador.wildcard,numDraft);
+        if (tipoJugador.equalsIgnoreCase("draft")) {
+            j1 = new Jugador(dni, apellido, nombre, posicion, Jugador.TipoJugador.draft, numDraft);
+        } else {
+            j1 = new Jugador(dni, apellido, nombre, posicion, Jugador.TipoJugador.wildcard, numDraft);
         }
         TJugador.crearJugador(j1);
-        asignarJugadorEquipo(dni,indexEquipo,sueldo,clausula);
+        asignarJugadorEquipo(dni, indexEquipo, sueldo, clausula);
     }
 
-    public static void asignarJugadorEquipo(String dni, int indexEquipo, double sueldo,double clausula) throws Exception {
+    public static void asignarJugadorEquipo(String dni, int indexEquipo, double sueldo, double clausula) throws Exception {
         Jugador j1 = new Jugador();
         j1.setDni(dni);
         Jugador jConsulta = new Jugador();
         jConsulta.setId(TPersona.buscarIdJugador(j1));
         Equipo eConsulta = listaEquipos.get(indexEquipo);
-        ContratoJugador cj = new ContratoJugador(jConsulta,eConsulta,clausula,sueldo);
+        ContratoJugador cj = new ContratoJugador(jConsulta, eConsulta, clausula, sueldo);
         TContratoJugador.crearContratoJugador(cj);
     }
 
@@ -117,12 +118,12 @@ public class Main {
         return TPersona.borrarPersonaJugadorf(j1);
     }
 
-    public static void modificarJugador(int indexEquipo, int indexJugador, String clausula, String sueldo) throws Exception{
+    public static void modificarJugador(int indexEquipo, int indexJugador, String clausula, String sueldo) throws Exception {
         Equipo equipo = listaEquipos.get(indexEquipo);
         Jugador jugador = listaJugadores.get(indexJugador);
         double clausulaD = Double.parseDouble(clausula);
         double sueldoD = Double.parseDouble(sueldo);
-        ContratoJugador cj = new ContratoJugador(jugador,equipo,clausulaD,sueldoD);
+        ContratoJugador cj = new ContratoJugador(jugador, equipo, clausulaD, sueldoD);
         TContratoJugador.modificarJugador(cj);
     }
 
@@ -139,12 +140,12 @@ public class Main {
         return lista;
     }
 
-    public static void crearEntrenador(String nombre, String apellido, String dni,int i,String sueldo) throws Exception {
+    public static void crearEntrenador(String nombre, String apellido, String dni, int i, String sueldo) throws Exception {
 
-        String equipo =listaEquipos.get(i).getNombreEquipo();
+        String equipo = listaEquipos.get(i).getNombreEquipo();
 
         Entrenador e = new Entrenador(nombre, apellido, dni);
-        TEntrenador.crearPersonaEntrenador(e,equipo,sueldo);
+        TEntrenador.crearPersonaEntrenador(e, equipo, sueldo);
     }
 
     public static void borrarEntrenador(int indexEntrenador) throws Exception {
@@ -212,15 +213,15 @@ public class Main {
 
     public static int borrarDuenio(int indexDuenio) throws Exception {
 
-       return  TPersona.borrarPersonaPropietario(listaPropietarios.get(indexDuenio));
+        return TPersona.borrarPersonaPropietario(listaPropietarios.get(indexDuenio));
 
     }
 
     public static void crearDuenio(String dni, String nombre, String apellido, int indexEquipo) throws Exception {
         String nombreEquipo = listaEquipos.get(indexEquipo).getNombreEquipo();
-        Propietario p = new Propietario(dni,nombre,apellido);
+        Propietario p = new Propietario(dni, nombre, apellido);
 
-        TPropietario.crearPropietario(p,nombreEquipo);
+        TPropietario.crearPropietario(p, nombreEquipo);
 
     }
 
@@ -232,23 +233,28 @@ public class Main {
     }
 
 
+//************************************************METODOS USUARIO*********************************************************
 
-//************************************************SACAR USUARIO*********************************************************
-
-    public static String getUsuario()
-    {
+    public static String getUsuario() {
 
         String usuario = usuarioActual.getUsuario();
-
         return usuario;
 
     }
 
-    public static String getTipoUsuario()
-    {
+    public static String getTipoUsuario() {
         String tipo = String.valueOf(usuarioActual.getTipo());
-
         return tipo;
+    }
+
+    public static int crearUsuario(String usuario, String pass, Boolean admin) throws Exception {
+        Login l1 = new Login(usuario,pass);
+        if (!admin){
+            l1.setTipo(Login.tipo.usuario);
+        }else {
+            l1.setTipo(Login.tipo.admin);
+        }
+        return TLogin.insertar(l1);
     }
 
 //**********************************************GENERAR PARTIDOS********************************************************
