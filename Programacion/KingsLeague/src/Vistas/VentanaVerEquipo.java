@@ -37,7 +37,8 @@ public class VentanaVerEquipo {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String datosEquipo = Main.buscarPorNombre(cbEquipo.getSelectedIndex());
-                    JOptionPane.showMessageDialog(null, datosEquipo);
+                    taEquipos.setText(datosEquipo);
+                    //JOptionPane.showMessageDialog(null, datosEquipo);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 }

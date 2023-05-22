@@ -68,7 +68,7 @@ public class TEntrenador {
 
     public static ArrayList<Entrenador> consultarTodos () throws Exception{
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from entrenador");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from entrenadores e, personas x where e.id= x.id ");
         ResultSet rs = ps.executeQuery();
         ArrayList <Entrenador> entrenadores = new ArrayList<>();
         while (rs.next()){
