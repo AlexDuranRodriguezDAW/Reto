@@ -31,6 +31,7 @@ public class VentanaAdministrador {
     private JButton bGenerarPlayOff;
     private JButton bGenerarLiga;
     private JRadioButton rbPropietario;
+    private JButton bCrearUsuario;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
@@ -88,7 +89,6 @@ public class VentanaAdministrador {
                 } else if (rbEntrenador.isSelected()) {
                     ControladorVentanas.crearVentanaModificarEntrenador();
                 } else if (rbJugador.isSelected()) {
-                    try {
                         ControladorVentanas.crearVentanaModificarJuador();
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null,ex.getMessage());
@@ -120,9 +120,16 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Main.emparejarPlayOff();
+                    JOptionPane.showMessageDialog(null, "Liga regular creada con exito.");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        bCrearUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.crearVentanaCrearUsuario();
             }
         });
     }

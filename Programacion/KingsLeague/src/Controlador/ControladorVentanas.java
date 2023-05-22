@@ -1,5 +1,6 @@
 package Controlador;
 
+import Vistas.*;
 import Vistas.CrudAsistente.VentanaBorrarAsistente;
 import Vistas.CrudAsistente.VentanaCrearAsistente;
 import Vistas.CrudAsistente.VentanaModificarAsistente;
@@ -122,7 +123,7 @@ public class ControladorVentanas {
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaCrearJugador(){
+    public static void crearVentanaCrearJugador() {
         JFrame frame = new JFrame("VentanaCrearJugador");
         frame.setContentPane(new VentanaCrearJugador().getVentanaCrearJugador());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +132,7 @@ public class ControladorVentanas {
         frame.setVisible(true);
     }
 
-    public static void crearVentanaBorrarJugador(){
+    public static void crearVentanaBorrarJugador() {
         JFrame frame = new JFrame("VentanaBorrarJugador");
         frame.setContentPane(new VentanaBorrarJugador().getVentanaBorrarJugador());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -141,14 +142,14 @@ public class ControladorVentanas {
     }
 
 
-    public static void crearVentanaModificarJuador () throws Exception {
+    public static void crearVentanaModificarJuador() {
         VentanaModificarJugador dialog = new VentanaModificarJugador();
         dialog.pack();
-        dialog.setGlassPane(ventanaAdministrador);
+        dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
     }
 
-    public static void crearVentanaBorrarPropietario (){
+    public static void crearVentanaBorrarPropietario() {
         VentanaBorrarPropietario dialog = new VentanaBorrarPropietario();
         dialog.pack();
         dialog.setLocationRelativeTo(ventanaAdministrador);
@@ -156,7 +157,7 @@ public class ControladorVentanas {
 
     }
 
-    public static void crearVentanaCrearPropietario(){
+    public static void crearVentanaCrearPropietario() {
         VentanaCrearPropietario dialog = new VentanaCrearPropietario();
         dialog.pack();
         dialog.setLocationRelativeTo(ventanaAdministrador);
@@ -164,8 +165,7 @@ public class ControladorVentanas {
 
     }
 
-    public static void crearVentanaModificarPropietario()
-    {
+    public static void crearVentanaModificarPropietario() {
 
         VentanaModificarPropietario dialog = new VentanaModificarPropietario();
         dialog.pack();
@@ -174,12 +174,20 @@ public class ControladorVentanas {
 
     }
 
-    public static void crearVentanaModificarEntrenador()
-    {
+    public static void crearVentanaModificarEntrenador() {
         VentanaModificarEntrenador dialog = new VentanaModificarEntrenador();
         dialog.pack();
         dialog.setLocationRelativeTo(ventanaAdministrador);
         dialog.setVisible(true);
+    }
+
+    public static void crearVentanaCrearUsuario() {
+        JFrame frame = new JFrame("VentanaCrearUsuarios");
+        frame.setContentPane(new VentanaCrearUsuarios().getpCrearUsuario());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaAdministrador);
+        frame.setVisible(true);
     }
 
 }

@@ -19,14 +19,17 @@ public class VentanaModificarJugador extends JDialog {
     private JButton bSalir;
     private JComboBox cbSueldo;
 
-    public VentanaModificarJugador() throws Exception {
+    public VentanaModificarJugador() {
         setContentPane(VentanaModificarJugador);
         setModal(true);
         getRootPane().setDefaultButton(bModificar);
         Usuario.setText(Main.getUsuario());
 
-
-        llenarCB();
+        try {
+            llenarCB();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error llenado comboBox " + e.getMessage());
+        }
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -58,13 +61,13 @@ public class VentanaModificarJugador extends JDialog {
 
     private void onOK() {
         // add your code here
-        try{
-            if (cbJugador.getSelectedIndex() == -1 || cbEquipo.getSelectedIndex() == -1 || cbSueldo.getSelectedIndex() == -1 || tfClausula.getText().isEmpty()){
+        try {
+            if (cbJugador.getSelectedIndex() == -1 || cbEquipo.getSelectedIndex() == -1 || cbSueldo.getSelectedIndex() == -1 || tfClausula.getText().isEmpty()) {
                 throw new Exception("No puede haber campos vacios");
             }
-            Main.modificarJugador(cbEquipo.getSelectedIndex(),cbJugador.getSelectedIndex(),tfClausula.getText(), String.valueOf(cbSueldo.getSelectedItem()));
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error modificar jugador " + e.getMessage());
+            Main.modificarJugador(cbEquipo.getSelectedIndex(), cbJugador.getSelectedIndex(), tfClausula.getText(), String.valueOf(cbSueldo.getSelectedItem()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error modificar jugador " + e.getMessage());
         }
     }
 
