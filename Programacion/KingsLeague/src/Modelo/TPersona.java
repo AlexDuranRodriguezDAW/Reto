@@ -5,7 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Clase encargada de relacionar la clase Persona con la base de datos, se utiliza para crear sus clases hijas con los datos de estas consultas
+ * @author Grupo 3
+ * @version 1.3
+ * @since 23/05/2023
+ * @see Persona
+ */
+
 public class TPersona {
+
+    /**
+     * Metodo que comprueba si una persona existe en la base de datos mediante el dni y no crear duplicidad
+     * @param dni Atributo DNI unico, pero no es la clave de la tabla
+     * @return Devuelve un boolean dependiendo si es encuentra o no la persona en la bdd
+     * @throws Exception Puede devolver exception
+     */
 
     public static boolean existePersona(String dni) throws Exception {
         boolean existe = false;

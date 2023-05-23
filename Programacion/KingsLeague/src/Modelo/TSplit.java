@@ -5,11 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Split con la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Split
+ */
+
 public class TSplit {
 
     public static int insertar(Split split) throws Exception {
         BaseDatos.abrirConexion();
-        //Todo validar que no se cree un split mientras otro esta en proceso
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into split (tipo,fechainicio,FECHAFIN) values (?,?,?)");
         ps.setString(1, split.getTipoSplit().toString());
         ps.setDate(2, Date.valueOf(split.getFechaInicio()));

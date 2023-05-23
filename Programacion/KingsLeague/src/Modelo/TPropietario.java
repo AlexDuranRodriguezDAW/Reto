@@ -4,6 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Propietario con la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Propietario
+ */
+
 public class TPropietario {
 
     public static void crearPropietario(Propietario propietario, String nombreEquipo) throws Exception {

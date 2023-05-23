@@ -6,6 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
+/**
+ * Clase encargada de relacionar la clase StaffEquipo, relacion de las clases Staff y Equipo, con la base de datos (CRUD)
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see StaffEquipo
+ */
+
 public class TStaffEquipo {
 
     public static void crearPersonaStaffEquipo(StaffEquipo se) throws Exception {

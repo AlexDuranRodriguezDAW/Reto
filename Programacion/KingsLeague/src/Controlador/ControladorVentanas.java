@@ -23,6 +23,14 @@ import Vistas.VentanaVerEquipo;
 
 import javax.swing.*;
 
+/**
+ * Esta clase se encarga de controlar todas las ventanas del programa.
+ * Algunas ventanas estan en variables para poder usarlas para centrar otras ventanas en referencia a estas o para poder cerrarlas desde otras clases.
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ */
+
 public class ControladorVentanas {
 
     public static JFrame ventanaInicioSesion;

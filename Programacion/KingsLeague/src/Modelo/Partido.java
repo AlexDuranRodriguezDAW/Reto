@@ -2,6 +2,13 @@ package Modelo;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que se utiliza para representar un partido de la "Kings League"
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ */
+
 public class Partido {
     private int id;
     private LocalDate hora;

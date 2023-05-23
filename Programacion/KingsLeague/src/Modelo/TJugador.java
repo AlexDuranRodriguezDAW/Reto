@@ -4,6 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Jugador con la base de datos (CRUD)
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Jugador
+ */
+
 public class TJugador {
 
     public static int crearJugador(Jugador j) throws Exception {
@@ -20,6 +28,11 @@ public class TJugador {
         return n;
     }
 
+    /**
+     * Metodo para la lectura de todos los datos de Jugadores de la bdd, se usa una consulta de dos tablas
+     * @return devuelve un Arraylist con todos los jugadores
+     * @throws Exception Puede devolver error en caso de base datos vacia o error al relacionar ids
+     */
     public static ArrayList<Jugador> consultarTodos() throws Exception {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from personas p, jugadores x where p.id= x.id ");

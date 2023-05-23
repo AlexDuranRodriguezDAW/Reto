@@ -2,6 +2,14 @@ package Modelo;
 
 import java.sql.PreparedStatement;
 
+/**
+ * Clase encargada de relacionar la clase EntrenadorEquipo con la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see EntrenadorEquipo
+ */
+
 public class TEntrenadorEquipo {
 
     public static int modificarEntrenadorEquipo(EntrenadorEquipo ee) throws Exception {

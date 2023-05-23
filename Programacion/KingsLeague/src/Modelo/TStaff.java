@@ -4,6 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Staff con la base de datos (CRUD)
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Staff
+ */
+
 public class TStaff {
 
     public static int crearPersonaStaff(Staff s) throws Exception {

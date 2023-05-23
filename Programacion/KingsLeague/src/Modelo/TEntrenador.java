@@ -5,6 +5,14 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Entranador con la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Entrenador
+ */
+
 public class TEntrenador {
 
     public static void crearPersonaEntrenador(Entrenador e, String equipo, String sueldo) throws Exception {
@@ -41,22 +49,11 @@ public class TEntrenador {
         }
     }
 
-    public static ArrayList<Entrenador> seleccionarEntrenador() throws Exception {
-        BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select e.*,p.* from entrenadores e , personas p where e.id = p.id and e.id = (Select id from persona) ");
-        ResultSet rs = ps.executeQuery();
-        ArrayList<Entrenador> lista = new ArrayList<>();
-        Entrenador e = new Entrenador();
-        if (rs.next()) {
-            e.setNombre(rs.getString("nombre"));
-            e.setApellidos("apellido");
-            e.setDni("dni");
-            lista.add(e);
-        }
-        BaseDatos.cerrarConexion();
-        return lista;
-    }
-
+    /**
+     * Metodo que mediante una consulta de dos tablas devuelve todos los datos de los entrenadores
+     * @return Arraylist de la clase Entrenador que devuelve todos los entrenadores de la bdd
+     * @throws Exception puede devolver Exception con la base de datos si esta vacio
+     */
     public static ArrayList<Entrenador> consultarTodos() throws Exception {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from entrenadores e, personas x where e.id= x.id ");

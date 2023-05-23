@@ -4,6 +4,14 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
 
+/**
+ * Clase encargada de relacionar la clase ContratoJugador con la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see ContratoJugador
+ */
+
 public class TContratoJugador {
 
     public static void crearContratoJugador(ContratoJugador cj) throws Exception {
