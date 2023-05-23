@@ -17,7 +17,7 @@ public class VentanaBorrarEntrenador extends JDialog {
     private JButton bBorrar;
     private JButton bSalir;
 
-    public VentanaBorrarEntrenador() throws Exception {
+    public VentanaBorrarEntrenador() {
         setContentPane(VentanaBorrarEntrenador);
         setModal(true);
         getRootPane().setDefaultButton(bBorrar);
@@ -25,8 +25,8 @@ public class VentanaBorrarEntrenador extends JDialog {
 
         try {
             Main.llenarComboBoxEntrenador(cbEntrenador);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error llenar combobox");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenar combobox");
         }
 
         bBorrar.addActionListener(new ActionListener() {
@@ -62,8 +62,11 @@ public class VentanaBorrarEntrenador extends JDialog {
     }
 
     private void onOK() throws Exception {
-        // add your code here
-        Main.borrarEntrenador(cbEntrenador.getSelectedIndex());
+        try {
+            Main.borrarEntrenador(cbEntrenador.getSelectedIndex());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error al borrar entrenador");
+        }
     }
 
     private void onCancel() {
