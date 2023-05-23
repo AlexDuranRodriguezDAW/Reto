@@ -24,9 +24,9 @@ public class TPropietario {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from personas p, duenyos x where p.id= x.id ");
         ResultSet rs = ps.executeQuery();
-        ArrayList <Propietario> propietarios = new ArrayList<>();
-        while (rs.next()){
-            Propietario p1 = new Propietario(rs.getString("id"),rs.getString("dni"),rs.getString("apellido"),rs.getString("nombre"));
+        ArrayList<Propietario> propietarios = new ArrayList<>();
+        while (rs.next()) {
+            Propietario p1 = new Propietario(rs.getString("id"), rs.getString("dni"), rs.getString("apellido"), rs.getString("nombre"));
             propietarios.add(p1);
         }
         BaseDatos.cerrarConexion();

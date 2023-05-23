@@ -12,6 +12,7 @@ public class StaffEquipo {
 
     public StaffEquipo() {
     }
+
     public StaffEquipo(Equipo equipo, Staff staff, LocalDate fechaInicio, LocalDate fechaFin, Double sueldo) {
         this.equipo = equipo;
         this.staff = staff;

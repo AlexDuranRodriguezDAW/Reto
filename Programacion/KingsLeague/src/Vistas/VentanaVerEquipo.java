@@ -29,7 +29,7 @@ public class VentanaVerEquipo {
             Main.llenarComboBoxEquipo(cbEquipo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error llenado ComboBox");
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
         cbEquipo.addActionListener(new ActionListener() {
@@ -40,7 +40,7 @@ public class VentanaVerEquipo {
                     taEquipos.setText(datosEquipo);
                     //JOptionPane.showMessageDialog(null, datosEquipo);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });

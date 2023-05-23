@@ -60,7 +60,7 @@ public class VentanaCrearEntrenador extends JDialog {
 
     private void onOK() throws Exception {
         // add your code here
-        Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText(),cbEquipo.getSelectedIndex(),tfSueldo.getText());
+        Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText(), cbEquipo.getSelectedIndex(), tfSueldo.getText());
     }
 
     private void onCancel() {

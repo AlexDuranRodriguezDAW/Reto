@@ -33,7 +33,7 @@ public class VentanaInicioSesion {
                 try {
                     Main.validarPassword(tfUsuario.getText(), pfContrasena.getText());
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,"Error usuario no valido");
+                    JOptionPane.showMessageDialog(null, "Error usuario no valido");
                 }
             }
         });

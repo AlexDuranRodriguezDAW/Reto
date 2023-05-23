@@ -25,10 +25,10 @@ public class VentanaBorrarJugador extends JDialog {
         getRootPane().setDefaultButton(bBorrar);
         Usuario.setText(Main.getUsuario());
 
-        try{
+        try {
             Main.llenarComboBoxJugador(cbJugador);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error al llenar la combo box");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al llenar la combo box");
         }
 
         bBorrar.addActionListener(new ActionListener() {
@@ -74,11 +74,11 @@ public class VentanaBorrarJugador extends JDialog {
 
     private void onOK() {
         // Borrar el equipo selecccionado
-        try{
+        try {
             int n = Main.borrarJugador(cbJugador.getSelectedIndex());
-            JOptionPane.showMessageDialog(null,n + " Jugador se ha borrado");
-        }catch (Exception e ){
-            JOptionPane.showMessageDialog(null,"Error borrar jugador");
+            JOptionPane.showMessageDialog(null, n + " Jugador se ha borrado");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error borrar jugador");
         }
     }
 

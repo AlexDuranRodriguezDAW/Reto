@@ -68,7 +68,7 @@ public class VentanaCrearEquipo extends JDialog {
 
     private void onOK() throws Exception {
         try {
-            if (tfNombre.getText().isEmpty() || tfSponsor.getText().isEmpty()){
+            if (tfNombre.getText().isEmpty() || tfSponsor.getText().isEmpty()) {
                 throw new Exception("No pueden haber campos vacios");
             }
             ControladorValidaciones.validarDato(tfNombre.getText(), "Nombre equipo", "^[A-Z][a-z]*( [A-Z]?[a-z]*)*\\S$");

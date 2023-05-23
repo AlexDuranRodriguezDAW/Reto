@@ -27,11 +27,7 @@ public class VentanaCrearPropietario extends JDialog {
 
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
-                }
+                onOK();
             }
         });
 
@@ -57,9 +53,13 @@ public class VentanaCrearPropietario extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() throws Exception {
+    private void onOK() {
         // add your code here
-        Main.crearDuenio(tfDni.getText(),tfNombre.getText(),tfApellido.getText(),cbEquipo.getSelectedIndex());
+        try {
+            Main.crearDuenio(tfDni.getText(), tfNombre.getText(), tfApellido.getText(), cbEquipo.getSelectedIndex());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al crear el dueño");
+        }
     }
 
     private void onCancel() {

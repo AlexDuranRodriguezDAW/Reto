@@ -14,8 +14,7 @@ public class VentanaJPlayOffFaseFinal {
     private JTextField tfDni;
     private JButton bCrear;
 
-    public VentanaJPlayOffFaseFinal()
-    {
+    public VentanaJPlayOffFaseFinal() {
         Usuario.setText(Main.getUsuario());
 
     }

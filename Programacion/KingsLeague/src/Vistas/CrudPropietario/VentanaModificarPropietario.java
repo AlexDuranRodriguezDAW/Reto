@@ -35,11 +35,7 @@ public class VentanaModificarPropietario extends JDialog {
 
         bModificar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                onOK();
             }
         });
 
@@ -65,13 +61,16 @@ public class VentanaModificarPropietario extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() throws SQLException {
+    private void onOK() {
         // add your code here
-        Main.modificarPropietario(tfDni.getText(), tfNombre.getText(),tfApellido.getText());
+        try {
+            Main.modificarPropietario(tfDni.getText(), tfNombre.getText(), tfApellido.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar el propietario");
+        }
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 

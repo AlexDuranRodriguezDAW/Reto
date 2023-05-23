@@ -29,7 +29,7 @@ public class VentanaCrearAsistente extends JDialog {
 
         try {
             Main.llenarComboBoxEquipo(cbEquipo);
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error al llenar la combo box de equipo " + e.getMessage());
         }
 
