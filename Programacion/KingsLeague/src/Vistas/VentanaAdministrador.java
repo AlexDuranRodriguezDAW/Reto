@@ -51,8 +51,7 @@ public class VentanaAdministrador {
                     ControladorVentanas.crearVentanaCrearEntrenador();
                 } else if (rbJugador.isSelected()) {
                     ControladorVentanas.crearVentanaCrearJugador();
-                } else if (rbPropietario.isSelected())
-                {
+                } else if (rbPropietario.isSelected()) {
                     ControladorVentanas.crearVentanaCrearPropietario();
                 }
 
@@ -66,15 +65,10 @@ public class VentanaAdministrador {
                 } else if (rbAsistente.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarAsitente();
                 } else if (rbEntrenador.isSelected()) {
-                    try {
-                        ControladorVentanas.crearVentanBorrarEntrenador();
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    }
+                    ControladorVentanas.crearVentanBorrarEntrenador();
                 } else if (rbJugador.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarJugador();
-                } else if (rbPropietario.isSelected())
-                {
+                } else if (rbPropietario.isSelected()) {
                     ControladorVentanas.crearVentanaBorrarPropietario();
                 }
             }
@@ -89,12 +83,8 @@ public class VentanaAdministrador {
                 } else if (rbEntrenador.isSelected()) {
                     ControladorVentanas.crearVentanaModificarEntrenador();
                 } else if (rbJugador.isSelected()) {
-                        ControladorVentanas.crearVentanaModificarJuador();
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null,ex.getMessage());
-                    }
-                } else if (rbPropietario.isSelected())
-                {
+                    ControladorVentanas.crearVentanaModificarJuador();
+                } else if (rbPropietario.isSelected()) {
                     ControladorVentanas.crearVentanaModificarPropietario();
                 }
             }
@@ -110,8 +100,9 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Main.emparejarLigaRegular();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, "Liga regular creado con exito.");
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al crear la liga regular");
                 }
             }
         });
@@ -120,9 +111,9 @@ public class VentanaAdministrador {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Main.emparejarPlayOff();
-                    JOptionPane.showMessageDialog(null, "Liga regular creada con exito.");
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, "PlayOff creado con exito.");
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al crear los playoffs");
                 }
             }
         });

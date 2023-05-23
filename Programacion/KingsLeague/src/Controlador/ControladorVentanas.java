@@ -87,7 +87,7 @@ public class ControladorVentanas {
         dialog.setVisible(true);
     }
 
-    public static void crearVentanBorrarEntrenador() throws Exception {
+    public static void crearVentanBorrarEntrenador() {
         VentanaBorrarEntrenador dialog = new VentanaBorrarEntrenador();
         dialog.pack();
         dialog.setLocationRelativeTo(ventanaAdministrador);
