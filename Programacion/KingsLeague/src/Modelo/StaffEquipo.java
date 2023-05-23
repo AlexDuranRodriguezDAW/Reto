@@ -2,6 +2,15 @@ package Modelo;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que representa la relacion entre los entrenadores, asistentes y el equipo al que pertecen
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Staff
+ * @see Equipo
+ */
+
 public class StaffEquipo {
 
     private Equipo equipo;
@@ -10,16 +19,12 @@ public class StaffEquipo {
     private LocalDate fechaFin;
     private Double sueldo;
 
-    public StaffEquipo() {
-    }
-
-    public StaffEquipo(Equipo equipo, Staff staff, LocalDate fechaInicio, LocalDate fechaFin, Double sueldo) {
-        this.equipo = equipo;
-        this.staff = staff;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.sueldo = sueldo;
-    }
+    /**
+     * Constructor por defecto
+     * @param equipo Clase Equipo
+     * @param staff Clase Staff
+     * @param sueldo Double, atributo que representa el sueldo de esta relación
+     */
 
     public StaffEquipo(Equipo equipo, Staff staff, Double sueldo) {
         this.equipo = equipo;

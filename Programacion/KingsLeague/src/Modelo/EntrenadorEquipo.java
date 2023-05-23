@@ -2,6 +2,13 @@ package Modelo;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que surge de la relacion de un entrenador con un equipo
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ */
+
 public class EntrenadorEquipo {
     private Equipo equipo;
     private Entrenador entrenador;
@@ -9,17 +16,12 @@ public class EntrenadorEquipo {
     private LocalDate fechaFin;
     private Double sueldo;
 
-    public EntrenadorEquipo() {
-    }
-
-    public EntrenadorEquipo(Equipo equipo, Entrenador entrenador, LocalDate fechaInicio, LocalDate fechaFin, Double sueldo) {
-        this.equipo = equipo;
-        this.entrenador = entrenador;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.sueldo = sueldo;
-    }
-
+    /**
+     * Constructor por defecto
+     * @param equipo Clase Equipo
+     * @param entrenador Clase Entrenador
+     * @param sueldo Double, sueldo de la relaciond de ambas clases
+     */
     public EntrenadorEquipo(Equipo equipo, Entrenador entrenador, Double sueldo) {
         this.equipo = equipo;
         this.entrenador = entrenador;

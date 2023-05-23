@@ -7,6 +7,13 @@ import java.util.ArrayList;
 
 import static Controlador.ControladorVentanas.ventanaInicioSesion;
 
+
+/**
+ * Esta clase es el controlador principal del programa y el que se encarga de comunicar las vistas con las clases con la base de datos.
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ */
 public class Main {
     private static Login usuarioActual;
     private static ArrayList<Entrenador> listaEntrenadores;
@@ -200,9 +207,7 @@ public class Main {
 
 
     public static int borrarDuenio(int indexDuenio) throws Exception {
-
         return TPersona.borrarPersonaPropietario(listaPropietarios.get(indexDuenio));
-
     }
 
     public static void crearDuenio(String dni, String nombre, String apellido, int indexEquipo) throws Exception {

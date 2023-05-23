@@ -1,5 +1,15 @@
 package Modelo;
 
+/**
+ * Clase que representa un equipo concreto de los dos de un partido, es una relacion de Partido y Equipo
+ * Partido 2
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Equipo
+ * @see Partido
+ */
+
 public class PartidoEquipo2 {
 
     private int goles;

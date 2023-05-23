@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Controlador"},{"l":"Modelo"},{"l":"Vistas"},{"l":"Vistas.CrudAsistente"},{"l":"Vistas.CrudEntrenador"},{"l":"Vistas.CrudEquipo"},{"l":"Vistas.CrudJugador"},{"l":"Vistas.CrudPropietario"}];updateSearchResults();

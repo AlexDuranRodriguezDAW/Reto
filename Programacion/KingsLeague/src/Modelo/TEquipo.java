@@ -5,6 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Equipo con la base de datos (CRUD)
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Equipo
+ */
+
 public class TEquipo {
 
     public static int crearEquipo(Equipo e) throws Exception {

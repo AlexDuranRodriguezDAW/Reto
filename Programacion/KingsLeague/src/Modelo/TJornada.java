@@ -6,6 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Clase encargada de relacionar la clase Jornada con la base de datos, esta clase tambien lanza procesos de la base de datos
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Jornada
+ */
+
 public class TJornada {
 
     public static void emparejarLigaRegular() throws SQLException {

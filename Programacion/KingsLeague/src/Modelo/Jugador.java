@@ -1,11 +1,17 @@
 package Modelo;
 
+/**
+ * Clase que hereda atributos y metodos de Persona, se utiliza para representar a todos los jugadores de la "Kings League"
+ * @author Grupo 3
+ * @version 1.0
+ * @since 23/05/2023
+ * @see Persona
+ */
 public class Jugador extends Persona {
 
-    public Jugador(String jugadorApellido, String jugadorNombre, String posicicion) {
-
-    }
-
+    /**
+     * Clase tipo enum que se utiliza para controlar el dato que se introduce en el atributo TipoJugador
+     */
     public enum TipoJugador {
         draft, wildcard
     }
@@ -13,6 +19,10 @@ public class Jugador extends Persona {
     private String posicion;
     private TipoJugador tipo;
     private String numDraft;
+
+    public Jugador(String jugadorApellido, String jugadorNombre, String posicicion) {
+
+    }
 
     public Jugador(String id, String dni, String apellidos, String nombre, String posicion, TipoJugador tipo, String numDraft) {
         super(id, dni, apellidos, nombre);
