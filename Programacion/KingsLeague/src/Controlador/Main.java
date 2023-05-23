@@ -3,7 +3,6 @@ package Controlador;
 import Modelo.*;
 
 import javax.swing.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static Controlador.ControladorVentanas.ventanaInicioSesion;
@@ -214,9 +213,8 @@ public class Main {
 
     }
 
-    public static void modificarPropietario(String dni, String nombre, String apellido) throws SQLException {
+    public static void modificarPropietario(String dni, String nombre, String apellido) throws Exception {
         Propietario p = new Propietario(dni, nombre, apellido);
-
         TPersona.modificarPropietario(p);
 
     }
@@ -225,7 +223,6 @@ public class Main {
 //************************************************METODOS USUARIO*********************************************************
 
     public static String getUsuario() {
-
         String usuario = usuarioActual.getUsuario();
         return usuario;
 
@@ -248,15 +245,15 @@ public class Main {
 
 //**********************************************GENERAR PARTIDOS********************************************************
 
-    public static void emparejarLigaRegular() throws SQLException {
+    public static void emparejarLigaRegular() throws Exception {
         TJornada.emparejarLigaRegular();
     }
 
-    public static void emparejarPlayOff() throws SQLException {
+    public static void emparejarPlayOff() throws Exception {
         TJornada.emparejarPlayOff();
     }
 
-    public static String sacarClasificacion() throws SQLException {
+    public static String sacarClasificacion() throws Exception {
         ArrayList<Equipo> clasificacion = TJornada.sacarClasificacion();
 
         String clasifi = "1º" + clasificacion.get(1).getNombreEquipo()
