@@ -39,7 +39,7 @@ public class VentanaBorrarEquipo extends JDialog {
                 try {
                     onOK();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
@@ -69,7 +69,7 @@ public class VentanaBorrarEquipo extends JDialog {
     private void onOK() throws Exception {
         try {
             Main.borrarEquipo((String) cbEquipo.getSelectedItem());
-            JOptionPane.showMessageDialog(null,"El equipo " + cbEquipo.getSelectedItem() + " ha sido borrado correctamenete");
+            JOptionPane.showMessageDialog(null, "El equipo " + cbEquipo.getSelectedItem() + " ha sido borrado correctamenete");
             cbEquipo.setSelectedIndex(-1);
         } catch (Exception e) {
             throw new Exception("Problemas al borrar equipo" + e.getMessage());

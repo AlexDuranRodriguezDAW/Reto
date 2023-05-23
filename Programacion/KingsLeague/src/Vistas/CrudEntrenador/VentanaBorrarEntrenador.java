@@ -64,8 +64,8 @@ public class VentanaBorrarEntrenador extends JDialog {
     private void onOK() throws Exception {
         try {
             Main.borrarEntrenador(cbEntrenador.getSelectedIndex());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error al borrar entrenador");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al borrar entrenador");
         }
     }
 

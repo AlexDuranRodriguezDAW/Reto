@@ -1,5 +1,6 @@
 package Vistas;
 
+import Controlador.ControladorVentanas;
 import Controlador.Main;
 
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class VentanaCrearUsuarios {
     private JPanel pCrearUsuario;
 
     public VentanaCrearUsuarios() {
+        Usuario.setText(Main.getUsuario());
+
         bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -29,7 +32,7 @@ public class VentanaCrearUsuarios {
                     if (tfUsuario.getText().isEmpty() || pfPass.getText().isEmpty() || pfPassRepetida.getText().isEmpty()) {
                         throw new Exception("No puede haber campos vacios");
                     }
-                    if (!pfPass.getText().equals(pfPass.getText())) {
+                    if (!pfPass.getText().equals(pfPassRepetida.getText())) {
                         throw new Exception("Las contraseñas deben ser iguales");
                     }
                     boolean admin = false;
@@ -45,6 +48,12 @@ public class VentanaCrearUsuarios {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al crear usuario " + ex.getMessage());
                 }
+            }
+        });
+        bSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.ventanaCrearUsuario.dispose();
             }
         });
     }

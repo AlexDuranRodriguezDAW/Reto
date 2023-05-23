@@ -29,6 +29,8 @@ public class ControladorVentanas {
     public static JFrame ventanaPrincipal;
     public static JFrame ventanaAdministrador;
 
+    public static JFrame ventanaCrearUsuario;
+
     //Metodos relacionados con las ventanas
     public static void crearVentanaInicioSesion() {
         ventanaInicioSesion = new JFrame("VentanaInicioSesion");
@@ -182,12 +184,12 @@ public class ControladorVentanas {
     }
 
     public static void crearVentanaCrearUsuario() {
-        JFrame frame = new JFrame("VentanaCrearUsuarios");
-        frame.setContentPane(new VentanaCrearUsuarios().getpCrearUsuario());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaAdministrador);
-        frame.setVisible(true);
+        ventanaCrearUsuario = new JFrame("VentanaCrearUsuarios");
+        ventanaCrearUsuario.setContentPane(new VentanaCrearUsuarios().getpCrearUsuario());
+        ventanaCrearUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventanaCrearUsuario.pack();
+        ventanaCrearUsuario.setLocationRelativeTo(ventanaAdministrador);
+        ventanaCrearUsuario.setVisible(true);
     }
 
 }

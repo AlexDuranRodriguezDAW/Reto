@@ -25,8 +25,8 @@ public class VentanaBorrarAsistente extends JDialog {
 
         try {
             Main.llenarComboBoxAsistente(cbAsistente);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error llenado comboBox " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox " + e.getMessage());
         }
 
         bBorrar.addActionListener(new ActionListener() {
@@ -60,10 +60,10 @@ public class VentanaBorrarAsistente extends JDialog {
     private void onOK() {
         try {
             int n = Main.borrarAsistente(cbAsistente.getSelectedIndex());
-            JOptionPane.showMessageDialog(null,n + " Asistente ha sido borrado");
+            JOptionPane.showMessageDialog(null, n + " Asistente ha sido borrado");
             cbAsistente.setSelectedIndex(-1);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error borrar asistente " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error borrar asistente " + e.getMessage());
         }
     }
 

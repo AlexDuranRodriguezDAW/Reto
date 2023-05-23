@@ -66,22 +66,22 @@ public class VentanaModificarAsistente extends JDialog {
                 super.focusLost(e);
                 try {
                     tfSueldo.setText(String.valueOf(Main.getSueldo(cbAsistente.getSelectedIndex())));
-                }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null,"Error al cargar el sueldo " + ex.getMessage());
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al cargar el sueldo " + ex.getMessage());
                 }
             }
         });
     }
 
     private void onOK() {
-        try{
-            if (tfSueldo.getText().isEmpty() || cbEquipo.getSelectedIndex() == -1 || cbAsistente.getSelectedIndex() == -1){
+        try {
+            if (tfSueldo.getText().isEmpty() || cbEquipo.getSelectedIndex() == -1 || cbAsistente.getSelectedIndex() == -1) {
                 throw new Exception("No puede haber campos vacios");
             }
-            int n = Main.modificarAsistente(cbEquipo.getSelectedIndex(),cbAsistente.getSelectedIndex(), Double.parseDouble(tfSueldo.getText()));
-            JOptionPane.showMessageDialog(null,n + " Asistente ha sido modificado correctamente");
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error modificando a un asistente " + e.getMessage());
+            int n = Main.modificarAsistente(cbEquipo.getSelectedIndex(), cbAsistente.getSelectedIndex(), Double.parseDouble(tfSueldo.getText()));
+            JOptionPane.showMessageDialog(null, n + " Asistente ha sido modificado correctamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error modificando a un asistente " + e.getMessage());
         }
     }
 

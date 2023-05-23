@@ -32,8 +32,8 @@ public class VentanaModificarEquipo extends JDialog {
 
         try {
             Main.llenarComboBoxEquipo(cbNombre);
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error al llenar las comboBox " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al llenar las comboBox " + e.getMessage());
         }
 
         bModificar.addActionListener(new ActionListener() {
@@ -41,7 +41,7 @@ public class VentanaModificarEquipo extends JDialog {
                 try {
                     onOK();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             }
         });
@@ -77,11 +77,11 @@ public class VentanaModificarEquipo extends JDialog {
 
     private void onOK() throws Exception {
         //ControladorValidaciones.validarDato(tfSponsor.getText(), "Nombre del sponsor", "^[A-Z][a-z]*( [A-z]*)*\\S$");
-        int n = Main.modificarEquipo(String.valueOf(cbNombre.getSelectedItem()),tfSponsor.getText(),Double.parseDouble(tfPresupuesto.getText()));
-        if (n == 1 ){
-            JOptionPane.showMessageDialog(null,"El equipo ha sido modificado correctamente");
-        }else {
-            JOptionPane.showMessageDialog(null,"Error al modificar el equipo");
+        int n = Main.modificarEquipo(String.valueOf(cbNombre.getSelectedItem()), tfSponsor.getText(), Double.parseDouble(tfPresupuesto.getText()));
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "El equipo ha sido modificado correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al modificar el equipo");
         }
     }
 

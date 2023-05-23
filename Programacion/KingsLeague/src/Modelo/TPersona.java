@@ -1,7 +1,6 @@
 package Modelo;
 
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -95,13 +94,13 @@ public class TPersona {
 //******************************************JUGADOR****************************************************************************
 
     public static void insertarJugador(Jugador j) throws Exception {
-        if (!existePersona(j.getDni())){
+        if (!existePersona(j.getDni())) {
             PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
             ps.setString(1, j.getDni());
             ps.setString(2, j.getNombre());
             ps.setString(3, j.getApellidos());
             int n = ps.executeUpdate();
-        }else {
+        } else {
             throw new Exception("No se pueden crear dos personas con el mismo dni");
         }
       /*
@@ -138,13 +137,13 @@ public class TPersona {
 //*********************************************Dueño***********************************************************************
 
     public static void insertarPropietario(Propietario propietario) throws Exception {
-        if (!existePersona(propietario.getDni())){
+        if (!existePersona(propietario.getDni())) {
             PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Personas (dni,nombre,apellido) values (?,?,?)");
             ps.setString(1, propietario.getDni());
             ps.setString(2, propietario.getNombre());
             ps.setString(3, propietario.getApellidos());
             int n = ps.executeUpdate();
-        }else {
+        } else {
             throw new Exception("No se pueden crear dos personas con el mismo dni");
         }
       /*
@@ -174,13 +173,13 @@ public class TPersona {
         return n;
     }
 
-    public static Propietario consultarPropietarioId (String id) throws Exception{
+    public static Propietario consultarPropietarioId(String id) throws Exception {
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Select * from personas where id = ?");
-        ps.setString(1,id);
+        ps.setString(1, id);
         ResultSet rs = ps.executeQuery();
         Propietario p1 = null;
-        if (rs.next()){
-            p1 = new Propietario(rs.getString("id"),rs.getString("dni"),rs.getString("apellido"),rs.getString("nombre"));
+        if (rs.next()) {
+            p1 = new Propietario(rs.getString("id"), rs.getString("dni"), rs.getString("apellido"), rs.getString("nombre"));
         }
         return p1;
     }
@@ -189,9 +188,9 @@ public class TPersona {
         BaseDatos.abrirConexion();
 
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("Update personas" +
-                                                                        "set dni = ?," +
-                                                                        "nombre = ?," +
-                                                                        "apellido = ?"
+                "set dni = ?," +
+                "nombre = ?," +
+                "apellido = ?"
         );
 
         ps.setString(1, p.getDni());

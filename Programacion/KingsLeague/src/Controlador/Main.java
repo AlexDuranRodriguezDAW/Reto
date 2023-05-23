@@ -129,7 +129,7 @@ public class Main {
 
 //********************************************CRUD ENTRENADORES ********************************************************
 
-    public static void crearEntrenador(String nombre, String apellido, String dni,int i,String sueldo) throws Exception {
+    public static void crearEntrenador(String nombre, String apellido, String dni, int i, String sueldo) throws Exception {
 
         String equipo = listaEquipos.get(i).getNombreEquipo();
 
@@ -237,10 +237,10 @@ public class Main {
     }
 
     public static int crearUsuario(String usuario, String pass, Boolean admin) throws Exception {
-        Login l1 = new Login(usuario,pass);
-        if (!admin){
+        Login l1 = new Login(usuario, pass);
+        if (!admin) {
             l1.setTipo(Login.tipo.usuario);
-        }else {
+        } else {
             l1.setTipo(Login.tipo.admin);
         }
         return TLogin.insertar(l1);
@@ -260,17 +260,17 @@ public class Main {
         ArrayList<Equipo> clasificacion = TJornada.sacarClasificacion();
 
         String clasifi = "1º" + clasificacion.get(1).getNombreEquipo()
-                +"\n 2º " + clasificacion.get(2).getNombreEquipo()
-                +"\n3º"+ clasificacion.get(3).getNombreEquipo()
-                +"\n4º" +clasificacion.get(4).getNombreEquipo()
-                +"\n5º" +clasificacion.get(5).getNombreEquipo()
-                +"\n6º" +clasificacion.get(6).getNombreEquipo()
-                +"\n7º" +clasificacion.get(7).getNombreEquipo()
-                +"\n8º"+clasificacion.get(8).getNombreEquipo()
-                +"\n9º"+clasificacion.get(9).getNombreEquipo()
-                +"\n10º"+clasificacion.get(10).getNombreEquipo()
-                +"\n11º" +clasificacion.get(11).getNombreEquipo()
-                +"\n12º"+ clasificacion.get(12).getNombreEquipo();
+                + "\n 2º " + clasificacion.get(2).getNombreEquipo()
+                + "\n3º" + clasificacion.get(3).getNombreEquipo()
+                + "\n4º" + clasificacion.get(4).getNombreEquipo()
+                + "\n5º" + clasificacion.get(5).getNombreEquipo()
+                + "\n6º" + clasificacion.get(6).getNombreEquipo()
+                + "\n7º" + clasificacion.get(7).getNombreEquipo()
+                + "\n8º" + clasificacion.get(8).getNombreEquipo()
+                + "\n9º" + clasificacion.get(9).getNombreEquipo()
+                + "\n10º" + clasificacion.get(10).getNombreEquipo()
+                + "\n11º" + clasificacion.get(11).getNombreEquipo()
+                + "\n12º" + clasificacion.get(12).getNombreEquipo();
 
         return clasifi;
 

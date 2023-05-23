@@ -74,7 +74,7 @@ public class VentanaModificarEntrenador extends JDialog {
 
     private void onOK() throws Exception {
         // add your code here
-        Main.modificarEntrenador(cbEntrenador.getSelectedIndex(),cbEquipo.getSelectedIndex(),tfSueldo.getText());
+        Main.modificarEntrenador(cbEntrenador.getSelectedIndex(), cbEquipo.getSelectedIndex(), tfSueldo.getText());
     }
 
     private void onCancel() {

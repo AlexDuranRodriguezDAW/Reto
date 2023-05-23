@@ -28,7 +28,7 @@ public class VentanaModificarJugador extends JDialog {
         try {
             llenarCB();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error llenado comboBox " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error llenado comboBox " + e.getMessage());
         }
 
         bModificar.addActionListener(new ActionListener() {

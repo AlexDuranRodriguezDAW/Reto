@@ -65,8 +65,8 @@ public class VentanaBorrarPropietario extends JDialog {
         // add your code here
         int n = Main.borrarDuenio(cbPropietario.getSelectedIndex());
 
-        if (n != 0){
-            JOptionPane.showMessageDialog(null,"Se a borrado el dueño");
+        if (n != 0) {
+            JOptionPane.showMessageDialog(null, "Se a borrado el dueño");
         }
 
 

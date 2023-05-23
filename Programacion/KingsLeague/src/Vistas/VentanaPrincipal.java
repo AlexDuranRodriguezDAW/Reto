@@ -13,7 +13,6 @@ public class VentanaPrincipal {
     private JButton bClasificacion;
     private JButton bEquipos;
     private JPanel pTabla;
-
     private JPanel VentanaPrincipal;
     private JButton bAdministrador;
     private JLabel logo;
@@ -22,8 +21,7 @@ public class VentanaPrincipal {
     public VentanaPrincipal() {
         Usuario.setText(Main.getUsuario());
 
-        if (Main.getTipoUsuario() == "usuario")
-        {
+        if (Main.getTipoUsuario() == "usuario") {
             bAdministrador.setVisible(false);
         }
 
