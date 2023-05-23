@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KingsLeague:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KingsLeague_jar</output-path>
+    <root id="archive" name="KingsLeague.jar">
+      <element id="module-output" name="KingsLeague" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Recursos/Conector/ojdbc6.jar" path-in-jar="/" />
+      <element id="archive" name="KingsLeagueGrupo3.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
