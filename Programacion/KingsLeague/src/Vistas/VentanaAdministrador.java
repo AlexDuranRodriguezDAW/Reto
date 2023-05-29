@@ -31,6 +31,7 @@ public class VentanaAdministrador {
     private JButton bGenerarLiga;
     private JRadioButton rbPropietario;
     private JButton bCrearUsuario;
+    private JButton bAsignarResultados;
 
     public JPanel getpPrincipal() {
         return VentanaAdministrador;
@@ -120,6 +121,12 @@ public class VentanaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ControladorVentanas.crearVentanaCrearUsuario();
+            }
+        });
+        bAsignarResultados.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.crearVentanaAsignarResultados();
             }
         });
     }

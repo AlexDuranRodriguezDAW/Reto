@@ -41,6 +41,12 @@ public class VentanaPrincipal {
                 ControladorVentanas.crearVentanaAdministrador();
             }
         });
+        bClasificacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ControladorVentanas.crearVentanaVerClasificacion();
+            }
+        });
     }
 
     public JPanel getVentanaPrincipal() {
