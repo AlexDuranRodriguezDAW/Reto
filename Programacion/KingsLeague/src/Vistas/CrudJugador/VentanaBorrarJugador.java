@@ -14,10 +14,10 @@ public class VentanaBorrarJugador extends JDialog {
     private JPanel BasePiePagina;
     private JPanel BaseCabecera;
     private JButton bBorrar;
-    private JButton bSalir;
     private JLabel lNombreJugador;
     private JLabel Logo;
     private JLabel Usuario;
+    private JButton BottonSalir;
 
     public VentanaBorrarJugador() {
         setContentPane(ventanaBorrarJugador);
@@ -34,12 +34,6 @@ public class VentanaBorrarJugador extends JDialog {
         bBorrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
-            }
-        });
-
-        bSalir.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
             }
         });
 
@@ -63,8 +57,7 @@ public class VentanaBorrarJugador extends JDialog {
 
             }
         });
-
-        bSalir.addActionListener(new ActionListener() {
+        BottonSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onCancel();

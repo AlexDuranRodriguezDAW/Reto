@@ -1,5 +1,6 @@
 package Vistas;
 
+import Controlador.ControladorVentanas;
 import Controlador.Main;
 
 import javax.swing.*;
@@ -47,7 +48,7 @@ public class VentanaVerEquipo {
         bAtras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ControladorVentanas.ventanaVerEquipo.dispose();
             }
         });
     }

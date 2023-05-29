@@ -26,13 +26,15 @@ public class VentanaCrearEntrenador extends JDialog {
         getRootPane().setDefaultButton(bCrear);
         Usuario.setText(Main.getUsuario());
 
+        try {
+            Main.llenarComboBoxEquipo(cbEquipo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al llenar la combo box " + e.getMessage());
+        }
+
         bCrear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
-                }
+                onOK();
             }
         });
 
@@ -58,9 +60,14 @@ public class VentanaCrearEntrenador extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() throws Exception {
+    private void onOK() {
         // add your code here
-        Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText(), cbEquipo.getSelectedIndex(), tfSueldo.getText());
+        try {
+            Main.crearEntrenador(tfNombre.getText(), tfApellido.getText(), tfDni.getText(), cbEquipo.getSelectedIndex(), tfSueldo.getText());
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al crear entrenador " + e.getMessage());
+        }
     }
 
     private void onCancel() {
