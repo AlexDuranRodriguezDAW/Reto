@@ -36,8 +36,8 @@ public class ControladorVentanas {
     public static JFrame ventanaInicioSesion;
     public static JFrame ventanaPrincipal;
     public static JFrame ventanaAdministrador;
-
     public static JFrame ventanaCrearUsuario;
+    public static JFrame ventanaVerEquipo;
 
     //Metodos relacionados con las ventanas
     public static void crearVentanaInicioSesion() {
@@ -68,12 +68,12 @@ public class ControladorVentanas {
     }
 
     public static void crearVentanaVerEquipo() {
-        JFrame frame = new JFrame("VentanaVerEquipo");
-        frame.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaPrincipal);
-        frame.setVisible(true);
+        ventanaVerEquipo = new JFrame("VentanaVerEquipo");
+        ventanaVerEquipo.setContentPane(new VentanaVerEquipo().getVentanaVerEquipo());
+        ventanaVerEquipo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventanaVerEquipo.pack();
+        ventanaVerEquipo.setLocationRelativeTo(ventanaPrincipal);
+        ventanaVerEquipo.setVisible(true);
     }
 
     public static void crearVentanaCrearEquipo() {
@@ -134,21 +134,17 @@ public class ControladorVentanas {
     }
 
     public static void crearVentanaCrearJugador() {
-        JFrame frame = new JFrame("VentanaCrearJugador");
-        frame.setContentPane(new VentanaCrearJugador().getVentanaCrearJugador());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaAdministrador);
-        frame.setVisible(true);
+        VentanaCrearJugador dialog = new VentanaCrearJugador();
+        dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
+        dialog.setVisible(true);
     }
 
     public static void crearVentanaBorrarJugador() {
-        JFrame frame = new JFrame("VentanaBorrarJugador");
-        frame.setContentPane(new VentanaBorrarJugador().getVentanaBorrarJugador());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(ventanaAdministrador);
-        frame.setVisible(true);
+        VentanaBorrarJugador dialog = new VentanaBorrarJugador();
+        dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
+        dialog.setVisible(true);
     }
 
 
