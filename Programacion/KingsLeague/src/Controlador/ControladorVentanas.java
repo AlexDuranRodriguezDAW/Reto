@@ -196,4 +196,20 @@ public class ControladorVentanas {
         ventanaCrearUsuario.setVisible(true);
     }
 
+    public static void crearVentanaVerClasificacion(){
+        JFrame frame = new JFrame("VentanaVerClasificacion");
+        frame.setContentPane(new VentanaVerClasificacion().getVentanaVerClasidficacion());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(ventanaPrincipal);
+        frame.setVisible(true);
+    }
+
+    public static void crearVentanaAsignarResultados(){
+        VentanaAsignarResultados dialog = new VentanaAsignarResultados();
+        dialog.pack();
+        dialog.setLocationRelativeTo(ventanaAdministrador);
+        dialog.setVisible(true);
+    }
+
 }

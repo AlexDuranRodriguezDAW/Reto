@@ -10,6 +10,7 @@ import static Controlador.ControladorVentanas.ventanaInicioSesion;
 
 /**
  * Esta clase es el controlador principal del programa y el que se encarga de comunicar las vistas con las clases con la base de datos.
+ *
  * @author Grupo 3
  * @version 1.0
  * @since 23/05/2023
@@ -275,7 +276,12 @@ public class Main {
                 + "\n12º" + clasificacion.get(12).getNombreEquipo();
 
         return clasifi;
+    }
 
-
+    public static void llenarComboBoxIdJornada(JComboBox comboBox) throws Exception{
+        ArrayList<Jornada> jornadas = TJornada.getIdJornada();
+        for (Jornada jornada:jornadas){
+            comboBox.addItem(jornada.getId());
+        }
     }
 }
